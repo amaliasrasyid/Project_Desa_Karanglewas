@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/website_desa', function () {
     return view('layouts.master');
+});
+Route::get('/', function () {
+    return view('index');
 });
