@@ -1,23 +1,12 @@
-<!-- {% set title = 'Ecommerce Dashboard' %}
-{% set page = 'index.html' %}
-{% extends 'layouts/master.html' %} -->
-
 @extends('layouts.master-1')
 @push('plugins_css')
-
 <link rel="stylesheet" href="../node_modules/jqvmap/dist/jqvmap.min.css">
-  <link rel="stylesheet" href="../node_modules/summernote/dist/summernote-bs4.css">
-  <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
-
+<link rel="stylesheet" href="../node_modules/summernote/dist/summernote-bs4.css">
+<link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
 @endpush
 
-<!-- {% block plugins_css %} -->
-  
-<!-- {% endblock %} -->
-
 @section('content')
-<!-- {% block content %} -->
         <section class="section">
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
@@ -495,20 +484,15 @@
           </div>
         </section>
 @endsection
-<!-- {% endblock %} -->
 
 @push('plugins_js')
-<!-- {% block plugins_js %} -->
-  <script src="../node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
-  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
-  <script src="../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-  <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
-  <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
-  @endpush
-<!-- {% endblock %} -->
+<script src="../node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+<script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
+<script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+@endpush
 
 @push('page_js')
-<!-- {% block page_js %} -->
-  <script src="../assets/js/page/index.js"></script>
-  @endpush
-<!-- {% endblock %} -->
+<script src="../assets/js/page/index.js"></script>
+@endpush
