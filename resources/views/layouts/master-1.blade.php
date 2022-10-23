@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Website Desa Karanglewas</title>
+  <title>@yield('title') | Website Desa Karanglewas</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -17,7 +17,9 @@
 
 <body>
   <div id="app">
-    {{-- @include('content') --}}
+    @hasSection ('content_2')
+        @yield('content_2')
+    @else
     <div class="main-wrapper">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
@@ -217,7 +219,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, {{Auth::user()->name}}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="features-profile.html" class="dropdown-item has-icon">
@@ -230,7 +232,7 @@
                 <i class="fas fa-cog"></i> Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="{{route('logout.logout')}}" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -253,7 +255,6 @@
       <!-- Main Content -->
       <div class="main-content">
         @yield('content')
-<!-- {% block content %}{% endblock %} -->
       </div>
       <footer class="main-footer">
         <div class="footer-left">
@@ -264,7 +265,7 @@
         </div>
       </footer>
     </div>
-<!-- {% endif %} -->
+    @endif
   </div>
 
   <!-- General JS Scripts -->
@@ -277,7 +278,6 @@
 
   <!-- JS Libraies -->
   @stack('plugins_js')
-<!-- {% block plugins_js %}{% endblock %} -->
 
   <!-- Template JS File -->
   <script src="../assets/js/scripts.js"></script>
@@ -285,6 +285,5 @@
 
   <!-- Page Specific JS File -->
   @stack('page_js')
-<!-- {% block page_js %}{% endblock %} -->
 </body>
 </html>

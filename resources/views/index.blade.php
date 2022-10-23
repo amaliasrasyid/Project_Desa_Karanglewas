@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
 @endpush
 
+@section('title', 'Dashboard')
 @section('content')
         <section class="section">
           <div class="row">

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/website_desa', function () {
-    return view('layouts.master');
-});
+// Route::get('/website_desa', function () {
+//     return view('layouts.master');
+// });
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
+});
+
+Route::get('/login', [AuthController::class, 'index'])->name('login.index');
+Route::post('/login', [AuthController::class, 'process'])->name('login.process');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout.logout');
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'login_check:admin']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'admin'])->name('index');
+});
+Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'user'])->name('index');
 });
