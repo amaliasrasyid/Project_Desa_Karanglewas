@@ -1,10 +1,10 @@
 <div class="main-sidebar">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="index.html">ROOMING</a>
+      <a href="index.html">DESA KARANGLEWAS</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="index.html">RM</a>
+      <a href="index.html">DK</a>
     </div>
     <ul class="sidebar-menu">
       @if (Auth::user()->role == 'USER')
@@ -43,16 +43,26 @@
         <li class="menu-header">DATA MASTER</li>
         <li class="{{ request()->is('admin/room*') ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('room.index') }}">
-            <i class="fas fa-door-open"></i> <span>Ruangan</span>
+            <i class="fas fa-users"></i> <span>Data Penduduk</span>
           </a>
         </li>
         <li class="{{ request()->is('admin/user*') ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('user.index') }}">
-            <i class="fas fa-user"></i> <span>User</span>
+            <i class="fas fa-user-check"></i> <span>Data Vaksin</span>
           </a>
         </li>
 
         <li class="menu-header">TRANSAKSI</li>
+        <li class="{{ request()->is('admin/user*') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('user.index') }}">
+            <i class="fas fa-store-alt"></i> <span>UMKM</span>
+          </a>
+        </li>
+        <li class="{{ request()->is('admin/user*') ? 'active' : '' }}">
+          <a class="nav-link" href="{{ route('user.index') }}">
+            <i class="fab fa-product-hunt"></i> <span>Pamsimas</span>
+          </a>
+        </li>
         <li class="{{ request()->is('admin/booking-list*') ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('booking-list.index') }}">
             @inject('booking_list', 'App\Models\BookingList')
