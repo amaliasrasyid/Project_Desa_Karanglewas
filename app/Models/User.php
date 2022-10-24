@@ -44,7 +44,35 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function booking_list(){
+    protected $cascadeDeletes = [
+        'penduduk',
+        'vaksin',
+        'pamsimas',
+        'umkm'
+    ];
+
+    public function penduduk()
+    {
+        return $this->belongsTo(Penduduk::class);
+    }
+
+    public function vaksin()
+    {
+        return $this->belongsTo(Vaksin::class);
+    }
+
+    public function pamsimas()
+    {
+        return $this->belongsTo(Pamsimas::class);
+    }
+
+    public function umkm()
+    {
+        return $this->belongsTo(Umkm::class);
+    }
+
+    public function booking_list()
+    {
         return $this->belongsTo(BookingList::class);
     }
 }
