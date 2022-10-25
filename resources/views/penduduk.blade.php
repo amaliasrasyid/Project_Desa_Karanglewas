@@ -22,6 +22,11 @@
         <div class="card">
           <div class="card-header">
             <h4>Full Width</h4>
+            <a class="btn btn-icon btn-right btn-primary" href="{{ route('penduduk.create') }}">
+                <i class="fas fa-plus"></i>&nbsp;
+                {{-- <button clas></button> --}}
+                Tambah Penduduk
+            </a>
           </div>
           <div class="card-body p-0">
             <div class="table-responsive">

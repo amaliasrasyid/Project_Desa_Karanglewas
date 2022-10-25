@@ -19,15 +19,14 @@ class CreatePenduduksTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('nama');
             $table->string('alamat');
-            $table->string('telpon');
             $table->string('tptLahir');
-            $table->date('tglLahir');
-            $table->boolean('kelamin');
+            $table->string('tglLahir');
+            $table->string('kelamin');
             $table->string('kawin');
             $table->string('agama');
             $table->string('pendidikan');
             $table->string('noAkta')->unique();
-            $table->boolean('pam');
+            $table->string('pam');
             $table->timestamps();
         });
     }

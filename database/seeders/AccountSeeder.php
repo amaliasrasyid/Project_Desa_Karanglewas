@@ -23,7 +23,7 @@ class AccountSeeder extends Seeder
                 'password' => bcrypt('123456'),
             ],
             [
-                'name' => 'ini akun Admin',
+                'name' => 'ini akun User',
                 'username' => 'user',
                 'email' => 'user@example.com',
                 'role' => 'user',

@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'l
 });
 Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth'], function () {
     Route::get('/', [PendudukController::class, 'index'])->name('index');
+    Route::get('/create', [PendudukController::class, 'create'])->name('create');
+    Route::post('/create', [PendudukController::class, 'store'])->name('store');
 });
 Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('index');

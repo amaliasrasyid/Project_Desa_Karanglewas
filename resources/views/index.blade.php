@@ -7,7 +7,6 @@
 @endpush
 
 @section('title', 'Dashboard')
-@section('appName', 'Website Desa')
 @section('content')
         <section class="section">
           <div class="row">

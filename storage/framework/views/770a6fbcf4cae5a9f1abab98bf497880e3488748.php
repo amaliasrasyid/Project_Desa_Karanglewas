@@ -6,7 +6,6 @@
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startSection('title', 'Dashboard'); ?>
-<?php $__env->startSection('appName', 'Website Desa'); ?>
 <?php $__env->startSection('content'); ?>
         <section class="section">
           <div class="row">
