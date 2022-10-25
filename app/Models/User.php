@@ -6,29 +6,29 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
         'username',
+        'password',
+        'description',
         'role',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
@@ -36,11 +36,43 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $cascadeDeletes = [
+        'penduduk',
+        'vaksin',
+        'pamsimas',
+        'umkm'
+    ];
+
+    public function penduduk()
+    {
+        return $this->belongsTo(Penduduk::class);
+    }
+
+    public function vaksin()
+    {
+        return $this->belongsTo(Vaksin::class);
+    }
+
+    public function pamsimas()
+    {
+        return $this->belongsTo(Pamsimas::class);
+    }
+
+    public function umkm()
+    {
+        return $this->belongsTo(Umkm::class);
+    }
+
+    public function booking_list()
+    {
+        return $this->belongsTo(BookingList::class);
+    }
 }

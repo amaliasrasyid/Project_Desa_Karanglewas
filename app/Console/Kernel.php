@@ -8,6 +8,17 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 class Kernel extends ConsoleKernel
 {
     /**
+     * The Artisan commands provided by your application.
+     *
+     * @var array
+     */
+    protected $commands = [
+        'App\Console\Commands\BookingListExpiredCommand',
+        'App\Console\Commands\BookingListFinishCommand',
+        'App\Console\Commands\BookingListStartCommand',
+    ];
+
+    /**
      * Define the application's command schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
@@ -15,7 +26,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('booking:expired')->everyMinute();
+        $schedule->command('booking:start')->everyMinute();
+        $schedule->command('booking:finish')->everyMinute();
     }
 
     /**
