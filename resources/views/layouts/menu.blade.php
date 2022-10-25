@@ -6,7 +6,7 @@
               </li>
               <li class="menu-header">Master</li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fas fa-users"></i> <span>Data Penduduk</span></a>
+                <a href="{{ route('penduduk.index') }}" class="nav-link"><i class="fas fa-users"></i> <span>Data Penduduk</span></a>
                 <a href="#" class="nav-link"><i class="fas fa-address-card"></i> <span>Data Vaksin</span></a>
               </li>
 
