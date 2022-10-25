@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +34,10 @@ Route::post('/login', [AuthController::class, 'process'])->name('login.process')
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout.logout');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'login_check:admin']], function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('index');
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth'], function () {
+    Route::get('/', [PendudukController::class, 'index'])->name('index');
 });
 Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('index');
