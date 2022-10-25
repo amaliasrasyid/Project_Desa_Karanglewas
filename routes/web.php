@@ -23,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/login', [AuthController::class, 'index'])->name('login.index');
 Route::post('/login', [AuthController::class, 'process'])->name('login.process');
@@ -34,6 +34,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout.logout');
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'login_check:admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'admin'])->name('index');
 });
-Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
-    Route::get('/dashboard', [DashboardController::class, 'user'])->name('index');
+Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
+    Route::get('/', [DashboardController::class, 'user'])->name('index');
 });
