@@ -13,9 +13,10 @@
 <section class="section">
   <div class="d-flex flex-wrap align-items-stretch">
     <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+      <div class="text-center p-2 mt-5">
+        <img src="../assets/img/Desa.png" alt="logo" width="180" ></div>
       <div class="p-4 m-3">
-        <img src="../assets/img/stisla-fill.svg" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
-        <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Stisla</span></h4>
+        <h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">Desa </span></h4>
         <p class="text-muted">Before you get started, you must login or register if you don't already have an account.</p>
         <form method="POST" action="{{ route('login.process') }}" class="needs-validation" novalidate="">
             @csrf
@@ -85,7 +86,7 @@
         <div class="text-light p-5 pb-2">
           <div class="mb-5 pb-3">
             <h1 class="mb-2 display-4 font-weight-bold">Good Morning</h1>
-            <h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+            <h5 class="font-weight-normal text-muted-transparent">Jawa Tengah, Indonesia</h5>
           </div>
           Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
         </div>

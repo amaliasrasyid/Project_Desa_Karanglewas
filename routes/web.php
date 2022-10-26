@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\VaksinController;
+use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,9 @@ Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth
 });
 Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], function () {
     Route::get('/', [VaksinController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'umkm', 'as' => 'umkm.', 'middleware' => 'auth'], function () {
+    Route::get('/', [UmkmController::class, 'index'])->name('index');
 });
 Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('index');

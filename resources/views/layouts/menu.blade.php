@@ -12,7 +12,7 @@
 
               <li class="menu-header">Pembayaran</li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fas fa-th-large"></i> <span>UMKM</span></a>
+                <a href="{{ route('umkm.index') }}" class="nav-link"><i class="fas fa-th-large"></i> <span>UMKM</span></a>
                 <a href="#" class="nav-link"><i class="fab fa-product-hunt"></i> <span>Pamsimas</span></a>
 
               </li>
