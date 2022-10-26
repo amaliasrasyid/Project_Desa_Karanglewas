@@ -16,7 +16,8 @@ class CreateVaksinsTable extends Migration
         Schema::create('vaksins', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('vaksin');
+            $table->string('telpon');
+            $table->tinyInteger('vaksin');
             $table->string('penyakit');
             $table->timestamps();
         });

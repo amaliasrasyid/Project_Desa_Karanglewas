@@ -242,10 +242,10 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Website Desa</a>
+            <a href="{{route('user.index')}}">Website Desa</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="{{route('user.index')}}">WD</a>
           </div>
           @include('layouts.menu')
           <!-- {% include "layouts/menu.html" %} -->

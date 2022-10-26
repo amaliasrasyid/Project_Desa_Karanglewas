@@ -32,31 +32,32 @@
               @csrf
               <div class="form-group">
                 <label for="nik">NIK</label>
-                <input type="text" id="nik" name="nik" class="form-control" required>
+                <select id="nik" name="nik" class="form-control" required onchange="getData(this)">
+                    <option disabled selected>--Pilih NIK--</option>
+                    @foreach ($penduduk as $item)
+                    <option value="{{$item->user_id}}">{{$item->nik}} ({{$item->nama}})</option>
+                    @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" id="nama" name="nama" class="form-control" required>
+                <input type="text" id="nama" name="nama" class="form-control" disabled>
               </div>
               <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" id="alamat" name="alamat" class="form-control" required>
+                <input type="text" id="alamat" name="alamat" class="form-control" disabled>
               </div>
               <div class="form-group">
                 <label for="tempatLahir">Tempat Lahir</label>
-                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" required>
+                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" disabled>
               </div>
               <div class="form-group">
                 <label for="tanggalLahir">Tanggal Lahir</label>
-                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" required>
-              </div>
-              <div class="form-group">
+                <input type="text" id="tanggalLahir" name="tanggalLahir" class="form-control" disabled>
+            </div>
+            <div class="form-group">
                 <label for="jenisKelamin">Jenis Kelamin</label>
-                <select id="jenisKelamin" name="jenisKelamin" class="form-control" required>
-                  <option>--Pilih Jenis Kelamin--</option>
-                  <option value="laki-laki">Laki-laki</option>
-                  <option value="perempuan">Perempuan</option>
-                </select>
+                <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control" disabled>
               </div>
               <div class="form-group">
                 <label for="telepon">Nomor Handphone</label>
@@ -76,6 +77,7 @@
                   <option value="Kanker">Kanker</option>
                   <option value="HIV">HIV</option>
                   <option value="Ginjal Kronis">Ginjal Kronis</option>
+                  <option value="Tidak Ada">Tidak Ada</option>
                 </select>
               </div>
               <div class="form-group">
@@ -112,4 +114,26 @@
 
 @push('page_js')
 <script src="../assets/js/page/forms-advanced-forms.js"></script>
+<script>
+    function getData(nik) {
+        let user_id = nik.value;
+        console.log(user_id);
+        $.ajax({
+            method: 'GET',
+            url: '/vaksin/getData/'+user_id,
+            cache: false,
+            data: {
+                    _token: "{{csrf_token()}}"
+                },
+            success: function (result) {
+                console.log(result);
+                $('#nama').val(result['nama']);
+                $('#alamat').val(result['alamat']);
+                $('#tempatLahir').val(result['tptLahir']);
+                $('#tanggalLahir').val(result['tglLahir']);
+                $('#jenisKelamin').val(result['kelamin']);
+            }
+        });
+    }
+</script>
 @endpush

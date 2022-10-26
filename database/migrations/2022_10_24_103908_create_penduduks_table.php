@@ -15,7 +15,7 @@ class CreatePenduduksTable extends Migration
     {
         Schema::create('penduduks', function (Blueprint $table) {
             $table->id();
-            $table->string('NIK')->unique();
+            $table->string('nik')->unique();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('nama');
             $table->string('alamat');
@@ -25,7 +25,7 @@ class CreatePenduduksTable extends Migration
             $table->string('kawin');
             $table->string('agama');
             $table->string('pendidikan');
-            $table->string('noAkta')->unique();
+            $table->string('akta')->unique();
             $table->string('pam');
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePamsTable extends Migration
+class CreateUmkmsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreatePamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pams', function (Blueprint $table) {
+        Schema::create('umkms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->string('bulan');
-            $table->string('tanggal');
-            $table->string('pemakaian');
-            $table->string('harga');
-            $table->string('status');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreatePamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pams');
+        Schema::dropIfExists('umkms');
     }
 }

@@ -242,10 +242,10 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Website Desa</a>
+            <a href="<?php echo e(route('user.index')); ?>">Website Desa</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="<?php echo e(route('user.index')); ?>">WD</a>
           </div>
           <?php echo $__env->make('layouts.menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
           <!-- {% include "layouts/menu.html" %} -->

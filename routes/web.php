@@ -45,6 +45,7 @@ Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth
     Route::post('/create', [PendudukController::class, 'store'])->name('store');
 });
 Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], function () {
+    Route::get('/getData/{user_id}', [VaksinController::class, 'getData'])->name('data');
     Route::get('/', [VaksinController::class, 'index'])->name('index');
     Route::get('/create', [VaksinController::class, 'create'])->name('create');
     Route::post('/create', [VaksinController::class, 'store'])->name('store');

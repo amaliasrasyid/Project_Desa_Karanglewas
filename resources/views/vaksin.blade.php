@@ -40,19 +40,34 @@
                     <th>Riwayat Penyakit</th>
                     <th>Status Vaksin</th>
                   </tr>
+                  @forelse ($vaksin as $value)
                   <tr>
-                    <td>1</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Banyumas</td>
-                    <td>2017-01-09</td>
-                    <td>Laki-laki</td>
-                    <td>08133234234</td>
-                    <td>Tidak Ada</td>
-                    <td>3</td>
+                    <td>{{++$i}}</td>
+                    <td>{{$value->nik}}</td>
+                    <td>{{$value->nama}}</td>
+                    <td>{{$value->alamat}}</td>
+                    <td>{{$value->tptLahir}}</td>
+                    <td>{{$value->tglLahir}}</td>
+                    <td>{{$value->kelamin}}</td>
+                    <td>{{$value->telpon}}</td>
+                    <td>{{$value->penyakit}}</td>
+                    @if ($value->vaksin == 1)
+                    <td>Vaksin 1</td>
+                    @elseif ($value->vaksin == 2)
+                    <td>Vaksin 2</td>
+                    @elseif ($value->vaksin == 3)
+                    <td>Vaksin 3</td>
+                    @else
+                    <td>Belum Vaksin</td>
+                    @endif
                   </tr>
-                  <tr>
+                  @empty
+                    <div class="alert alert-danger">
+                        Data Penduduk belum Tersedia.
+                    </div>
+                  @endforelse
+
+                  {{-- <tr>
                     <td>2</td>
                     <td>332037232329</td>
                     <td>Muslihat</td>
@@ -100,7 +115,7 @@
                     <td>Tidak Ada</td>
                     <td>3</td>
                   </tr>
-                  </tr>
+                  </tr> --}}
                 <tbody>
               </table>
             </div>
@@ -137,3 +152,5 @@
 @push('page_js')
 <script src="../assets/js/page/components-table.js"></script>
 @endpush
+
+
