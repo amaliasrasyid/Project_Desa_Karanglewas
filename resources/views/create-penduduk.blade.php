@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
 @endpush
 
-@section('title', 'Input Penduduk')
+@section('title', 'Form Penduduk')
 @section('appName', 'Web Desa')
 @section('content')
 <section class="section">
@@ -28,6 +28,16 @@
       <div class="col-xl-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-body">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Peringatan!</strong> Data yang dimasukan tidak sesuai.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('penduduk.store') }}" method="post">
                 @csrf
                 <div class="form-group">
@@ -53,7 +63,7 @@
                 <div class="form-group">
                     <label for="jenisKelamin">Jenis Kelamin</label>
                     <select id="jenisKelamin" name="jenisKelamin" class="form-control" required>
-                        <option>--Pilih Jenis Kelamin--</option>
+                        <option disabled selected>--Pilih Jenis Kelamin--</option>
                         <option value="laki-laki">Laki-laki</option>
                         <option value="perempuan">Perempuan</option>
                     </select>
@@ -61,7 +71,7 @@
                 <div class="form-group">
                   <label for="kawin">Status Perkawinan</label>
                   <select id="kawin" name="kawin" class="form-control" required>
-                    <option>--Pilih Status Perkawinan--</option>
+                    <option disabled selected>--Pilih Status Perkawinan--</option>
                     <option value="Sudah">Sudah Kawin</option>
                     <option value="Belum">Belum Kawin</option>
                   </select>
@@ -69,7 +79,7 @@
                 <div class="form-group">
                     <label for="agama">Agama</label>
                     <select id="agama" name="agama" class="form-control" required>
-                        <option>--Pilih Agama--</option>
+                        <option disabled selected>--Pilih Agama--</option>
                         <option value="Islam">Islam</option>
                         <option value="Kristen">Kristen</option>
                         <option value="Katholik">Katholik</option>
@@ -81,7 +91,7 @@
                 <div class="form-group">
                     <label for="pendidikan">Pendidikan</label>
                     <select id="pendidikan" name="pendidikan" class="form-control" required>
-                        <option>--Pilih Pendidikan--</option>
+                        <option disabled selected>--Pilih Pendidikan--</option>
                         <option value="SD">SD</option>
                         <option value="SMP">SMP</option>
                         <option value="SLTA">SLTA</option>
@@ -98,7 +108,7 @@
                 <div class="form-group">
                     <label for="pam">Pengguna Pamsimas</label>
                     <select id="pam" name="pam" class="form-control" required>
-                        <option>--Pilih Status Pengguna Pamsimas--</option>
+                        <option disabled selected>--Pilih Status Pengguna Pamsimas--</option>
                         <option value="Ya">Pengguna Pamsimas</option>
                         <option value="Tidak">Bukan Pengguna Pamsimas</option>
                     </select>
