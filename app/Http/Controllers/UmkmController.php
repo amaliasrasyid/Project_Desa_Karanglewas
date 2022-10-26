@@ -10,4 +10,10 @@ class UmkmController extends Controller
     {
         return view('umkm');
     }
+
+    public function create()
+    {
+        return view('create-umkm');
+    }
+
 }

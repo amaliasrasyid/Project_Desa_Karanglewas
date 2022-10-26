@@ -21,7 +21,7 @@
           <div class="card-header">
             <h4>Overview</h4>
             <div class="card-header-action">
-              <a href="{{ route('penduduk.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fas fa-plus"></i>&nbsp;Tambah Produk</a>
+              <a href="{{ route('umkm.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fas fa-plus"></i>&nbsp;Tambah Produk</a>
             </div>
           </div>
           <div class="card-body p-0">

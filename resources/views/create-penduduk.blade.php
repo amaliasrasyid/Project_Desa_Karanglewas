@@ -32,19 +32,19 @@
                 @csrf
                 <div class="form-group">
                   <label for="nik">NIK</label>
-                  <input type="text" id="nik" name="nik" class="form-control">
+                  <input type="text" id="nik" name="nik" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="nama">Nama</label>
-                  <input type="text" id="nama" name="nama" class="form-control">
+                  <input type="text" id="nama" name="nama" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
-                  <input type="text" id="alamat" name="alamat" class="form-control">
+                  <input type="text" id="alamat" name="alamat" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="tempatLahir">Tempat Lahir</label>
-                  <input type="text" id="tempatLahir" name="tempatLahir" class="form-control">
+                  <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" required>
                 </div>
                 <div class="form-group">
                   <label for="tanggalLahir">Tanggal Lahir</label>
@@ -52,25 +52,23 @@
                 </div>
                 <div class="form-group">
                     <label for="jenisKelamin">Jenis Kelamin</label>
-                    <select id="jenisKelamin" name="jenisKelamin" class="form-control">
+                    <select id="jenisKelamin" name="jenisKelamin" class="form-control" required>
                         <option>--Pilih Jenis Kelamin--</option>
                         <option value="laki-laki">Laki-laki</option>
                         <option value="perempuan">Perempuan</option>
-                        {{-- <option>Option 3</option> --}}
                     </select>
                 </div>
                 <div class="form-group">
                   <label for="kawin">Status Perkawinan</label>
-                  <select id="kawin" name="kawin" class="form-control">
+                  <select id="kawin" name="kawin" class="form-control" required>
                     <option>--Pilih Status Perkawinan--</option>
                     <option value="Sudah">Sudah Kawin</option>
                     <option value="Belum">Belum Kawin</option>
-                    {{-- <option>Option 3</option> --}}
                   </select>
                 </div>
                 <div class="form-group">
                     <label for="agama">Agama</label>
-                    <select id="agama" name="agama" class="form-control">
+                    <select id="agama" name="agama" class="form-control" required>
                         <option>--Pilih Agama--</option>
                         <option value="Islam">Islam</option>
                         <option value="Kristen">Kristen</option>
@@ -78,12 +76,11 @@
                         <option value="Buddha">Buddha</option>
                         <option value="Hindu">Hindu</option>
                         <option value="Konghucu">Konghucu</option>
-                        {{-- <option>Option 3</option> --}}
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="pendidikan">Pendidikan</label>
-                    <select id="pendidikan" name="pendidikan" class="form-control">
+                    <select id="pendidikan" name="pendidikan" class="form-control" required>
                         <option>--Pilih Pendidikan--</option>
                         <option value="SD">SD</option>
                         <option value="SMP">SMP</option>
@@ -92,7 +89,6 @@
                         <option value="S1/DIV">S1/DIV</option>
                         <option value="S2">S2</option>
                         <option value="S3">S3</option>
-                        {{-- <option>Option 3</option> --}}
                     </select>
                 </div>
                 <div class="form-group">
@@ -101,11 +97,10 @@
                 </div>
                 <div class="form-group">
                     <label for="pam">Pengguna Pamsimas</label>
-                    <select id="pam" name="pam" class="form-control">
+                    <select id="pam" name="pam" class="form-control" required>
                         <option>--Pilih Status Pengguna Pamsimas--</option>
                         <option value="Ya">Pengguna Pamsimas</option>
                         <option value="Tidak">Bukan Pengguna Pamsimas</option>
-                        {{-- <option>Option 3</option> --}}
                     </select>
                 </div>
                 <button class="btn btn-primary" type="submit">Simpan</button>
