@@ -1,7 +1,9 @@
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('user.index') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('profile.index') }}" class="nav-link"><i class="fas fa-book-reader"></i><span>Profil Desa</span></a>
+                <a href="{{ route('struktur.index') }}" class="nav-link"><i class="fas fa-sitemap"></i><span>Struktur Organisasi</span></a>
 
               </li>
               <li class="menu-header">Master</li>

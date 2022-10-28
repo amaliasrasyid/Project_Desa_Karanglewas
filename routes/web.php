@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\VaksinController;
 use App\Http\Controllers\UmkmController;
@@ -38,6 +40,12 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout.logout');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'login_check:admin']], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'auth'], function () {
+    Route::get('/', [ProfileController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'struktur', 'as' => 'struktur.', 'middleware' => 'auth'], function () {
+    Route::get('/', [StrukturController::class, 'index'])->name('index');
 });
 Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth'], function () {
     Route::get('/', [PendudukController::class, 'index'])->name('index');
