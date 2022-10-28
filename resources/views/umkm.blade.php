@@ -40,6 +40,7 @@
                     <th>Nama Produk</th>
                     <th>Harga</th>
                     <th>Satuan Penjualan</th>
+                    <th>Action</th>
                   </tr>
                   @forelse ($umkms as $item)
                   <tr>
@@ -55,6 +56,10 @@
                     <td>{{$item->produk}}</td>
                     <td>{{$item->harga}}</td>
                     <td>{{$item->satuan}}</td>
+                    <td>
+                      <a class="btn btn-primary btn-action m-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                      <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                    </td>
                   </tr>
                   @empty
                     <div class="alert alert-danger">

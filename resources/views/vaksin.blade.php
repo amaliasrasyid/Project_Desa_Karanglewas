@@ -39,6 +39,7 @@
                     <th>No, Handphone</th>
                     <th>Riwayat Penyakit</th>
                     <th>Status Vaksin</th>
+                    <th>Action</th>
                   </tr>
                   @forelse ($vaksin as $value)
                   <tr>
@@ -59,6 +60,10 @@
                     <td>Vaksin 3</td>
                     @else
                     <td>Belum Vaksin</td>
+                    <td>
+                      <a class="btn btn-primary btn-action m-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                      <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                    </td>
                     @endif
                   </tr>
                   @empty
