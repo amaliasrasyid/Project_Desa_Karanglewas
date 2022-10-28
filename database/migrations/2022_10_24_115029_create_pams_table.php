@@ -18,7 +18,6 @@ class CreatePamsTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('bulan');
             $table->string('tanggal');
-            $table->string('pemakaian');
             $table->string('harga');
             $table->string('status');
             $table->timestamps();

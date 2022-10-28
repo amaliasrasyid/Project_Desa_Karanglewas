@@ -1,6 +1,6 @@
 @extends('layouts.master-1')
 
-@section('title', 'vaksin')
+@section('title', 'Vaksin')
 @section('appName', 'Website Desa')
 @section('content')
 <section class="section">
@@ -66,56 +66,6 @@
                         Data Penduduk belum Tersedia.
                     </div>
                   @endforelse
-
-                  {{-- <tr>
-                    <td>2</td>
-                    <td>332037232329</td>
-                    <td>Muslihat</td>
-                    <td>RT 02 / RW 14</td>
-                    <td>Banyumas</td>
-                    <td>2017-01-09</td>
-                    <td>Laki-laki</td>
-                    <td>08133234234</td>
-                    <td>Encok</td>
-                    <td>Belum</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Banyumas</td>
-                    <td>2017-01-09</td>
-                    <td>Laki-laki</td>
-                    <td>08133234234</td>
-                    <td>Tidak Ada</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>332037232329</td>
-                    <td>Muslihat</td>
-                    <td>RT 02 / RW 14</td>
-                    <td>Banyumas</td>
-                    <td>2017-01-09</td>
-                    <td>Laki-laki</td>
-                    <td>08133234234</td>
-                    <td>Encok</td>
-                    <td>Belum</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Banyumas</td>
-                    <td>2017-01-09</td>
-                    <td>Laki-laki</td>
-                    <td>08133234234</td>
-                    <td>Tidak Ada</td>
-                    <td>3</td>
-                  </tr>
-                  </tr> --}}
                 <tbody>
               </table>
             </div>

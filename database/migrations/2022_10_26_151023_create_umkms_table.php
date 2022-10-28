@@ -16,6 +16,12 @@ class CreateUmkmsTable extends Migration
         Schema::create('umkms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('lokasi');
+            $table->string('kategori');
+            $table->string('produk');
+            $table->string('gambar');
+            $table->string('harga');
+            $table->string('satuan');
             $table->timestamps();
         });
     }

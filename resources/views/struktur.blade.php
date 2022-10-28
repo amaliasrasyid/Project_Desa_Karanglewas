@@ -145,18 +145,18 @@
                     <td>1 januari 2018</td>
                     <td>Karanglewas, RT 006/002</td>
                   </tr>
-                  
+
                 <tbody>
               </table>
             </div>
           </div>
         </div>
-        <div class="card-footer text-right">
+        {{-- <div class="card-footer text-right">
           <nav class="d-inline-block">
             <ul class="pagination mb-0">
             </ul>
           </nav>
-        </div>
+        </div> --}}
       </div>
     </div>
     </div>

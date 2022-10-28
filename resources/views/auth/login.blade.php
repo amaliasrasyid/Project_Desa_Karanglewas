@@ -9,6 +9,7 @@
 @endpush
 
 @section('title', 'Login')
+@section('appName', 'Website Desa')
 @section('content_2')
 <section class="section">
   <div class="d-flex flex-wrap align-items-stretch">
@@ -48,7 +49,7 @@
             </div>
             @endif
           </div>
-          
+
           <div class="form-group text-center">
             <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
               Login

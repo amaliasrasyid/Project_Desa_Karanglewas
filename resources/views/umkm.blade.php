@@ -20,9 +20,11 @@
         <div class="card">
           <div class="card-header">
             <h4>Overview</h4>
+            @if (Auth()->user()->role == "admin")
             <div class="card-header-action">
               <a href="{{ route('umkm.create') }}" class="btn btn-icon icon-left btn-primary"><i class="fas fa-plus"></i>&nbsp;Tambah Produk</a>
             </div>
+            @endif
           </div>
           <div class="card-body p-0">
             <div class="col-xl-12 col-md-6 col-lg-6" style="overflow-x: auto">
@@ -39,69 +41,26 @@
                     <th>Harga</th>
                     <th>Satuan Penjualan</th>
                   </tr>
+                  @forelse ($umkms as $item)
                   <tr>
-                    <td>1</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Jadi</td>
+                    <td>{{++$i}}</td>
+                    <td>{{$item->nik}}</td>
+                    <td>{{$item->nama}}</td>
+                    <td>{{$item->lokas}}</td>
+                    <td>{{$item->kategori}}</td>
                     <td>
                       <img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2022/01/12/resep-ayam-geprek-jogja-1_43.jpeg?w=1200"
                       width="80">
                     </td>
-                    <td>Ayam Smackdown</td>
-                    <td>Rp. 15.000,-</td>
-                    <td>Pcs</td>
+                    <td>{{$item->produk}}</td>
+                    <td>{{$item->harga}}</td>
+                    <td>{{$item->satuan}}</td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>332037232329</td>
-                    <td>Abdul</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Jadi</td>
-                    <td><img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2021/08/19/7-nasi-babi-guling-di-bali-yang-renyah-gurihnya-nagih-5_43.jpeg?w=700&q=90"
-                      width="80"></td>
-                    <td>Babi Guling</td>
-                    <td>Rp. 15.000,-</td>
-                    <td>Pcs</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Jadi</td>
-                    <td><img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2022/01/12/resep-ayam-geprek-jogja-1_43.jpeg?w=1200"
-                      width="80"></td>
-                    <td>Ayam Smackdown</td>
-                    <td>Rp. 15.000,-</td>
-                    <td>Pcs</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>332037232329</td>
-                    <td>Abdul</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Jadi</td>
-                    <td><img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2021/08/19/7-nasi-babi-guling-di-bali-yang-renyah-gurihnya-nagih-5_43.jpeg?w=700&q=90"
-                      width="80"></td>
-                    <td>Babi Guling</td>
-                    <td>Rp. 15.000,-</td>
-                    <td>Pcs</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Jadi</td>
-                    <td><img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2022/01/12/resep-ayam-geprek-jogja-1_43.jpeg?w=1200"
-                      width="80"></td>
-                    <td>Ayam Smackdown</td>
-                    <td>Rp. 15.000,-</td>
-                    <td>Pcs</td>
-                  </tr>
-                  </tr>
+                  @empty
+                    <div class="alert alert-danger">
+                        Data UMKM belum Tersedia.
+                    </div>
+                  @endforelse
                 <tbody>
               </table>
             </div>

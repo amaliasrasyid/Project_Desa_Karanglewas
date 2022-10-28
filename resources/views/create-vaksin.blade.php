@@ -9,7 +9,7 @@
 @endpush
 
 @section('title', 'Input Vaksin')
-@section('appName', 'Web Desa')
+@section('appName', 'Website Desa')
 @section('content')
 <section class="section">
   <div class="section-header">

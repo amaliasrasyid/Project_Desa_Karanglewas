@@ -35,57 +35,22 @@
                     <th>Harga</th>
                     <th>Status Pembayaran</th>
                   </tr>
+                  @forelse ($pamsimas as $item)
                   <tr>
-                    <td>1</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Januari</td>
-                    <td>2017-01-09</td>
-                    <td>Rp.200.000-,</td>
-                    <td>sudah</td>
+                    <td>{{++$i}}</td>
+                    <td>{{$item->nik}}</td>
+                    <td>{{$item->nama}}</td>
+                    <td>{{$item->alamat}}</td>
+                    <td>{{$item->bulan}}</td>
+                    <td>{{$item->tanggal}}</td>
+                    <td>{{$item->harga}}</td>
+                    <td>{{$item->status}}</td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Januari</td>
-                    <td>2017-01-09</td>
-                    <td>Rp.200.000-,</td>
-                    <td>sudah</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Januari</td>
-                    <td>2017-01-09</td>
-                    <td>Rp.200.000-,</td>
-                    <td>sudah</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Januari</td>
-                    <td>2017-01-09</td>
-                    <td>Rp.200.000-,</td>
-                    <td>sudah</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>332037232329</td>
-                    <td>Agus Jemabs</td>
-                    <td>RT 02 / RW 12</td>
-                    <td>Januari</td>
-                    <td>2017-01-09</td>
-                    <td>Rp.200.000-,</td>
-                    <td>sudah</td>
-                  </tr>
-                  </tr>
+                  @empty
+                    <div class="alert alert-danger">
+                        Data Pamsimas belum Tersedia.
+                    </div>
+                  @endforelse
                 <tbody>
               </table>
             </div>

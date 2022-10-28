@@ -9,7 +9,7 @@
 @endpush
 
 @section('title', 'Form Penduduk')
-@section('appName', 'Web Desa')
+@section('appName', 'Website Desa')
 @section('content')
 <section class="section">
   <div class="section-header">
