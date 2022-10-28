@@ -84,7 +84,7 @@
                 <label for="vaksin">Status Vaksin</label>
                 <select id="vaksin" name="vaksin" class="form-control" required>
                   <option>--Pilih Status Vaksin--</option>
-                  <option value="Belum">Belum Vaksin</option>
+                  <option value="0">Belum Vaksin</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
