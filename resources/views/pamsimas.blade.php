@@ -4,6 +4,7 @@
 @section('appName', 'Website Desa')
 @section('content')
 <section class="section">
+  @if (Auth::user()->role == "admin")
   <div class="section-header">
     <h1>Data Pamsimas</h1>
     <div class="section-header-breadcrumb">
@@ -47,9 +48,9 @@
                     <td>{{$item->status}}</td>
                   </tr>
                   @empty
-                    <div class="alert alert-danger">
-                        Data Pamsimas belum Tersedia.
-                    </div>
+                  <div class="alert alert-danger">
+                    Data Pamsimas belum Tersedia.
+                  </div>
                   @endforelse
                 <tbody>
               </table>
@@ -77,6 +78,67 @@
     </div>
   </div>
   </div>
+  @endif
+
+  @if (Auth::user()->role == "user")
+  <div class="section-header">
+    <h1>Pembayaran Pamsimas</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item">Pamsimas</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <h2 class="section-title">Input Data Pembayaran</h2>
+    <p class="section-lead">Silahkan isi form pembayaran pamsimas sesuai dengan penggunaan anda.</p>
+
+    <div class="row">
+      <div class="col-xl-12 col-md-6 col-lg-6">
+
+        <div class="card">
+          <div class="card-body">
+
+            @csrf
+            <div class="form-group">
+              <label for="nik">NIK</label>
+              <input type="text" id="nik" name="nik" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="nik">Input Pemakaian</label>
+              <input type="text" id="pemakaian" name="pemakaian" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="nama">Nama</label>
+              <input type="text" id="nama" name="nama" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+              <label for="bulan">Bulan</label>
+              <input type="text" id="bulan" name="bulan" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+              <label for="tanggal">Tanggal</label>
+              <input type="text" id="tanggal" name="tanggal" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+              <label for="alamat">Alamat</label>
+              <input type="text" id="alamat" name="alamat" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+              <label for="statuspembayaran">Status Pembayaran</label>
+              <input type="text" id="statuspembayaran" name="statuspembayaran" class="form-control" disabled>
+            </div>
+            <div class="form-group">
+              <label for="harga">Harga</label>
+              <input type="text" id="harga" name="harga" class="form-control" class="form-control" disabled>
+            </div>
+            <button class="btn btn-primary" type="submit">Bayar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endif
 </section>
 @endsection
 

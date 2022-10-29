@@ -8,6 +8,7 @@ use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\VaksinController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PamsimasController;
+use App\Http\Controllers\JadiController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,4 +69,8 @@ Route::group(['prefix' => 'pamsimas', 'as' => 'pamsimas.', 'middleware' => 'auth
 });
 Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('index');
+});
+
+Route::group(['prefix' => 'jadi', 'as' => 'jadi.', 'middleware' => 'auth'], function () {
+    Route::get('/', [JadiController::class, 'index'])->name('index');
 });

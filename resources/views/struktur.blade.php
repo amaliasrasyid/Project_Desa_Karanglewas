@@ -17,6 +17,7 @@
       <div class="text-center p-2 mt-5">
         <img alt="image" src="../assets/img/struktur.png" alt="logo" width="900">
       </div>
+      @if (Auth::user()->role == "admin")
       <br></br>
       <div class="row">
       <div class="col-xl-12 col-md-6 col-lg-6">
@@ -159,6 +160,7 @@
         </div> --}}
       </div>
     </div>
+    @endif
     </div>
   </div>
 </section>

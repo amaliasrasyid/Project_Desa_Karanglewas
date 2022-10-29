@@ -4,6 +4,7 @@
 @section('appName', 'Website Desa')
 @section('content')
 <section class="section">
+  @if (Auth::user()->role == "admin")
   <div class="section-header">
     <h1>Usaha Mikro Kecil Dan Menengah (UMKM)</h1>
     <div class="section-header-breadcrumb">
@@ -50,8 +51,7 @@
                     <td>{{$item->lokas}}</td>
                     <td>{{$item->kategori}}</td>
                     <td>
-                      <img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2022/01/12/resep-ayam-geprek-jogja-1_43.jpeg?w=1200"
-                      width="80">
+                      <img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2022/01/12/resep-ayam-geprek-jogja-1_43.jpeg?w=1200" width="80">
                     </td>
                     <td>{{$item->produk}}</td>
                     <td>{{$item->harga}}</td>
@@ -62,9 +62,9 @@
                     </td>
                   </tr>
                   @empty
-                    <div class="alert alert-danger">
-                        Data UMKM belum Tersedia.
-                    </div>
+                  <div class="alert alert-danger">
+                    Data UMKM belum Tersedia.
+                  </div>
                   @endforelse
                 <tbody>
               </table>
@@ -91,6 +91,90 @@
       </div>
     </div>
   </div>
+  @endif
+
+  @if (Auth::user()->role == "user")
+  <div class="section-header">
+    <h1>Dukung UMKM Desa Karanglewas</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item">UMKM</div>
+    </div>
+  </div>
+
+  <div class="section-body">
+    <h2 class="section-title">Produk UMKM Desa Karanglewas</h2>
+    <p class="section-lead">Example of some Bootstrap table components.</p>
+
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img08.jpg">
+            </div>
+          </div>
+          <div class="article-details">
+            <p>Ayam Gepuk Pak Gembus</p>
+            <p>RT 02/ RW 12, Dekat kantor pos</p>
+            <p>Rp. 15.000.-</p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Beli</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img04.jpg">
+            </div>
+          </div>
+          <div class="article-details">
+          <p>Ayam Gepuk Pak Gembus</p>
+            <p>RT 02/ RW 12, Dekat kantor pos</p>
+            <p>Rp. 15.000.-</p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Beli</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img09.jpg">
+            </div>
+          </div>
+          <div class="article-details">
+          <p>Ayam Gepuk Pak Gembus</p>
+            <p>RT 02/ RW 12, Dekat kantor pos</p>
+            <p>Rp. 15.000.-</p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Beli</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img12.jpg">
+            </div>
+          </div>
+          <div class="article-details">
+          <p>Ayam Gepuk Pak Gembus</p>
+            <p>RT 02/ RW 12, Dekat kantor pos</p>
+            <p>Rp. 15.000.-</p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Beli</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+
+  @endif
 </section>
 @endsection
 
