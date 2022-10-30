@@ -86,6 +86,41 @@
   @endif
 
   @if (Auth::user()->role == "user")
+  <div class="row">
+    <div class="col-12 col-sm-12 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h4>Pamsimas</h4>
+          <div class="card-header-action">
+
+          </div>
+        </div>
+        <div class="card author-box card-primary">
+          <div class="card-body">
+            <div class="author-box-left">
+              <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle author-box-picture">
+              <div class="clearfix"></div>
+            </div>
+            <div class="author-box-details">
+              <div class="author-box-name">
+                <a href="#">Hasan Basri</a>
+              </div>
+              <div class="author-box-job">Web Developer</div>
+              <div class="author-box-description">
+                <p>NIK</p>
+                <p>Nama</p>
+                <p>Alamat</p>
+                <p>Bulan</p>
+                <p>Tanggal</p>
+                <p>Harga</p>
+                <p>Status Pembayaran</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <div class="section-header">
     <h1>Pembayaran Pamsimas</h1>
     <div class="section-header-breadcrumb">

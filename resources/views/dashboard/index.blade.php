@@ -75,6 +75,8 @@
       </div>
     </div>
   </div>
+
+  @if (Auth::user()->role == "user")
   <div class="row">
     <div class="col-12 col-sm-12 col-lg-6">
       <div class="card">
@@ -100,130 +102,206 @@
                 <p>Tanggal Lahir</p>
                 <p>Alamat</p>
                 <p>Pengguna Pamsimas</p>
-                <p>Status Pamsimas</p>
+                <p>Status Vaksin</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-sm-12 col-lg-6">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="d-inline">Riwayat Pembayaran Pamsimas</h4>
-
-        </div>
-        <div class="card-body" style="height:350px;overflow-y:scroll">
-          <ul class="list-unstyled list-unstyled-border">
-            <li class="media">
-
-              <div class="media-body">
-                <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
-                <h6 class="media-title"><a href="#">Januari</a></h6>
-                <div class="text-small text-muted"> 05-01-2022 <div class="bullet"></div>Rp. 200.000,-</div>
-              </div>
-            </li>
-            <li class="media">
-
-              <div class="media-body">
-                <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
-                <h6 class="media-title"><a href="#">Februari</a></h6>
-                <div class="text-small text-muted">05-02-2022 <div class="bullet"></div> Rp. 200.000,-</div>
-              </div>
-            </li>
-            <li class="media">
-
-              <div class="media-body">
-                <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
-                <h6 class="media-title"><a href="#">Maret</a></h6>
-                <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
-              </div>
-            </li>
-            <li class="media">
-
-              <div class="media-body">
-                <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
-                <h6 class="media-title"><a href="#">Maret</a></h6>
-                <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
-              </div>
-            </li>
-            <li class="media">
-
-              <div class="media-body">
-                <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
-                <h6 class="media-title"><a href="#">Maret</a></h6>
-                <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
-              </div>
-            </li>
-            <li class="media">
-
-              <div class="media-body">
-                <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
-                <h6 class="media-title"><a href="#">Maret</a></h6>
-                <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
-              </div>
-            </li>
-            <li class="media">
-
-              <div class="media-body">
-                <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
-                <h6 class="media-title"><a href="#">Maret</a></h6>
-                <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
-              </div>
-            </li>
-          </ul>
+    @endif
+    @if (Auth::user()->role == "admin")
+    <div class="row">
+      <div class="col-12 col-sm-12 col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>Informasi Vaksin</h4>
+            <div class="card-header-action">
+              <a href="#" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive table-invoice">
+              <table class="table table-striped">
+                <tr>
+                  <th>Nama</th>
+                  <th>Status</th>
+                  <th>Tanggal</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td class="font-weight-600">Kusnadi</td>
+                  <td>
+                    <div class="badge badge-danger">Belum</div>
+                  </td>
+                  <td>July 19, 2018</td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Detail</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-weight-600">Hasan Basri</td>
+                  <td>
+                    <div class="badge badge-success">Sudah</div>
+                  </td>
+                  <td>July 21, 2018</td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Detail</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-weight-600">Muhamad Nuruzzaki</td>
+                  <td>
+                    <div class="badge badge-success">Sudah</div>
+                  </td>
+                  <td>July 22, 2018</td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Detail</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-weight-600">Agung Ardiansyah</td>
+                  <td>
+                    <div class="badge badge-danger">Belum</div>
+                  </td>
+                  <td>July 22, 2018</td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Detail</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-weight-600">Ardian Rahardiansyah</td>
+                  <td>
+                    <div class="badge badge-success">Sudah</div>
+                  </td>
+                  <td>July 28, 2018</td>
+                  <td>
+                    <a href="#" class="btn btn-primary">Detail</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4>Informasi Seputar Desa</h4>
+      @endif
+      <div class="col-12 col-sm-12 col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="d-inline">Riwayat Pembayaran Pamsimas</h4>
+
+          </div>
+          <div class="card-body" style="height:350px;overflow-y:scroll">
+            <ul class="list-unstyled list-unstyled-border">
+              <li class="media">
+
+                <div class="media-body">
+                  <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
+                  <h6 class="media-title"><a href="#">Januari</a></h6>
+                  <div class="text-small text-muted"> 05-01-2022 <div class="bullet"></div>Rp. 200.000,-</div>
+                </div>
+              </li>
+              <li class="media">
+
+                <div class="media-body">
+                  <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
+                  <h6 class="media-title"><a href="#">Februari</a></h6>
+                  <div class="text-small text-muted">05-02-2022 <div class="bullet"></div> Rp. 200.000,-</div>
+                </div>
+              </li>
+              <li class="media">
+
+                <div class="media-body">
+                  <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
+                  <h6 class="media-title"><a href="#">Maret</a></h6>
+                  <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
+                </div>
+              </li>
+              <li class="media">
+
+                <div class="media-body">
+                  <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
+                  <h6 class="media-title"><a href="#">Maret</a></h6>
+                  <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
+                </div>
+              </li>
+              <li class="media">
+
+                <div class="media-body">
+                  <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
+                  <h6 class="media-title"><a href="#">Maret</a></h6>
+                  <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
+                </div>
+              </li>
+              <li class="media">
+
+                <div class="media-body">
+                  <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
+                  <h6 class="media-title"><a href="#">Maret</a></h6>
+                  <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
+                </div>
+              </li>
+              <li class="media">
+
+                <div class="media-body">
+                  <div class="badge badge-pill badge-success mb-1 float-right">Bayar</div>
+                  <h6 class="media-title"><a href="#">Maret</a></h6>
+                  <div class="text-small text-muted">05-03-2022 <div class="bullet"></div> Rp. 200.000,-</div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="card-body">
-          <ul class="list-unstyled list-unstyled-border">
-            <li class="media">
-              <img class="mr-3" width="80" src="../assets/img/news/img08.jpg" alt="avatar">
-              <div class="media-body">
-                <div class="float-right text-primary">Now</div>
-                <div class="media-title">Banjir</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3" width="80" src="../assets/img/news/img04.jpg" alt="avatar">
-              <div class="media-body">
-                <div class="float-right">12m</div>
-                <div class="media-title">Tanah Longsor</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3" width="80" src="../assets/img/news/img09.jpg" alt="avatar">
-              <div class="media-body">
-                <div class="float-right">17m</div>
-                <div class="media-title">Gempa Bumi</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-            <li class="media">
-              <img class="mr-3" width="80" src="../assets/img/news/img12.jpg" alt="avatar">
-              <div class="media-body">
-                <div class="float-right">Tsunami</div>
-                <div class="media-title">Alfa Zulkarnain</div>
-                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
-              </div>
-            </li>
-          </ul>
-          <div class="text-center pt-1 pb-1">
-            <a href="#" class="btn btn-primary btn-lg btn-round">
-              View All
-            </a>
+      </div>
+      <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4>Informasi Seputar Desa</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled list-unstyled-border">
+              <li class="media">
+                <img class="mr-3" width="80" src="../assets/img/news/img08.jpg" alt="avatar">
+                <div class="media-body">
+                  <div class="float-right text-primary">Now</div>
+                  <div class="media-title">Banjir</div>
+                  <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                </div>
+              </li>
+              <li class="media">
+                <img class="mr-3" width="80" src="../assets/img/news/img04.jpg" alt="avatar">
+                <div class="media-body">
+                  <div class="float-right">12m</div>
+                  <div class="media-title">Tanah Longsor</div>
+                  <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                </div>
+              </li>
+              <li class="media">
+                <img class="mr-3" width="80" src="../assets/img/news/img09.jpg" alt="avatar">
+                <div class="media-body">
+                  <div class="float-right">17m</div>
+                  <div class="media-title">Gempa Bumi</div>
+                  <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                </div>
+              </li>
+              <li class="media">
+                <img class="mr-3" width="80" src="../assets/img/news/img12.jpg" alt="avatar">
+                <div class="media-body">
+                  <div class="float-right">Tsunami</div>
+                  <div class="media-title">Alfa Zulkarnain</div>
+                  <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</span>
+                </div>
+              </li>
+            </ul>
+            <div class="text-center pt-1 pb-1">
+              <a href="#" class="btn btn-primary btn-lg btn-round">
+                View All
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 </section>
 @endsection
 
