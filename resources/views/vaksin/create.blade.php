@@ -95,9 +95,9 @@
                 <select id="vaksin" name="vaksin" class="form-control" required>
                   <option>--Pilih Status Vaksin--</option>
                   <option value="0">Belum Vaksin</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
+                  <option value="1">Vaksin 1</option>
+                  <option value="2">Vaksin 2</option>
+                  <option value="3">Vaksin 3</option>
                 </select>
               </div>
               <div class="text-center pt-1 pb-1">

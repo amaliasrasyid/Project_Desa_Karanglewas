@@ -22,17 +22,8 @@ class PendudukController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
             'nik' => 'required|min:16|unique:penduduks|numeric',
-            'alamat' => 'required',
-            'tempatLahir' => 'required',
-            'tanggalLahir' => 'required',
-            'jenisKelamin' => 'required',
-            'kawin' => 'required',
-            'agama' => 'required',
-            'pendidikan' => 'required',
             'akta' => 'required|numeric|unique:penduduks',
-            'pam' => 'required',
         ]);
         $user = new User();
         $user->name = $request->nama;

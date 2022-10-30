@@ -60,11 +60,11 @@
                     <td>Vaksin 3</td>
                     @else
                     <td>Belum Vaksin</td>
+                    @endif
                     <td>
                       <a class="btn btn-primary btn-action m-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                       <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
                     </td>
-                    @endif
                   </tr>
                   @empty
                     <div class="alert alert-danger">

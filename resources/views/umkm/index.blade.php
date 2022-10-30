@@ -48,10 +48,10 @@
                     <td>{{++$i}}</td>
                     <td>{{$item->nik}}</td>
                     <td>{{$item->nama}}</td>
-                    <td>{{$item->lokas}}</td>
+                    <td>{{$item->lokasi}}</td>
                     <td>{{$item->kategori}}</td>
                     <td>
-                      <img class="mb-3" src="https://awsimages.detik.net.id/community/media/visual/2022/01/12/resep-ayam-geprek-jogja-1_43.jpeg?w=1200" width="80">
+                        <img class="mb-3" src="/images/{{ $item->gambar }}" width="100px" alt="{{$item->gambar}}">
                     </td>
                     <td>{{$item->produk}}</td>
                     <td>{{$item->harga}}</td>
