@@ -94,15 +94,28 @@
             </div>
             <div class="author-box-details">
               <div class="author-box-name">
-                <a href="#">Hasan Basri</a>
+                <a href="#">Nama</a>
               </div>
-              <div class="author-box-job">Web Developer</div>
+              <div class="author-box-job">NIK</div>
               <div class="author-box-description">
-                <p>nik</p>
-                <p>Tanggal Lahir</p>
-                <p>Alamat</p>
-                <p>Pengguna Pamsimas</p>
-                <p>Status Vaksin</p>
+                <table class="table table-striped">
+                  <tr>
+                    <th>Tanggal Lahir</th>
+                    <td>17-05-1945</td>
+                  </tr>
+                  <tr>
+                    <th>Alamat</th>
+                    <td>RT 02 / RW 12</td>
+                  </tr>
+                  <tr>
+                    <th>Pengguna Pamsimas</th>
+                    <td>Ya</td>
+                  </tr>
+                  <tr>
+                    <th>Status Vaksin</th>
+                    <td>Vaksin 2</td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
@@ -117,7 +130,7 @@
           <div class="card-header">
             <h4>Informasi Vaksin</h4>
             <div class="card-header-action">
-              <a href="#" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
+              <a href="#" class="btn btn-primary">View More <i class="fas fa-chevron-right"></i></a>
             </div>
           </div>
           <div class="card-body p-0">

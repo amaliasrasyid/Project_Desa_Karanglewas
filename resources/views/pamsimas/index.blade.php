@@ -90,7 +90,7 @@
   @forelse ($pamsimas as $item)
   @if ($item->bulan == date('F Y') && $item->user_id == Auth::user()->id)
   <div class="row">
-    <div class="col-12 col-sm-12 col-lg-6">
+    <div class="col-12 col-sm-12 col-lg-12">
       <div class="card">
         <div class="card-header">
           <h4>Pamsimas</h4>
@@ -106,24 +106,34 @@
             </div>
             <div class="author-box-details">
               <div class="author-box-name">
-                <a href="#">Hasan Basri</a>
+                <a href="#">{{$item->nama}}</a>
               </div>
-              <div class="author-box-job">Web Developer</div>
+              <div class="author-box-job">{{$item->nik}}</div>
               <div class="author-box-description">
-                <p>NIK</p>
-                <p>{{$item->nik}}</p>
-                <p>Nama</p>
-                <p>{{$item->nama}}</p>
-                <p>Alamat</p>
-                <p>{{$item->alamat}}</p>
-                <p>Bulan</p>
-                <p>{{$item->bulan}}</p>
-                <p>Tanggal</p>
-                <p>{{$item->tanggal}}</p>
-                <p>Harga</p>
-                <p>{{$item->harga}}</p>
-                <p>Status Pembayaran</p>
-                <p>{{$item->status}}</p>
+                <div class="card-body p-0">
+                  <table class="table table-striped">
+                    <tr>
+                      <th>Alamat</th>
+                      <td>{{$item->alamat}}</td>
+                    </tr>
+                    <tr>
+                      <th>Bulan</th>
+                      <td>{{$item->bulan}}</td>
+                    </tr>
+                    <tr>
+                      <th>Tanggal</th>
+                      <td>{{$item->tanggal}}</td>
+                    </tr>
+                    <tr>
+                      <th>Harga</th>
+                      <td>{{$item->harga}}</td>
+                    </tr>
+                    <tr>
+                      <th>Status Pembayaran</th>
+                      <td>{{$item->status}}</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -133,122 +143,122 @@
   </div>
   @else
   <div class="section-header">
-      <h1>Pembayaran Pamsimas</h1>
-      <div class="section-header-breadcrumb">
-          <div class="breadcrumb-item">Pamsimas</div>
-        </div>
+    <h1>Pembayaran Pamsimas</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item">Pamsimas</div>
     </div>
+  </div>
 
-    <div class="section-body">
-        <h2 class="section-title">Input Data Pembayaran</h2>
-        <p class="section-lead">Silahkan isi form pembayaran pamsimas sesuai dengan penggunaan anda.</p>
+  <div class="section-body">
+    <h2 class="section-title">Input Data Pembayaran</h2>
+    <p class="section-lead">Silahkan isi form pembayaran pamsimas sesuai dengan penggunaan anda.</p>
 
-        <div class="row">
-            <div class="col-xl-12 col-md-6 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ route('pamsimas.store') }}" method="post">
-                            @csrf
-                            <div class="form-group">
-                                <label for="nik">NIK</label>
-                                <input type="text" id="nik" name="nik" class="form-control" value="{{$penduduk->nik}}" readonly>
-                                <input type="text" id="user_id" name="user_id" class="form-control" value="{{$penduduk->user_id}}" hidden>
-                            </div>
-                            <div class="form-group">
-                                <label for="nik">Input Pemakaian</label>
-                                <input type="number" id="pemakaian" name="pemakaian" oninput="calcTotal(event)" value="0" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nama">Nama</label>
-                                <input type="text" id="nama" name="nama" class="form-control" value="{{$penduduk->nama}}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="bulan">Bulan</label>
-                                <input type="text" id="bulan" name="bulan" class="form-control" value="{{ date('F Y')}}" readonly required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tanggal">Tanggal</label>
-                                <input type="text" id="tanggal" name="tanggal" class="form-control" value="{{ date('l d-F-Y') }}" readonly required>
-                            </div>
-                            <div class="form-group">
-                                <label for="alamat">Alamat</label>
-                                <input type="text" id="alamat" name="alamat" class="form-control" value="{{$penduduk->alamat}}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="statuspembayaran">Status Pembayaran</label>
-                                <input type="text" style="color: red" id="statuspembayaran" name="statuspembayaran" value="Belum Bayar" class="form-control" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="harga">Harga</label>
-                                <input type="text" id="harga" name="harga" class="form-control" readonly required>
-                            </div>
-                            <button class="btn btn-primary" type="submit">Bayar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col-xl-12 col-md-6 col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <form action="{{ route('pamsimas.store') }}" method="post">
+              @csrf
+              <div class="form-group">
+                <label for="nik">NIK</label>
+                <input type="text" id="nik" name="nik" class="form-control" value="{{$penduduk->nik}}" readonly>
+                <input type="text" id="user_id" name="user_id" class="form-control" value="{{$penduduk->user_id}}" hidden>
+              </div>
+              <div class="form-group">
+                <label for="nik">Input Pemakaian</label>
+                <input type="number" id="pemakaian" name="pemakaian" oninput="calcTotal(event)" value="0" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" class="form-control" value="{{$penduduk->nama}}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="bulan">Bulan</label>
+                <input type="text" id="bulan" name="bulan" class="form-control" value="{{ date('F Y')}}" readonly required>
+              </div>
+              <div class="form-group">
+                <label for="tanggal">Tanggal</label>
+                <input type="text" id="tanggal" name="tanggal" class="form-control" value="{{ date('l d-F-Y') }}" readonly required>
+              </div>
+              <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" name="alamat" class="form-control" value="{{$penduduk->alamat}}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="statuspembayaran">Status Pembayaran</label>
+                <input type="text" style="color: red" id="statuspembayaran" name="statuspembayaran" value="Belum Bayar" class="form-control" readonly>
+              </div>
+              <div class="form-group">
+                <label for="harga">Harga</label>
+                <input type="text" id="harga" name="harga" class="form-control" readonly required>
+              </div>
+              <button class="btn btn-primary" type="submit">Bayar</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-@endif
-@empty
+  </div>
+  </div>
+  @endif
+  @empty
   <div class="section-header">
-      <h1>Pembayaran Pamsimas</h1>
-      <div class="section-header-breadcrumb">
-          <div class="breadcrumb-item">Pamsimas</div>
-        </div>
+    <h1>Pembayaran Pamsimas</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item">Pamsimas</div>
     </div>
+  </div>
 
-    <div class="section-body">
-        <h2 class="section-title">Input Data Pembayaran</h2>
-        <p class="section-lead">Silahkan isi form pembayaran pamsimas sesuai dengan penggunaan anda.</p>
+  <div class="section-body">
+    <h2 class="section-title">Input Data Pembayaran</h2>
+    <p class="section-lead">Silahkan isi form pembayaran pamsimas sesuai dengan penggunaan anda.</p>
 
-        <div class="row">
-            <div class="col-xl-12 col-md-6 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="{{ route('pamsimas.store') }}" method="post">
-                            @csrf
-                            <div class="form-group">
-                                <label for="nik">NIK</label>
-                                <input type="text" id="nik" name="nik" class="form-control" value="{{$penduduk->nik}}" readonly>
-                                <input type="text" id="user_id" name="user_id" class="form-control" value="{{$penduduk->user_id}}" hidden>
-                            </div>
-                            <div class="form-group">
-                                <label for="nik">Input Pemakaian</label>
-                                <input type="number" id="pemakaian" name="pemakaian" oninput="calcTotal(event)" value="0" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nama">Nama</label>
-                                <input type="text" id="nama" name="nama" class="form-control" value="{{$penduduk->nama}}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="bulan">Bulan</label>
-                                <input type="text" id="bulan" name="bulan" class="form-control" value="{{ date('F Y')}}" readonly required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tanggal">Tanggal</label>
-                                <input type="text" id="tanggal" name="tanggal" class="form-control" value="{{ date('l d-F-Y') }}" readonly required>
-                            </div>
-                            <div class="form-group">
-                                <label for="alamat">Alamat</label>
-                                <input type="text" id="alamat" name="alamat" class="form-control" value="{{$penduduk->alamat}}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="statuspembayaran">Status Pembayaran</label>
-                                <input type="text" style="color: red" id="statuspembayaran" name="statuspembayaran" value="Belum Bayar" class="form-control" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="harga">Harga</label>
-                                <input type="text" id="harga" name="harga" class="form-control" readonly required>
-                            </div>
-                            <button class="btn btn-primary" type="submit">Bayar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col-xl-12 col-md-6 col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <form action="{{ route('pamsimas.store') }}" method="post">
+              @csrf
+              <div class="form-group">
+                <label for="nik">NIK</label>
+                <input type="text" id="nik" name="nik" class="form-control" value="{{$penduduk->nik}}" readonly>
+                <input type="text" id="user_id" name="user_id" class="form-control" value="{{$penduduk->user_id}}" hidden>
+              </div>
+              <div class="form-group">
+                <label for="nik">Input Pemakaian</label>
+                <input type="number" id="pemakaian" name="pemakaian" oninput="calcTotal(event)" value="0" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" name="nama" class="form-control" value="{{$penduduk->nama}}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="bulan">Bulan</label>
+                <input type="text" id="bulan" name="bulan" class="form-control" value="{{ date('F Y')}}" readonly required>
+              </div>
+              <div class="form-group">
+                <label for="tanggal">Tanggal</label>
+                <input type="text" id="tanggal" name="tanggal" class="form-control" value="{{ date('l d-F-Y') }}" readonly required>
+              </div>
+              <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" name="alamat" class="form-control" value="{{$penduduk->alamat}}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="statuspembayaran">Status Pembayaran</label>
+                <input type="text" style="color: red" id="statuspembayaran" name="statuspembayaran" value="Belum Bayar" class="form-control" readonly>
+              </div>
+              <div class="form-group">
+                <label for="harga">Harga</label>
+                <input type="text" id="harga" name="harga" class="form-control" readonly required>
+              </div>
+              <button class="btn btn-primary" type="submit">Bayar</button>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
   </div>
   @endforelse
   @endif
@@ -262,11 +272,11 @@
 @push('page_js')
 <script src="../assets/js/page/components-table.js"></script>
 <script>
-    function calcTotal(bct) {
-        console.log(bct.target.value);
-        let pmk = bct.target.value;
-        let total = parseInt(pmk)*500;
-        $('#harga').val(total);
-    }
+  function calcTotal(bct) {
+    console.log(bct.target.value);
+    let pmk = bct.target.value;
+    let total = parseInt(pmk) * 500;
+    $('#harga').val(total);
+  }
 </script>
 @endpush
