@@ -88,7 +88,7 @@
   @if (Auth::user()->role == "user")
 
   @forelse ($pamsimas as $item)
-  @if ($item->bulan == date('F Y') && $item->user_id == Auth::user()->id || !empty($item))
+  @if ($item->bulan == date('F Y') && $item->user_id == Auth::user()->id)
   <div class="row">
     <div class="col-12 col-sm-12 col-lg-6">
       <div class="card">
@@ -110,7 +110,7 @@
               </div>
               <div class="author-box-job">Web Developer</div>
               <div class="author-box-description">
-                {{-- <p>NIK</p>
+                <p>NIK</p>
                 <p>{{$item->nik}}</p>
                 <p>Nama</p>
                 <p>{{$item->nama}}</p>
@@ -123,7 +123,7 @@
                 <p>Harga</p>
                 <p>{{$item->harga}}</p>
                 <p>Status Pembayaran</p>
-                <p>{{$item->status}}</p> --}}
+                <p>{{$item->status}}</p>
               </div>
             </div>
           </div>

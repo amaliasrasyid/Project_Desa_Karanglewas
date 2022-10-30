@@ -63,6 +63,9 @@ Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], 
 });
 Route::group(['prefix' => 'umkm', 'as' => 'umkm.', 'middleware' => 'auth'], function () {
     Route::get('/', [UmkmController::class, 'index'])->name('index');
+    Route::get('/jadi', [UmkmController::class, 'jadi'])->name('jadi.index');
+    Route::get('/setengah_jadi', [UmkmController::class, 'setJadi'])->name('setengahjadi.index');
+    Route::get('/mentah', [UmkmController::class, 'mentah'])->name('mentah.index');
     Route::get('/create', [UmkmController::class, 'create'])->name('create');
     Route::post('/create', [UmkmController::class, 'store'])->name('store');
 });
@@ -72,14 +75,4 @@ Route::group(['prefix' => 'pamsimas', 'as' => 'pamsimas.', 'middleware' => 'auth
 });
 Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('index');
-});
-
-Route::group(['prefix' => 'jadi', 'as' => 'jadi.', 'middleware' => 'auth'], function () {
-    Route::get('/', [JadiController::class, 'index'])->name('index');
-});
-Route::group(['prefix' => 'setengahjadi', 'as' => 'setengahjadi.', 'middleware' => 'auth'], function () {
-    Route::get('/', [SetjadiController::class, 'index'])->name('index');
-});
-Route::group(['prefix' => 'mentah', 'as' => 'mentah.', 'middleware' => 'auth'], function () {
-    Route::get('/', [MentahController::class, 'index'])->name('index');
 });

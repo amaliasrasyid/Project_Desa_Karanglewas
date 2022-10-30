@@ -18,6 +18,24 @@ class UmkmController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    public function jadi()
+    {
+        $umkms = Umkm::where('kategori', 'Jadi')->get();
+        return view('umkm.jadi', compact('umkms'));
+    }
+
+    public function setJadi()
+    {
+        $umkms = Umkm::where('kategori', 'Setengah Jadi')->get();
+        return view('umkm.setengahjadi', compact('umkms'));
+    }
+
+    public function mentah()
+    {
+        $umkms = Umkm::where('kategori', 'Mentah')->get();
+        return view('umkm.mentah', compact('umkms'));
+    }
+
     public function create()
     {
 

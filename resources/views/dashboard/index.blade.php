@@ -24,7 +24,7 @@
             <h4>Total Penduduk</h4>
           </div>
           <div class="card-body">
-            10.000
+            {{$penduduk}}
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
             <h4>Laki-laki</h4>
           </div>
           <div class="card-body">
-            4000
+            {{$laki}}
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@
             <h4>Wanita</h4>
           </div>
           <div class="card-body">
-            6000
+            {{$perempuan}}
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
             <h4>Vaksin</h4>
           </div>
           <div class="card-body">
-            9000
+            {{$vaksin}}
           </div>
         </div>
       </div>

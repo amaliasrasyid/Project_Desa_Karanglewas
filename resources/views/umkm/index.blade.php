@@ -93,7 +93,7 @@
   </div>
   @endif
 
-  @if (Auth::user()->role == "user")
+  {{-- @if (Auth::user()->role == "user")
   <div class="section-header">
     <h1>Dukung UMKM Desa Karanglewas</h1>
     <div class="section-header-breadcrumb">
@@ -174,7 +174,7 @@
 
   </div>
 
-  @endif
+  @endif --}}
 </section>
 @endsection
 
