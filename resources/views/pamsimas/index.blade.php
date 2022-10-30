@@ -88,7 +88,7 @@
   @if (Auth::user()->role == "user")
 
   @foreach ($pamsimas as $item)
-  @if ($item->bulan == date('F Y'))
+  @if ($item->bulan == date('F Y') && $item->user_id == Auth::user()->id)
   <div class="row">
     <div class="col-12 col-sm-12 col-lg-6">
       <div class="card">
