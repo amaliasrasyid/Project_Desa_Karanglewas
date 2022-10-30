@@ -16,14 +16,14 @@ class VaksinController extends Controller
             ->paginate(10);
         // dd($vaksin);
         // , compact('vaksin'))->with('i', (request()->input('page', 1) - 1) * 10
-        return view('vaksin', compact('vaksin'))->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('vaksin.index', compact('vaksin'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function create()
     {
         $penduduk = Penduduk::latest()->get();
         // dd($penduduk);
-        return view('create-vaksin', compact('penduduk'));
+        return view('vaksin.create', compact('penduduk'));
     }
 
     public function getData($user_id)

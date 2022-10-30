@@ -13,12 +13,12 @@ class UmkmController extends Controller
             ->select('umkms.*', 'penduduks.nik', 'penduduks.nama')
             ->latest()
             ->paginate(10);
-        return view('umkm', compact('umkms'))
+        return view('umkm.index', compact('umkms'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
     {
-        return view('create-umkm');
+        return view('umkm.create');
     }
 }

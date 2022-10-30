@@ -14,6 +14,6 @@ class PamsimasController extends Controller
             ->latest()
             ->paginate(10);
         // dd($pamsimas);
-        return view('pamsimas', compact('pamsimas'))->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('pamsimas.index', compact('pamsimas'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 }

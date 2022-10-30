@@ -11,12 +11,12 @@ class PendudukController extends Controller
     public function index()
     {
         $penduduk = Penduduk::latest()->paginate(10);
-        return view('penduduk', compact('penduduk'))->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('penduduk.index', compact('penduduk'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function create()
     {
-        return view('create-penduduk');
+        return view('penduduk.create');
     }
 
     public function store(Request $request)

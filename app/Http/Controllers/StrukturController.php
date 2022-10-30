@@ -8,6 +8,6 @@ class StrukturController extends Controller
 {
     public function index()
     {
-        return view('struktur');
+        return view('struktur.index');
     }
 }

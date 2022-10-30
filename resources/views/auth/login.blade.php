@@ -2,7 +2,7 @@
 {% set page = 'auth-login.html' %}
 {% set body = false %}
 {% extends 'layouts/master.html' %} --}}
-@extends('layouts/master-1')
+@extends('layouts/master')
 
 @push('plugins_css')
 <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">

@@ -8,6 +8,6 @@ class JadiController extends Controller
 {
     public function index()
     {
-        return view('jadi');
+        return view('umkm.jadi');
     }
 }

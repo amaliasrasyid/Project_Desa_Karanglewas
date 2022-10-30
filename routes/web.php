@@ -9,6 +9,8 @@ use App\Http\Controllers\VaksinController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PamsimasController;
 use App\Http\Controllers\JadiController;
+use App\Http\Controllers\SetjadiController;
+use App\Http\Controllers\MentahController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -73,4 +75,10 @@ Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], fu
 
 Route::group(['prefix' => 'jadi', 'as' => 'jadi.', 'middleware' => 'auth'], function () {
     Route::get('/', [JadiController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'setengahjadi', 'as' => 'setengahjadi.', 'middleware' => 'auth'], function () {
+    Route::get('/', [SetjadiController::class, 'index'])->name('index');
+});
+Route::group(['prefix' => 'mentah', 'as' => 'mentah.', 'middleware' => 'auth'], function () {
+    Route::get('/', [MentahController::class, 'index'])->name('index');
 });
