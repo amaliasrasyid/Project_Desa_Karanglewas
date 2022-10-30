@@ -43,6 +43,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout.logout');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'login_check:admin']], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
+    Route::get('/getData/{user_id}', [AdminDashboardController::class, 'getData'])->name('data');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'auth'], function () {
     Route::get('/', [ProfileController::class, 'index'])->name('index');
@@ -56,7 +57,6 @@ Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth
     Route::post('/create', [PendudukController::class, 'store'])->name('store');
 });
 Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], function () {
-    Route::get('/getData/{user_id}', [VaksinController::class, 'getData'])->name('data');
     Route::get('/', [VaksinController::class, 'index'])->name('index');
     Route::get('/create', [VaksinController::class, 'create'])->name('create');
     Route::post('/create', [VaksinController::class, 'store'])->name('store');

@@ -28,31 +28,46 @@
       <div class="col-xl-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-body">
-            <form action="{{ route('umkm.store') }}" method="post">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Peringatan!</strong> Data yang dimasukan tidak sesuai.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form action="{{ route('umkm.store') }}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="nik">NIK</label>
-                <input type="text" id="nik" name="nik" class="form-control" required>
+                <select type="text" id="nik" name="nik" class="form-control" required onchange="getData(this)">
+                <option disabled selected>--Pilih NIK--</option>
+                    @foreach ($penduduk as $item)
+                    <option value="{{$item->user_id}}">{{$item->nik}} ({{$item->nama}})</option>
+                    @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" id="nama" name="nama" class="form-control" required>
+                <input type="text" id="nama" name="nama" class="form-control" disabled>
               </div>
               <div class="form-group">
-                <label for="alamat">Lokasi</label>
+                <label for="lokasi">Lokasi</label>
                 <input type="text" id="lokasi" name="lokasi" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="kategori">Kategori</label>
                 <select id="kategori" name="kategori" class="form-control" required>
-                  <option>--Pilih Kategori--</option>
-                  <option value="jadi">Jadi</option>
-                  <option value="setjadi">Setengah Jadi</option>
-                  <option value="mentah">Mentah</option>
+                  <option disabled selected>--Pilih Kategori--</option>
+                  <option value="Jadi">Jadi</option>
+                  <option value="Setengah Jadi">Setengah Jadi</option>
+                  <option value="Mentah">Mentah</option>
                 </select>
                 <div class="form-group">
                   <label for="image">Upload Gambar</label>
-                  <input type="file" id="image" name="image" class="form-control" required>
+                  <input type="file" id="image" name="image" class="form-control" required accept=".png, .jpg, .jpeg">
                   @error('image')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -62,21 +77,21 @@
               </div>
               <div class="form-group">
                 <label for="produk">Nama Produk</label>
-                <input type="produk" id="produk" name="produk" class="form-control" required>
+                <input type="text" id="produk" name="produk" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="harga">Harga</label>
-                <input type="harga" id="harga" name="harga" class="form-control" required>
+                <input type="text" id="harga" name="harga" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="satuan">Satuan Penjualan</label>
                 <select id="satuan" name="satuan" class="form-control" required>
-                  <option>--Pilih Satuan Penjualan--</option>
-                  <option value="pcs">Pcs</option>
-                  <option value="kg">Kg</option>
-                  <option value="meter">Meter</option>
-                  <option value="bungkus">Bungkus</option>
-                  <option value="lembar">Lembar</option>
+                  <option disabled selected>--Pilih Satuan Penjualan--</option>
+                  <option value="Pcs">Pcs</option>
+                  <option value="Kg">Kg</option>
+                  <option value="Meter">Meter</option>
+                  <option value="Bungkus">Bungkus</option>
+                  <option value="Lembar">Lembar</option>
                 </select>
               </div>
               <div class="text-center pt-1 pb-1">
@@ -105,4 +120,22 @@
 
 @push('page_js')
 <script src="../assets/js/page/forms-advanced-forms.js"></script>
+<script>
+    function getData(nik) {
+        let user_id = nik.value;
+        // console.log(user_id); //for testing
+        $.ajax({
+            method: 'GET',
+            url: '/admin/getData/'+user_id,
+            cache: false,
+            data: {
+                    _token: "{{csrf_token()}}"
+                },
+            success: function (result) {
+                console.log(result); //for testing
+                $('#nama').val(result['nama']);
+            }
+        });
+    }
+</script>
 @endpush

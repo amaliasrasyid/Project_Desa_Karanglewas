@@ -28,6 +28,16 @@
       <div class="col-xl-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-body">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Peringatan!</strong> Data yang dimasukan tidak sesuai.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('vaksin.store') }}" method="post">
               @csrf
               <div class="form-group">
@@ -117,25 +127,25 @@
 @push('page_js')
 <script src="../assets/js/page/forms-advanced-forms.js"></script>
 <script>
-  function getData(nik) {
-    let user_id = nik.value;
-    console.log(user_id);
-    $.ajax({
-      method: 'GET',
-      url: '/vaksin/getData/' + user_id,
-      cache: false,
-      data: {
-        _token: "{{csrf_token()}}"
-      },
-      success: function(result) {
-        console.log(result);
-        $('#nama').val(result['nama']);
-        $('#alamat').val(result['alamat']);
-        $('#tempatLahir').val(result['tptLahir']);
-        $('#tanggalLahir').val(result['tglLahir']);
-        $('#jenisKelamin').val(result['kelamin']);
-      }
-    });
-  }
+    function getData(nik) {
+        let user_id = nik.value;
+        // console.log(user_id); //for testing
+        $.ajax({
+            method: 'GET',
+            url: '/admin/getData/'+user_id,
+            cache: false,
+            data: {
+                    _token: "{{csrf_token()}}"
+                },
+            success: function (result) {
+                console.log(result);
+                $('#nama').val(result['nama']);
+                $('#alamat').val(result['alamat']);
+                $('#tempatLahir').val(result['tptLahir']);
+                $('#tanggalLahir').val(result['tglLahir']);
+                $('#jenisKelamin').val(result['kelamin']);
+            }
+        });
+    }
 </script>
 @endpush
