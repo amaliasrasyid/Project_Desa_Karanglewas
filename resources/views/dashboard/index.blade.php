@@ -51,7 +51,7 @@
         </div>
         <div class="card-wrap">
           <div class="card-header">
-            <h4>Wanita</h4>
+            <h4>Perempuan</h4>
           </div>
           <div class="card-body">
             {{$perempuan}}
@@ -139,8 +139,7 @@
                 <tr>
                   <th>Nama</th>
                   <th>Status</th>
-                  <th>Tanggal</th>
-                  <th>Action</th>
+                  <th>Riwayat Penyakit</th>
                 </tr>
                 <tr>
                   <td class="font-weight-600">Kusnadi</td>
@@ -148,9 +147,6 @@
                     <div class="badge badge-danger">Belum</div>
                   </td>
                   <td>July 19, 2018</td>
-                  <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
-                  </td>
                 </tr>
                 <tr>
                   <td class="font-weight-600">Hasan Basri</td>
@@ -159,8 +155,6 @@
                   </td>
                   <td>July 21, 2018</td>
                   <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
-                  </td>
                 </tr>
                 <tr>
                   <td class="font-weight-600">Muhamad Nuruzzaki</td>
@@ -168,9 +162,6 @@
                     <div class="badge badge-success">Sudah</div>
                   </td>
                   <td>July 22, 2018</td>
-                  <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
-                  </td>
                 </tr>
                 <tr>
                   <td class="font-weight-600">Agung Ardiansyah</td>
@@ -178,9 +169,6 @@
                     <div class="badge badge-danger">Belum</div>
                   </td>
                   <td>July 22, 2018</td>
-                  <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
-                  </td>
                 </tr>
                 <tr>
                   <td class="font-weight-600">Ardian Rahardiansyah</td>
@@ -188,9 +176,6 @@
                     <div class="badge badge-success">Sudah</div>
                   </td>
                   <td>July 28, 2018</td>
-                  <td>
-                    <a href="#" class="btn btn-primary">Detail</a>
-                  </td>
                 </tr>
               </table>
             </div>
@@ -202,7 +187,9 @@
         <div class="card">
           <div class="card-header">
             <h4 class="d-inline">Riwayat Pembayaran Pamsimas</h4>
-
+            <div class="card-header-action">
+              <a href="#" class="btn btn-primary">View More <i class="fas fa-chevron-right"></i></a>
+            </div>
           </div>
           <div class="card-body" style="height:350px;overflow-y:scroll">
             <ul class="list-unstyled list-unstyled-border">
