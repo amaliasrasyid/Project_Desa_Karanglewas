@@ -18,6 +18,8 @@
         <img src="../assets/img/Desa.png" alt="logo" width="180" ></div>
       <div class="p-4 m-3">
         <p class="text-muted">Sebelum memulai, Anda harus login atau mendaftar jika Anda belum memiliki akun.</p>
+
+        <!-- Kiye fungsi nggo login -->
         <form method="POST" action="{{ route('login.process') }}" class="needs-validation" novalidate="">
             @csrf
             <div class="form-group">

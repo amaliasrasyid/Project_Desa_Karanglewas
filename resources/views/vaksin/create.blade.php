@@ -28,6 +28,7 @@
       <div class="col-xl-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-body">
+            <!-- Fungsi peringatan error ketika data urung di isi -->
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <strong>Peringatan!</strong> Data yang dimasukan tidak sesuai.<br><br>
@@ -38,6 +39,8 @@
                     </ul>
                 </div>
             @endif
+
+            <!-- Fungsi nambah data vaksin -->
             <form action="{{ route('vaksin.store') }}" method="post">
               @csrf
               <div class="form-group">
@@ -126,6 +129,8 @@
 
 @push('page_js')
 <script src="{{asset('assets/js/page/forms-advanced-forms.js')}}"></script>
+
+<!-- Fungsi njiot data kang penduduk -->
 <script>
     function getData(nik) {
         let user_id = nik.value;

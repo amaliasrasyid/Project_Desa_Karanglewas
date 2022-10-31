@@ -116,6 +116,8 @@
 
 @push('page_js')
 <script src="{{asset('assets/js/page/forms-advanced-forms.js')}}"></script>
+
+<!-- Fungsi njiot data kang penduduk -->
 <script>
   function getData(nik) {
     let user_id = nik.value;

@@ -27,6 +27,7 @@
     <div class="row">
       <div class="col-xl-12 col-md-6 col-lg-6">
         <div class="card">
+          <!-- Fungsi kondisi error message/pringatan -->
           <div class="card-body">
             @if ($errors->any())
             <div class="alert alert-danger">

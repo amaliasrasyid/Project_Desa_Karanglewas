@@ -21,12 +21,11 @@
   </div>
 
   <div class="section-body">
-    {{-- <h2 class="section-title">Advanced Forms</h2>
-    <p class="section-lead">We provide advanced input fields, such as date picker, color picker, and so on.</p> --}}
-
     <div class="row">
       <div class="col-xl-12 col-md-6 col-lg-6">
         <div class="card">
+
+        <!-- Fungsi kondisi error message/pringatan -->
           <div class="card-body">
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -49,6 +48,8 @@
                 </div>
                 @enderror
               </div>
+
+              <!-- Nek required kue ngadu di isi ora olih kosong -->
               <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" id="nama" name="nama" class="form-control" required>

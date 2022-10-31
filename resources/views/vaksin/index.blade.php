@@ -41,6 +41,7 @@
                     <th>Status Vaksin</th>
                     <th>Action</th>
                   </tr>
+                  <!-- Fungi nggo nambah data penduduk -->
                   @forelse ($vaksin as $value)
                   <tr>
                     <td>{{++$i}}</td>
@@ -68,7 +69,7 @@
                   </tr>
                   @empty
                     <div class="alert alert-danger">
-                        Data Penduduk belum Tersedia.
+                        Data Vaksin belum Tersedia.
                     </div>
                   @endforelse
                 <tbody>

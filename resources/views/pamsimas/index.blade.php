@@ -24,7 +24,7 @@
           </div>
           <div class="card-body p-0">
             <div class="col-xl-12 col-md-6 col-lg-6" style="overflow-x: auto">
-              <table class="table table-bordered" style="width:100rem">
+              <table class="table table-bordered" style="width:80rem">
                 <tbody>
                   <tr>
                     <th>No.</th>
@@ -35,7 +35,6 @@
                     <th>Tanggal</th>
                     <th>Harga</th>
                     <th>Status Pembayaran</th>
-                    <th>Action</th>
                   </tr>
                   @forelse ($pamsimas as $item)
                   <tr>
@@ -46,14 +45,9 @@
                     <td>{{$item->bulan}}</td>
                     <td>{{$item->tanggal}}</td>
                     <td>{{$item->harga}}</td>
-                    <td>{{$item->status}}</td>
                     <td>
-                      <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
-                        <i class="fas fa-pencil-alt"></i>
-                      </a>
-                      <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')">
-                        <i class="fas fa-trash"></i>
-                      </a>
+                    <div class="badge badge-pill badge-success mb-1 float-left">Sudah</div>
+                    <div class="badge badge-pill badge-danger mb-1 float-right">Belum</div>
                     </td>
                   </tr>
                   @empty

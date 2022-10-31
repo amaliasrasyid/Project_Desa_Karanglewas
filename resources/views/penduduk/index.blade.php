@@ -26,11 +26,13 @@
           </div>
           <div class="card-body p-0">
             <div class="col-xl-12 col-md-6 col-lg-6" style="overflow-x: auto">
+            <!-- Kiye fungsi ketika data berhasil ditambah muncul notif berhasil/succes -->
               @if ($message = Session::get('success'))
               <div class="alert alert-success">
                 <p>{{ $message }}</p>
               </div>
               @endif
+              <!-- Fungi nggo nambah data penduduk -->
               <table class="table table-bordered" style="width:120rem">
                 <tbody>
                   <tr>
