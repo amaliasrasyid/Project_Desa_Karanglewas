@@ -1,3 +1,6 @@
+
+
+
 <?php $__env->startPush('plugins_css'); ?>
 <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
 <?php $__env->stopPush(); ?>
@@ -81,4 +84,4 @@ unset($__errorArgs, $__bag); ?>
 </section>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts/master-1', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Aryansyah\Documents\Kerjaan\Project_Desa_Karanglewas\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts/master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Aryansyah\Documents\Kerjaan\Project_Desa_Karanglewas\resources\views/auth/login.blade.php ENDPATH**/ ?>

@@ -51,4 +51,11 @@ class PendudukController extends Controller
         return redirect()->route('penduduk.index')->with('success', 'Data Penduduk Berhasil Disimpan');
         // dd($request->all());
     }
+
+    public function edit($id)
+    {
+        $data = Penduduk::find($id)->first();
+
+        return view('penduduk.edit', compact('data'));
+    }
 }
