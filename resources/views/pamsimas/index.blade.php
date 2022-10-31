@@ -270,11 +270,11 @@
 @endsection
 
 @push('plugins_js')
-<script src="../node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+<script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
 @endpush
 
 @push('page_js')
-<script src="../assets/js/page/components-table.js"></script>
+<script src="{{asset('assets/js/page/components-table.js')}}"></script>
 <script>
   function calcTotal(bct) {
     console.log(bct.target.value);

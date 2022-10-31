@@ -5,7 +5,7 @@
 @extends('layouts/master')
 
 @push('plugins_css')
-<link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
+<link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
 @endpush
 
 @section('title', 'Login')
