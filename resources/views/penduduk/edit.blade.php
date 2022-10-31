@@ -13,10 +13,10 @@
 @section('content')
 <section class="section">
   <div class="section-header">
-    <h1>Form Edit Penduduk</h1>
+    <h1>Form Tambah Penduduk</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="{{route('penduduk.index')}}">Penduduk</a></div>
-      <div class="breadcrumb-item">Form Edit Penduduk</div>
+      <div class="breadcrumb-item">Form Tambah Penduduk</div>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
               @csrf
               <div class="form-group">
                 <label for="nik">NIK</label>
-                <input type="text" id="nik" name="nik" class="form-control" value="{{$data->nik}}" required>
+                <input type="text" id="nik" name="nik" class="form-control" required>
                 @error('nik')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -51,28 +51,32 @@
               </div>
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" id="nama" name="nama" class="form-control" value="{{$data->nama}}" required>
+                <input type="text" id="nama" name="nama" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" id="alamat" name="alamat" class="form-control" value="{{$data->alamat}}" required>
+                <input type="text" id="alamat" name="alamat" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="tempatLahir">Tempat Lahir</label>
-                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" value="{{$data->tptLahir}}" required>
+                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="tanggalLahir">Tanggal Lahir</label>
-                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" value="{{$data->tglLahir}}" required>
+                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="jenisKelamin">Jenis Kelamin</label>
-                <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control" value="{{$data->kelamin}}" required>
+                <select id="jenisKelamin" name="jenisKelamin" class="form-control" required>
+                  <option disabled selected>--Pilih Jenis Kelamin--</option>
+                  <option value="laki-laki">Laki-laki</option>
+                  <option value="perempuan">Perempuan</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="kawin">Status Perkawinan</label>
                 <select id="kawin" name="kawin" class="form-control" required>
-                  <option value="{{$data->kawin}}" selected disabled>{{$data->kawin}}</option>
+                  <option disabled selected>--Pilih Status Perkawinan--</option>
                   <option value="Sudah">Sudah Kawin</option>
                   <option value="Belum">Belum Kawin</option>
                 </select>
@@ -80,7 +84,7 @@
               <div class="form-group">
                 <label for="agama">Agama</label>
                 <select id="agama" name="agama" class="form-control" required>
-                  <option value="{{$data->agama}}" selected disabled>{{$data->agama}}</option>
+                  <option disabled selected>--Pilih Agama--</option>
                   <option value="Islam">Islam</option>
                   <option value="Kristen">Kristen</option>
                   <option value="Katholik">Katholik</option>
@@ -92,7 +96,7 @@
               <div class="form-group">
                 <label for="pendidikan">Pendidikan</label>
                 <select id="pendidikan" name="pendidikan" class="form-control" required>
-                  <option value="{{$data->pendidikan}}" selected disabled>{{$data->pendidikan}}</option>
+                  <option disabled selected>--Pilih Pendidikan--</option>
                   <option value="SD">SD</option>
                   <option value="SMP">SMP</option>
                   <option value="SLTA">SLTA</option>
@@ -104,7 +108,7 @@
               </div>
               <div class="form-group">
                 <label for="akta">Nomor Akta</label>
-                <input type="text" id="akta" name="akta" class="form-control" value="{{$data->akta}}" required>
+                <input type="text" id="akta" name="akta" class="form-control" required>
                 @error('akta')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -114,9 +118,9 @@
               <div class="form-group">
                 <label for="pam">Pengguna Pamsimas</label>
                 <select id="pam" name="pam" class="form-control" required>
-                  <option value="{{$data->pam}}" disabled selected>{{$data->pam}}</option>
-                  <option value="Pengguna Pamsimas">Pengguna Pamsimas</option>
-                  <option value="Bukan Pengguna Pamsimas">Bukan Pengguna Pamsimas</option>
+                  <option disabled selected>--Pilih Status Pengguna Pamsimas--</option>
+                  <option value="Ya">Pengguna Pamsimas</option>
+                  <option value="Tidak">Bukan Pengguna Pamsimas</option>
                 </select>
               </div>
               <div class="text-center pt-1 pb-1">
