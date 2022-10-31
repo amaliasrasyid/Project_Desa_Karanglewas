@@ -56,6 +56,7 @@ class PendudukController extends Controller
     {
         $data = Penduduk::find($id)->first();
 
+        // dd($data);
         return view('penduduk.edit', compact('data'));
     }
 }
