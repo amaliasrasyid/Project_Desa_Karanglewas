@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
 @endpush
 
-@section('title', 'Form Penduduk')
+@section('title', 'Edit Penduduk')
 @section('appName', 'Website Desa')
 @section('content')
 <section class="section">

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Bahan Jadi')
+@section('title', 'Bahan Setengah Jadi')
 @section('appName', 'Website Desa')
 @section('content')
 <section class="section">

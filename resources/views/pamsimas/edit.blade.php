@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
 @endpush
 
-@section('title', 'Input Vaksin')
+@section('title', 'Edit Vaksin')
 @section('appName', 'Website Desa')
 @section('content')
 <section class="section">
