@@ -12,8 +12,8 @@
   @stack('plugins_css')
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
 </head>
 
 <body>
@@ -78,8 +78,8 @@
   @stack('plugins_js')
 
   <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/custom.js"></script>
+  <script src="{{asset('assets/js/scripts.js')}}"></script>
+  <script src="{{asset('assets/js/custom.js')}}"></script>
 
   <!-- Page Specific JS File -->
   @stack('page_js')
