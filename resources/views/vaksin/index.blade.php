@@ -26,7 +26,7 @@
           </div>
           <div class="card-body p-0">
             <div class="col-xl-12 col-md-6 col-lg-6" style="overflow-x: auto">
-              <table class="table table-bordered" style="width:100rem">
+              <table class="table table-bordered" style="width:120rem">
                 <tbody>
                   <tr>
                     <th>No.</th>

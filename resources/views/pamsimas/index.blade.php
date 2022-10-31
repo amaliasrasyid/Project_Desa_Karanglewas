@@ -24,7 +24,7 @@
           </div>
           <div class="card-body p-0">
             <div class="col-xl-12 col-md-6 col-lg-6" style="overflow-x: auto">
-              <table class="table table-bordered" style="width:80rem">
+              <table class="table table-bordered" style="width:100rem">
                 <tbody>
                   <tr>
                     <th>No.</th>
@@ -48,8 +48,12 @@
                     <td>{{$item->harga}}</td>
                     <td>{{$item->status}}</td>
                     <td>
-                      <a class="btn btn-primary btn-action m-1" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                      <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                      <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit">
+                        <i class="fas fa-pencil-alt"></i>
+                      </a>
+                      <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?" data-confirm-yes="alert('Deleted')">
+                        <i class="fas fa-trash"></i>
+                      </a>
                     </td>
                   </tr>
                   @empty

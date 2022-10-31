@@ -31,7 +31,7 @@
                 <p>{{ $message }}</p>
               </div>
               @endif
-              <table class="table table-bordered" style="width:100rem">
+              <table class="table table-bordered" style="width:120rem">
                 <tbody>
                   <tr>
                     <th>No.</th>

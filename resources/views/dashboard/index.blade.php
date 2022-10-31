@@ -191,7 +191,7 @@
               <a href="#" class="btn btn-primary">View More <i class="fas fa-chevron-right"></i></a>
             </div>
           </div>
-          <div class="card-body" style="height:350px;overflow-y:scroll">
+          <div class="card-body" style="height:375px;overflow-y:scroll">
             <ul class="list-unstyled list-unstyled-border">
               <li class="media">
 
