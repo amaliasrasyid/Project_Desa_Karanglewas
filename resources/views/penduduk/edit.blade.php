@@ -38,7 +38,7 @@
               </ul>
             </div>
             @endif
-            <form action="{{ route('penduduk.store') }}" method="post">
+            <form action="{{ route('penduduk.update', $data->user_id) }}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="nik">NIK</label>
@@ -59,22 +59,22 @@
               </div>
               <div class="form-group">
                 <label for="tempatLahir">Tempat Lahir</label>
-                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" value="{{$data->tptLahir}}" required>
+                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" value="{{$data->tptLahir}}" required readonly>
               </div>
               <div class="form-group">
                 <label for="tanggalLahir">Tanggal Lahir</label>
-                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" value="{{$data->tglLahir}}" required>
+                <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control" value="{{$data->tglLahir}}" required readonly>
               </div>
               <div class="form-group">
                 <label for="jenisKelamin">Jenis Kelamin</label>
-                <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control" value="{{$data->kelamin}}" required>
+                <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control" value="{{$data->kelamin}}" required readonly>
               </div>
               <div class="form-group">
                 <label for="kawin">Status Perkawinan</label>
                 <select id="kawin" name="kawin" class="form-control" required>
                   <option value="{{$data->kawin}}" selected disabled>{{$data->kawin}}</option>
-                  <option value="Sudah">Sudah Kawin</option>
-                  <option value="Belum">Belum Kawin</option>
+                  <option value="Sudah Kawin">Sudah Kawin</option>
+                  <option value="Belum Kawin">Belum Kawin</option>
                 </select>
               </div>
               <div class="form-group">
@@ -104,12 +104,7 @@
               </div>
               <div class="form-group">
                 <label for="akta">Nomor Akta</label>
-                <input type="text" id="akta" name="akta" class="form-control" value="{{$data->akta}}" required>
-                @error('akta')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
+                <input type="text" id="akta" name="akta" class="form-control" value="{{$data->akta}}" required readonly>
               </div>
               <div class="form-group">
                 <label for="pam">Pengguna Pamsimas</label>

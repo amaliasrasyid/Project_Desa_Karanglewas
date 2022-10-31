@@ -54,9 +54,28 @@ class PendudukController extends Controller
 
     public function edit($id)
     {
-        $data = Penduduk::find($id)->first();
-
-        // dd($data);
+        $data = Penduduk::findOrFail($id);
         return view('penduduk.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nik' => 'required|min:16|unique:penduduks|numeric'
+        ]);
+        $user = User::findOrFail($id)->update([
+            'username' => $request->nik,
+        ]);
+
+        $data = Penduduk::where('user_id', $id)->update([
+            'nik' => $request->nik,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'agama' => $request->agama,
+            'pendidikan' => $request->pendidikan,
+            'pam' => $request->pam,
+        ]);
+        // dd($data);
+        return redirect()->route('penduduk.index')->with('success', 'Data Penduduk Berhasil Diubah');
     }
 }
