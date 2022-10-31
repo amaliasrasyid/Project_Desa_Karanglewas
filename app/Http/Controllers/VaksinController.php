@@ -38,4 +38,24 @@ class VaksinController extends Controller
 
         return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Disimpan');
     }
+
+    public function edit($id)
+    {
+        $data = Vaksin::findOrFail($id)->join('penduduks', 'vaksins.user_id', '=', 'penduduks.user_id')
+            ->select('vaksins.*', 'penduduks.nik', 'penduduks.nama', 'penduduks.alamat', 'penduduks.tptLahir', 'penduduks.tglLahir', 'penduduks.kelamin')
+            ->first();
+        // dd($data);
+        return view('vaksin.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = Vaksin::where('user_id', $id)->update([
+            'telpon' => $request->telepon,
+            'penyakit' => $request->penyakit,
+            'vaksin' => $request->vaksin,
+        ]);
+        // dd($request->all(), $id);
+        return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Diubah');
+    }
 }

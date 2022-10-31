@@ -28,45 +28,40 @@
       <div class="col-xl-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-body">
-            <form action="{{ route('vaksin.store') }}" method="post">
+            <form action="{{ route('vaksin.update', $data->user_id) }}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="nik">NIK</label>
-                <select id="nik" name="nik" class="form-control" required onchange="getData(this)">
-                  <option disabled selected>--Pilih NIK--</option>
-                  @foreach ($penduduk as $item)
-                  <option value="{{$item->user_id}}">{{$item->nik}} ({{$item->nama}})</option>
-                  @endforeach
-                </select>
+                <input type="text" id="nik" name="nik" class="form-control" value="{{$data->nik}}" disabled>
               </div>
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" id="nama" name="nama" class="form-control" disabled>
+                <input type="text" id="nama" name="nama" class="form-control" value="{{$data->nama}}" disabled>
               </div>
               <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" id="alamat" name="alamat" class="form-control" disabled>
+                <input type="text" id="alamat" name="alamat" class="form-control" value="{{$data->alamat}}" disabled>
               </div>
               <div class="form-group">
                 <label for="tempatLahir">Tempat Lahir</label>
-                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" disabled>
+                <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" value="{{$data->tptLahir}}" disabled>
               </div>
               <div class="form-group">
                 <label for="tanggalLahir">Tanggal Lahir</label>
-                <input type="text" id="tanggalLahir" name="tanggalLahir" class="form-control" disabled>
+                <input type="text" id="tanggalLahir" name="tanggalLahir" class="form-control" value="{{$data->tglLahir}}" disabled>
               </div>
               <div class="form-group">
                 <label for="jenisKelamin">Jenis Kelamin</label>
-                <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control" disabled>
+                <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control" value="{{$data->kelamin}}" disabled>
               </div>
               <div class="form-group">
                 <label for="telepon">Nomor Handphone</label>
-                <input type="text" id="telepon" name="telepon" class="form-control" required>
+                <input type="text" id="telepon" name="telepon" class="form-control" value="{{$data->telpon}}" required>
               </div>
               <div class="form-group">
                 <label for="penyakit">Riwayat Penyakit</label>
                 <select id="penyakit" name="penyakit" class="form-control" required>
-                  <option>--Pilih Riwayat Penyakit--</option>
+                  <option value="{{$data->penyakit}}" disabled selected>{{$data->penyakit}}</option>
                   <option value="Demam">Demam</option>
                   <option value="Jantung">Jantung</option>
                   <option value="Lupus">Lupus</option>
@@ -83,11 +78,19 @@
               <div class="form-group">
                 <label for="vaksin">Status Vaksin</label>
                 <select id="vaksin" name="vaksin" class="form-control" required>
-                  <option>--Pilih Status Vaksin--</option>
+                  @if ($data->vaksin == 0)
+                  <option value="0" selected disabled>Belum Vaksin</option>
+                  @elseif ($data->vaksin == 1)
+                  <option value="1" selected disabled>Vaksin 1</option>
+                  @elseif ($data->vaksin == 2)
+                  <option value="2" selected disabled>Vaksin 2</option>
+                  @else
+                  <option value="3" selected disabled>Vaksin 3</option>
+                  @endif
                   <option value="0">Belum Vaksin</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
+                  <option value="1">Vaksin 1</option>
+                  <option value="2">Vaksin 2</option>
+                  <option value="3">Vaksin 3</option>
                 </select>
               </div>
               <div class="text-center pt-1 pb-1">
