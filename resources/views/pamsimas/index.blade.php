@@ -87,7 +87,6 @@
                     </div>
                 </div>
             </div>
-            </div>
         @endif
 
         @if (Auth::user()->role == 'user')
@@ -215,7 +214,6 @@
                             </div>
                         </div>
                     </div>
-                    </div>
                 @endif
             @empty
                 <div class="section-header">
@@ -284,7 +282,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             @endforelse
         @endif
