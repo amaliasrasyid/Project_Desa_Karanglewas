@@ -33,4 +33,13 @@ class PamsimasController extends Controller
             return redirect()->route('pamsimas.index')->with('success', 'Data Pembayaran Pamsimas Berhasil Disimpan');
         }
     }
+
+    public function confirm($id)
+    {
+        $confirm = Pam::findOrFail($id)->update([
+            'status' => 'Sudah Bayar'
+        ]);
+
+        return redirect()->route('pamsimas.index')->with('success', 'Status Pembayaran Pamsimas Berhasil Diubah');
+    }
 }

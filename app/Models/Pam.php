@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Pam extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'bulan',
+        'tanggal',
+        'harga',
+        'status',
+    ];
 }

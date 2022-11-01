@@ -24,6 +24,11 @@
                             </div>
                             <div class="card-body p-0">
                                 <div class="col-xl-12 col-md-6 col-lg-6" style="overflow-x: auto">
+                                    @if ($message = Session::get('success'))
+                                        <div class="alert alert-success">
+                                            <p>{{ $message }}</p>
+                                        </div>
+                                    @endif
                                     <table class="table table-bordered" style="width:80rem">
                                         <tbody>
                                             <tr>
@@ -47,11 +52,14 @@
                                                     <td>{{ $item->harga }}</td>
                                                     <td>
                                                         @if ($item->status == 'Sudah Bayar')
-                                                            <div class="badge badge-pill badge-success mb-1 float-left">
-                                                                Sudah Bayar</div>
+                                                            <div class="badge badge-pill badge-success mb-1 float-right">
+                                                                Sudah Bayar
+                                                            </div>
                                                         @else
-                                                            <div class="badge badge-pill badge-danger mb-1 float-right">
-                                                                Belum Bayar</div>
+                                                            <div onclick="bayar({{ $item->id }})"
+                                                                class="badge badge-pill badge-danger mb-1 float-right">
+                                                                Belum Bayar
+                                                            </div>
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -296,10 +304,25 @@
     <script src="{{ asset('assets/js/page/components-table.js') }}"></script>
     <script>
         function calcTotal(bct) {
-            console.log(bct.target.value);
+            // console.log(bct.target.value);
             let pmk = bct.target.value;
             let total = parseInt(pmk) * 500;
             $('#harga').val(total);
+        }
+
+        function bayar(id) {
+            // console.log(id);
+            $.ajax({
+                method: 'GET',
+                url: '/pamsimas/paymentConfirmation/' + id,
+                cache: false,
+                data: {
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function() {
+                    window.location.href = `{{ route('pamsimas.index') }}`;
+                }
+            });
         }
     </script>
 @endpush

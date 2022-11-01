@@ -76,6 +76,7 @@ Route::group(['prefix' => 'umkm', 'as' => 'umkm.', 'middleware' => 'auth'], func
 Route::group(['prefix' => 'pamsimas', 'as' => 'pamsimas.', 'middleware' => 'auth'], function () {
     Route::get('/', [PamsimasController::class, 'index'])->name('index');
     Route::post('/store', [PamsimasController::class, 'store'])->name('store');
+    Route::get('/paymentConfirmation/{id}', [PamsimasController::class, 'confirm'])->name('confirm');
 });
 Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
     Route::get('/', [UserDashboardController::class, 'index'])->name('index');
