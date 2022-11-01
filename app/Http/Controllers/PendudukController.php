@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Penduduk;
 use App\Models\User;
+use App\Models\Vaksin;
 use Illuminate\Http\Request;
 
 class PendudukController extends Controller
@@ -45,7 +46,13 @@ class PendudukController extends Controller
             $data->pendidikan = $request->pendidikan;
             $data->akta = $request->akta;
             $data->pam = $request->pam;
-            $data->save();
+            // $data->save();
+
+            if ($data->save()) {
+                $vaksin = new Vaksin();
+                $vaksin->user_id = $user->id;
+                $vaksin->save();
+            }
         }
 
         return redirect()->route('penduduk.index')->with('success', 'Data Penduduk Berhasil Disimpan');

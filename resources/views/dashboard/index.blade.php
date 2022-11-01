@@ -173,10 +173,12 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-inline">Riwayat Pembayaran Pamsimas</h4>
-                    <div class="card-header-action">
-                        <a href="{{ route('pamsimas.index') }}" class="btn btn-primary">View More <i
-                                class="fas fa-chevron-right"></i></a>
-                    </div>
+                    @if (Auth::user()->role == 'admin')
+                        <div class="card-header-action">
+                            <a href="{{ route('pamsimas.index') }}" class="btn btn-primary">View More <i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-body" style="height:375px;overflow-y:scroll">
                     <ul class="list-unstyled list-unstyled-border">
