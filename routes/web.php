@@ -64,6 +64,7 @@ Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], 
     Route::post('/create', [VaksinController::class, 'store'])->name('store');
     Route::get('/edit/{id}', [VaksinController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [VaksinController::class, 'update'])->name('update');
+    Route::post('/destroy/{id}', [VaksinController::class, 'delete'])->name('destroy');
 });
 Route::group(['prefix' => 'umkm', 'as' => 'umkm.', 'middleware' => 'auth'], function () {
     Route::get('/', [UmkmController::class, 'index'])->name('index');
@@ -72,6 +73,9 @@ Route::group(['prefix' => 'umkm', 'as' => 'umkm.', 'middleware' => 'auth'], func
     Route::get('/mentah', [UmkmController::class, 'mentah'])->name('mentah.index');
     Route::get('/create', [UmkmController::class, 'create'])->name('create');
     Route::post('/create', [UmkmController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [UmkmController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [UmkmController::class, 'update'])->name('update');
+    Route::post('/destroy/{id}', [UmkmController::class, 'delete'])->name('destroy');
 });
 Route::group(['prefix' => 'pamsimas', 'as' => 'pamsimas.', 'middleware' => 'auth'], function () {
     Route::get('/', [PamsimasController::class, 'index'])->name('index');

@@ -78,4 +78,21 @@ class PendudukController extends Controller
         // dd($data);
         return redirect()->route('penduduk.index')->with('success', 'Data Penduduk Berhasil Diubah');
     }
+
+    public function delete($id)
+    {
+        // dd($id);
+        $data = Penduduk::findOrFail($id);
+        $user = User::findOrFail($data->user_id);
+        $data->delete();
+        $user->delete();
+
+        if ($data && $user) {
+            //redirect dengan pesan sukses
+            return redirect()->route('penduduk.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('penduduk.index')->with(['error' => 'Data Gagal Dihapus!']);
+        }
+    }
 }

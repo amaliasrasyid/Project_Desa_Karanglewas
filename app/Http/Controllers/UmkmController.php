@@ -71,4 +71,48 @@ class UmkmController extends Controller
             return redirect()->route('umkm.index')->with('success', 'Data UMKM Berhasil Disimpan');
         }
     }
+
+    public function edit($id)
+    {
+        // dd($id);
+        $data = Umkm::join('penduduks', 'umkms.user_id', '=', 'penduduks.user_id')
+            ->select('umkms.*', 'penduduks.nik', 'penduduks.nama')
+            ->first();
+
+        return view('umkm.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $productImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $productImage);
+            $request->image = "$productImage";
+        }
+
+        $data = Umkm::whereId($id)->update([
+            'lokasi' => $request->lokasi,
+            'produk' => $request->produk,
+            'harga' => $request->harga,
+            'satuan' => $request->satuan,
+            'gambar' => $request->image,
+        ]);
+        return redirect()->route('umkm.index')->with('success', 'Data UMKM Berhasil Diubah');
+    }
+
+    public function delete($id)
+    {
+        // dd($id);
+        $data = Umkm::findOrFail($id);
+        $data->delete();
+
+        if ($data) {
+            //redirect dengan pesan sukses
+            return redirect()->route('umkm.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('umkm.index')->with(['error' => 'Data Gagal Dihapus!']);
+        }
+    }
 }

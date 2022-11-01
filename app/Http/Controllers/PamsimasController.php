@@ -30,7 +30,7 @@ class PamsimasController extends Controller
         $pam->status = $request->statuspembayaran;
         // dd($pam);
         if ($pam->save()) {
-            return redirect()->route('pamsimas.index')->with('success', 'Data Pembayaran Pamsimas Berhasil Disimpan');
+            return redirect('https://api.whatsapp.com/send?phone=6281337575950&text=Halo%20Admin,%20saya%20ingin%20melakukan%20pembayaran%20pamsimas%20pada%20bulan%20' . $request->bulan);
         }
     }
 

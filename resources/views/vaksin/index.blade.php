@@ -85,13 +85,23 @@
                                                     </td>
                                                 @endif
                                                 <td>
-                                                    <a href="{{ route('vaksin.edit', $value->id) }}"
+                                                    {{-- <a href="{{ route('vaksin.edit', $value->id) }}"
                                                         class="btn btn-primary btn-action m-1" data-toggle="tooltip"
                                                         title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                                     <a class="btn btn-danger btn-action" data-toggle="tooltip"
                                                         title="Delete"
                                                         data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a> --}}
+                                                    <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                        action="{{ route('vaksin.destroy', $value->id) }}" method="POST">
+                                                        <a href="{{ route('vaksin.edit', $value->id) }}"
+                                                            class="btn btn-sm btn-primary"><i
+                                                                class="fas fa-pencil-alt"></i></a>
+                                                        @csrf
+                                                        @method('POST')
+                                                        <button type="submit" class="btn btn-sm btn-danger"><i
+                                                                class="fas fa-trash"></i></button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @empty

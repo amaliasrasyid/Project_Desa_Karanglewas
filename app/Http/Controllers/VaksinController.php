@@ -50,12 +50,26 @@ class VaksinController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = Vaksin::where('user_id', $id)->update([
+        $data = Vaksin::whereId($id)->update([
             'telpon' => $request->telepon,
             'penyakit' => $request->penyakit,
             'vaksin' => $request->vaksin,
         ]);
-        // dd($request->all(), $id);
         return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Diubah');
+    }
+
+    public function delete($id)
+    {
+        // dd($id);
+        $data = Vaksin::findOrFail($id);
+        $data->delete();
+
+        if ($data) {
+            //redirect dengan pesan sukses
+            return redirect()->route('vaksin.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('vaksin.index')->with(['error' => 'Data Gagal Dihapus!']);
+        }
     }
 }
