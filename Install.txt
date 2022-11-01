@@ -1,0 +1,20 @@
+Cara Install :
+
+- clone/download project neng github
+- bukak project neng vs code
+- bukak terminal neng vs code
+
+//copy file example env jadi file env
+cp .env.example .env
+//install composer
+composer install
+//setting nama db
+setting db di env
+//migrasi database lokal & seeding data user
+php artisan migrate --seed
+//install node_modules
+npm i
+//eksekusi dan implement node_modules
+npm run dev
+//menjalankan program
+php artisan serve
