@@ -15,7 +15,10 @@ class DashboardController extends Controller
         $perempuan = Penduduk::where('kelamin', 'perempuan')->count();
         $vaksin = Penduduk::join('vaksins', 'penduduks.user_id', '=', 'vaksins.user_id')->where('vaksins.vaksin', '>', '0')->count();
 
-        return view('dashboard.index', compact('penduduk', 'laki', 'perempuan', 'vaksin'));
+        $dataVaksin = Penduduk::join('vaksins', 'vaksins.user_id', '=', 'penduduks.user_id')->select('vaksins.*', 'penduduks.nama')->latest()->get();
+        $dataPamsimas = Penduduk::join('pams', 'penduduks.user_id', '=', 'pams.user_id')->select('pams.*', 'penduduks.nama')->latest()->get();
+        // dd($dataPamsimas);
+        return view('dashboard.index', compact('penduduk', 'laki', 'perempuan', 'vaksin', 'dataVaksin', 'dataPamsimas'));
     }
 
     public function getData($user_id)
