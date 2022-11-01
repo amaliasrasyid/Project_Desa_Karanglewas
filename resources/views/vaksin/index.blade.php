@@ -78,13 +78,13 @@
                                                                 class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
+                                            @empty
+                                                <div class="alert alert-danger">
+                                                    Data Vaksin belum Tersedia.
+                                                </div>
+                                            @endif
                                         </tbody>
                                     </table>
-                                @empty
-                                    <div class="alert alert-danger">
-                                        Data Vaksin belum Tersedia.
-                                    </div>
-                                    @endif
                                 </div>
                                 <div class="card-footer text-right">
                                     <nav class="d-inline-block">
@@ -109,6 +109,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </section>
 @endsection
 
