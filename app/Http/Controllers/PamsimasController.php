@@ -16,8 +16,14 @@ class PamsimasController extends Controller
             ->latest()
             ->paginate(10);
         $penduduk = Penduduk::where('user_id', Auth::user()->id)->first();
-        // dd($penduduk);
-        return view('pamsimas.index', compact('pamsimas', 'penduduk'))->with('i', (request()->input('page', 1) - 1) * 10);
+
+        $data = Pam::join('penduduks', 'pams.user_id', '=', 'penduduks.user_id')
+            ->select('pams.*', 'penduduks.nik', 'penduduks.nama', 'penduduks.alamat')
+            ->where('pams.user_id', Auth::user()->id)
+            ->latest()
+            ->first();
+        // dd($data);
+        return view('pamsimas.index', compact('pamsimas', 'penduduk', 'data'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function store(Request $request)
