@@ -22,13 +22,6 @@ class AccountSeeder extends Seeder
                 'role' => 'admin',
                 'password' => bcrypt('123456'),
             ],
-            [
-                'name' => 'ini akun User',
-                'username' => 'user',
-                'email' => 'user@example.com',
-                'role' => 'user',
-                'password' => bcrypt('123456'),
-            ],
         ];
 
         foreach ($user as $key => $value) {
