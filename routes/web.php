@@ -12,6 +12,7 @@ use App\Http\Controllers\JadiController;
 use App\Http\Controllers\SetjadiController;
 use App\Http\Controllers\MentahController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Models\Penduduk;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,7 @@ Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth
     Route::post('/create', [PendudukController::class, 'store'])->name('store');
     Route::get('/edit/{id}', [PendudukController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [PendudukController::class, 'update'])->name('update');
+    Route::post('/destroy/{id}', [PendudukController::class, 'delete'])->name('destroy');
 });
 Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], function () {
     Route::get('/', [VaksinController::class, 'index'])->name('index');
