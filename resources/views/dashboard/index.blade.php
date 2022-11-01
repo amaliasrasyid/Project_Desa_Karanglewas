@@ -94,26 +94,30 @@
                                 </div>
                                 <div class="author-box-details">
                                     <div class="author-box-name">
-                                        <a href="#">Nama</a>
+                                        {{ $data->nama }}
                                     </div>
-                                    <div class="author-box-job">NIK</div>
+                                    <div class="author-box-job">{{ $data->nik }}</div>
                                     <div class="author-box-description">
                                         <table class="table table-striped">
                                             <tr>
                                                 <th>Tanggal Lahir</th>
-                                                <td>17-05-1945</td>
+                                                <td>{{ $data->tglLahir }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Alamat</th>
-                                                <td>RT 02 / RW 12</td>
+                                                <td>{{ $data->alamat }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Pengguna Pamsimas</th>
-                                                <td>Ya</td>
+                                                <td>{{ $data->pam }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Status Vaksin</th>
-                                                <td>Vaksin 2</td>
+                                                @if ($data->vaksin == 0)
+                                                    <td class="text-danger">Belum Vaksin</td>
+                                                @elseif ($data->vaksin >= 1)
+                                                    <td class="text-success">Sudah Vaksin</td>
+                                                @endif
                                             </tr>
                                         </table>
                                     </div>
