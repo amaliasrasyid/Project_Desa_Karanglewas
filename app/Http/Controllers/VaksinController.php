@@ -28,7 +28,7 @@ class VaksinController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $data = new Vaksin();
         $data->user_id = $request->nik;
         $data->telpon = $request->telepon;
