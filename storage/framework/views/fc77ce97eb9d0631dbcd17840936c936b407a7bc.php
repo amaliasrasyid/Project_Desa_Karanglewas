@@ -2,7 +2,7 @@
 
 
 <?php $__env->startPush('plugins_css'); ?>
-<link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
+<link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startSection('title', 'Login'); ?>
@@ -15,6 +15,8 @@
         <img src="../assets/img/Desa.png" alt="logo" width="180" ></div>
       <div class="p-4 m-3">
         <p class="text-muted">Sebelum memulai, Anda harus login atau mendaftar jika Anda belum memiliki akun.</p>
+
+        <!-- Kiye fungsi nggo login -->
         <form method="POST" action="<?php echo e(route('login.process')); ?>" class="needs-validation" novalidate="">
             <?php echo csrf_field(); ?>
             <div class="form-group">
