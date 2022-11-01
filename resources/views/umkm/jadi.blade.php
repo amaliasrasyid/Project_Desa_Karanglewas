@@ -28,7 +28,7 @@
               <p>{{$item->lokasi}}</p>
               <p>Rp. {{$item->harga}}.-</p>
               <div class="article-cta">
-                <a href="#" class="btn btn-primary">Beli</a>
+                <a href="#" class="btn btn-primary">Beli Sekarang</a>
               </div>
             </div>
           </article>

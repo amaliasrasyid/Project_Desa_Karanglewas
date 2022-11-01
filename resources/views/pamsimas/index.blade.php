@@ -143,7 +143,19 @@
                                                         </tr>
                                                         <tr>
                                                             <th>Status Pembayaran</th>
-                                                            <td>{{ $item->status }}</td>
+                                                            <td>
+                                                                @if ($item->status == 'Sudah Bayar')
+                                                                    <div
+                                                                        class="badge badge-pill badge-success mb-1 float-center">
+                                                                        Sudah Bayar
+                                                                    </div>
+                                                                @else
+                                                                    <div
+                                                                        class="badge badge-pill badge-danger mb-1 float-center">
+                                                                        Belum Bayar
+                                                                    </div>
+                                                                @endif
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                 </div>
