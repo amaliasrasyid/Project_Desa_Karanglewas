@@ -9,29 +9,36 @@ use Illuminate\Http\Request;
 
 class PendudukController extends Controller
 {
+    // nampilna tampilan tabel penduduk nggo admin
     public function index()
     {
+        // ngambil seluruh data sekang database
         $penduduk = Penduduk::latest()->paginate(10);
         return view('penduduk.index', compact('penduduk'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
+    // nampilna tampilan form input penduduk
     public function create()
     {
         return view('penduduk.create');
     }
 
+    // simpan data penduduk
     public function store(Request $request)
     {
+        // validasi data nik karo akta
         $request->validate([
             'nik' => 'required|min:16|unique:penduduks|numeric',
             'akta' => 'required|numeric|unique:penduduks',
         ]);
+        // buat user baru untuk penduduk
         $user = new User();
         $user->name = $request->nama;
         $user->username = $request->nik;
         $user->password = bcrypt('123456');
         $user->role = 'user';
 
+        // nek user di simpan maka buat data penduduk baru, sesuai sing di input ng form input penduduk
         if ($user->save()) {
             $data = new Penduduk();
             $data->nik = $request->nik;
@@ -48,6 +55,7 @@ class PendudukController extends Controller
             $data->pam = $request->pam;
             // $data->save();
 
+            // jika data penduduk disimpan otomatis generate data vaksin nggo penduduk
             if ($data->save()) {
                 $vaksin = new Vaksin();
                 $vaksin->user_id = $user->id;
@@ -59,12 +67,14 @@ class PendudukController extends Controller
         // dd($request->all());
     }
 
+    // nampilna tanpilan form edit sesuai data sing dipilih
     public function edit($id)
     {
         $data = Penduduk::findOrFail($id);
         return view('penduduk.edit', compact('data'));
     }
 
+    // meng update data penduduk
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -86,6 +96,7 @@ class PendudukController extends Controller
         return redirect()->route('penduduk.index')->with('success', 'Data Penduduk Berhasil Diubah');
     }
 
+    // hapus data penduduk
     public function delete($id)
     {
         // dd($id);

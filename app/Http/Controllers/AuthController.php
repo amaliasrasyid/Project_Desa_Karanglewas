@@ -7,11 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    // fungsi nggo login
     public function index()
     {
         if ($user = Auth::user()) {
+            // nek user ws login cek apakah role e admin?, nek admin di tampilna tampilan nggo admin
             if ($user->role == 'admin') {
                 return redirect()->route('admin.index');
+                // cek user login nek role e user ditampilna tampilan nggo user
             } elseif ($user->role == 'user') {
                 return redirect()->route('user.index');
             }
@@ -19,6 +22,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    // proses login
     public function process(Request $request)
     {
         $credentials = $request->validate([
@@ -38,6 +42,7 @@ class AuthController extends Controller
         return redirect('login')->withInput()->withErrors(['login_failed' => 'These credentials do not match our records.']);
     }
 
+    // fungsi logout
     public function logout(Request $request)
     {
         $request->session()->flush();
