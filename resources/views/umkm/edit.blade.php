@@ -1,4 +1,7 @@
+{{-- manggil file tampilan master ng folder layout --}}
 @extends('layouts.master')
+
+{{-- push plugin_css page ming tampilan layout master --}}
 @push('plugins_css')
     <link rel="stylesheet" href="node_modules/bootstrap-daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
@@ -8,8 +11,11 @@
     <link rel="stylesheet" href="node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
 @endpush
 
+{{-- send nama page --}}
 @section('title', 'Edit Umkm')
+{{-- send nama aplikasi --}}
 @section('appName', 'Web Desa')
+{{-- send tampilan form edit umkm --}}
 @section('content')
     <section class="section">
         <div class="section-header">

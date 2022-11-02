@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class UmkmController extends Controller
 {
+    //nampilna tabel umkm sekang database
     public function index()
     {
         $umkms = Umkm::join('penduduks', 'umkms.user_id', '=', 'penduduks.user_id')
@@ -18,24 +19,28 @@ class UmkmController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    //nampilna data umkm kategori jadi
     public function jadi()
     {
         $umkms = Umkm::where('kategori', 'Jadi')->get();
         return view('umkm.jadi', compact('umkms'));
     }
 
+    //nampilna data umkm kategori setengah jadi
     public function setJadi()
     {
         $umkms = Umkm::where('kategori', 'Setengah Jadi')->get();
         return view('umkm.setengahjadi', compact('umkms'));
     }
 
+    //nampilna data umkm kategori mentah
     public function mentah()
     {
         $umkms = Umkm::where('kategori', 'Mentah')->get();
         return view('umkm.mentah', compact('umkms'));
     }
 
+    // nampilna form tambah data umkm
     public function create()
     {
 
@@ -43,18 +48,14 @@ class UmkmController extends Controller
         return view('umkm.create', compact('penduduk'));
     }
 
+    // input data umkm
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
-        // ]);
-
         if ($image = $request->file('image')) {
             $destinationPath = 'images/';
             $productImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $productImage);
             $request->image = "$productImage";
-            // dd($request->image);
         }
 
         $umkm = new Umkm();
@@ -65,16 +66,15 @@ class UmkmController extends Controller
         $umkm->gambar = $request->image;
         $umkm->harga = $request->harga;
         $umkm->satuan = $request->satuan;
-        // dd($umkm);
 
         if ($umkm->save()) {
             return redirect()->route('umkm.index')->with('success', 'Data UMKM Berhasil Disimpan');
         }
     }
 
+    // nampilna form edit data umkm sing dipilih
     public function edit($id)
     {
-        // dd($id);
         $data = Umkm::join('penduduks', 'umkms.user_id', '=', 'penduduks.user_id')
             ->select('umkms.*', 'penduduks.nik', 'penduduks.nama')
             ->first();
@@ -82,6 +82,7 @@ class UmkmController extends Controller
         return view('umkm.edit', compact('data'));
     }
 
+    // nyimpen perubahan data umkm sing dipilih
     public function update(Request $request, $id)
     {
         if ($image = $request->file('image')) {
@@ -101,9 +102,9 @@ class UmkmController extends Controller
         return redirect()->route('umkm.index')->with('success', 'Data UMKM Berhasil Diubah');
     }
 
+    // hapus data umkm sing dipilih
     public function delete($id)
     {
-        // dd($id);
         $data = Umkm::findOrFail($id);
         $data->delete();
 

@@ -1,7 +1,11 @@
+{{-- manggil file tampilan master ng folder layout --}}
 @extends('layouts.master')
 
+{{-- send nama page --}}
 @section('title', 'Penduduk')
+{{-- send nama aplikasi --}}
 @section('appName', 'Website Desa')
+{{-- send tampilan penduduk --}}
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -14,7 +18,6 @@
         <div class="section-body">
             <h2 class="section-title">Tabel Data Penduduk Desa Karanglewas</h2>
             <p class="section-lead">Example of some Bootstrap table components.</p>
-
             <div class="row">
                 <div class="col-xl-12 col-md-6 col-lg-6">
                     <div class="card">
@@ -64,13 +67,6 @@
                                                 <td>{{ $value->akta }}</td>
                                                 <td>{{ $value->pam }}</td>
                                                 <td>
-                                                    {{-- <a href="{{ route('penduduk.edit', $value->id) }}"
-                                                        class="btn btn-primary btn-action m-1" data-toggle="tooltip"
-                                                        title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-action"
-                                                        data-toggle="tooltip" title="Delete"
-                                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a> --}}
                                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                         action="{{ route('penduduk.destroy', $value->id) }}"
                                                         method="POST">
@@ -94,6 +90,10 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 @endsection
 

@@ -1,4 +1,7 @@
+{{-- manggil file tampilan master ng folder layout --}}
 @extends('layouts.master')
+
+{{-- push plugin_css page ming tampilan layout master --}}
 @push('plugins_css')
     <link rel="stylesheet" href="node_modules/bootstrap-daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
@@ -8,8 +11,11 @@
     <link rel="stylesheet" href="node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
 @endpush
 
+{{-- send nama page --}}
 @section('title', 'Edit Vaksin')
+{{-- send nama aplikasi --}}
 @section('appName', 'Website Desa')
+{{-- send tampilan form edit vaksin --}}
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -21,9 +27,6 @@
         </div>
 
         <div class="section-body">
-            {{-- <h2 class="section-title">Advanced Forms</h2>
-    <p class="section-lead">We provide advanced input fields, such as date picker, color picker, and so on.</p> --}}
-
             <div class="row">
                 <div class="col-xl-12 col-md-6 col-lg-6">
                     <div class="card">

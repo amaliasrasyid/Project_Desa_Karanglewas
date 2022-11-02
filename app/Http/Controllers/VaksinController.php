@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 
 class VaksinController extends Controller
 {
+    // nampilna tabel vaksin sekang database
     public function index()
     {
         $vaksin = Vaksin::join('penduduks', 'vaksins.user_id', '=', 'penduduks.user_id')
             ->select('vaksins.*', 'penduduks.nik', 'penduduks.nama', 'penduduks.alamat', 'penduduks.tptLahir', 'penduduks.tglLahir', 'penduduks.kelamin')
             ->latest()
             ->paginate(10);
-        // dd($vaksin);
-        // , compact('vaksin'))->with('i', (request()->input('page', 1) - 1) * 10
         return view('vaksin.index', compact('vaksin'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
+    // nampilna form tamabah data vaksin
     public function create()
     {
         $penduduk = Penduduk::latest()->get();
@@ -26,9 +26,9 @@ class VaksinController extends Controller
         return view('vaksin.create', compact('penduduk'));
     }
 
+    // nyimpen data vaksin sing ws di input
     public function store(Request $request)
     {
-        // dd($request->all());
         $data = new Vaksin();
         $data->user_id = $request->nik;
         $data->telpon = $request->telepon;
@@ -39,15 +39,16 @@ class VaksinController extends Controller
         return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Disimpan');
     }
 
+    // nampilna form edit data vaksin sing dipilih
     public function edit($id)
     {
         $data = Vaksin::findOrFail($id)->join('penduduks', 'vaksins.user_id', '=', 'penduduks.user_id')
             ->select('vaksins.*', 'penduduks.nik', 'penduduks.nama', 'penduduks.alamat', 'penduduks.tptLahir', 'penduduks.tglLahir', 'penduduks.kelamin')
             ->first();
-        // dd($data);
         return view('vaksin.edit', compact('data'));
     }
 
+    // nyimpen data vaksin sing ws di ubah
     public function update(Request $request, $id)
     {
         $data = Vaksin::whereId($id)->update([
@@ -58,9 +59,9 @@ class VaksinController extends Controller
         return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Diubah');
     }
 
+    // hapus data vaksin sing dipilih
     public function delete($id)
     {
-        // dd($id);
         $data = Vaksin::findOrFail($id);
         $data->delete();
 

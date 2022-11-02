@@ -1,9 +1,14 @@
+{{-- manggil file tampilan master ng folder layout --}}
 @extends('layouts.master')
 
+{{-- send nama page --}}
 @section('title', 'Bahan Jadi')
+{{-- send nama aplikasi --}}
 @section('appName', 'Website Desa')
+{{-- send tampilan umkm --}}
 @section('content')
     <section class="section">
+        {{-- tampilan nggo admin --}}
         @if (Auth::user()->role == 'admin')
             <div class="section-header">
                 <h1>Usaha Mikro Kecil Dan Menengah (UMKM)</h1>
@@ -21,6 +26,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4>Overview</h4>
+                                {{-- tambah produk nggo admin --}}
                                 @if (Auth()->user()->role == 'admin')
                                     <div class="card-header-action">
                                         <a href="{{ route('umkm.create') }}" class="btn btn-icon icon-left btn-primary"><i
@@ -64,14 +70,6 @@
                                                     <td>{{ $item->harga }}</td>
                                                     <td>{{ $item->satuan }}</td>
                                                     <td>
-                                                        {{-- <a href="{{ route('umkm.edit', $item->id) }}"
-                                                            class="btn btn-primary btn-action m-1" data-toggle="tooltip"
-                                                            title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                                                        <a class="btn btn-danger btn-action" data-toggle="tooltip"
-                                                            title="Delete"
-                                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                                            data-confirm-yes="alert('Deleted')"><i
-                                                                class="fas fa-trash"></i></a> --}}
                                                         <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                             action="{{ route('umkm.destroy', $item->id) }}" method="POST">
                                                             <a href="{{ route('umkm.edit', $item->id) }}"
@@ -117,89 +115,6 @@
                 </div>
             </div>
         @endif
-
-        {{-- @if (Auth::user()->role == 'user')
-  <div class="section-header">
-    <h1>Dukung UMKM Desa Karanglewas</h1>
-    <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item">UMKM</div>
-    </div>
-  </div>
-
-  <div class="section-body">
-    <h2 class="section-title">Produk UMKM Desa Karanglewas</h2>
-    <p class="section-lead">Example of some Bootstrap table components.</p>
-
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-        <article class="article">
-          <div class="article-header">
-            <div class="article-image" data-background="../assets/img/news/img08.jpg">
-            </div>
-          </div>
-          <div class="article-details">
-            <p>Ayam Gepuk Pak Gembus</p>
-            <p>RT 02/ RW 12, Dekat kantor pos</p>
-            <p>Rp. 15.000.-</p>
-            <div class="article-cta">
-              <a href="#" class="btn btn-primary">Beli</a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-        <article class="article">
-          <div class="article-header">
-            <div class="article-image" data-background="../assets/img/news/img04.jpg">
-            </div>
-          </div>
-          <div class="article-details">
-          <p>Ayam Gepuk Pak Gembus</p>
-            <p>RT 02/ RW 12, Dekat kantor pos</p>
-            <p>Rp. 15.000.-</p>
-            <div class="article-cta">
-              <a href="#" class="btn btn-primary">Beli</a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-        <article class="article">
-          <div class="article-header">
-            <div class="article-image" data-background="../assets/img/news/img09.jpg">
-            </div>
-          </div>
-          <div class="article-details">
-          <p>Ayam Gepuk Pak Gembus</p>
-            <p>RT 02/ RW 12, Dekat kantor pos</p>
-            <p>Rp. 15.000.-</p>
-            <div class="article-cta">
-              <a href="#" class="btn btn-primary">Beli</a>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-        <article class="article">
-          <div class="article-header">
-            <div class="article-image" data-background="../assets/img/news/img12.jpg">
-            </div>
-          </div>
-          <div class="article-details">
-          <p>Ayam Gepuk Pak Gembus</p>
-            <p>RT 02/ RW 12, Dekat kantor pos</p>
-            <p>Rp. 15.000.-</p>
-            <div class="article-cta">
-              <a href="#" class="btn btn-primary">Beli</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-  </div>
-
-  @endif --}}
     </section>
 @endsection
 

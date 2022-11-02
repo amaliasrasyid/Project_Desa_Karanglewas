@@ -1,4 +1,7 @@
+{{-- manggil file tampilan master ng folder layout --}}
 @extends('layouts.master')
+
+{{-- push plugin_css page ming tampilan layout master --}}
 @push('plugins_css')
     <link rel="stylesheet" href="node_modules/jqvmap/dist/jqvmap.min.css">
     <link rel="stylesheet" href="node_modules/summernote/dist/summernote-bs4.css">
@@ -6,9 +9,13 @@
     <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
 @endpush
 
+{{-- send nama page --}}
 @section('title', 'Dashboard')
+{{-- send nama aplikasi --}}
 @section('appName', 'Website Desa')
+{{-- send tampilan dashboard --}}
 @section('content')
+    {{-- tampilan global --}}
     <section class="section">
         <div class="section-header">
             <h1>Dashboard</h1>
@@ -75,7 +82,7 @@
                 </div>
             </div>
         </div>
-
+        {{-- tampilan nggo user --}}
         @if (Auth::user()->role == 'user')
             <div class="row">
                 <div class="col-12 col-sm-12 col-lg-6">
@@ -127,6 +134,8 @@
                     </div>
                 </div>
         @endif
+
+        {{-- tampilan nggo admin --}}
         @if (Auth::user()->role == 'admin')
             <div class="row">
                 <div class="col-12 col-sm-12 col-lg-6">
@@ -146,6 +155,7 @@
                                         <th>Status</th>
                                         <th>Riwayat Penyakit</th>
                                     </tr>
+                                    {{-- nampilna data vaksin --}}
                                     @forelse ($dataVaksin as $item)
                                         <tr>
                                             <td class="font-weight-600">{{ $item->nama }}</td>
@@ -158,6 +168,7 @@
                                             </td>
                                             <td>{{ $item->penyakit }}</td>
                                         </tr>
+                                        {{-- nek data vaksin urung ana --}}
                                     @empty
                                         <tr class="text-danger">
                                             Data Belum Tersedia
@@ -173,6 +184,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-inline">Riwayat Pembayaran Pamsimas</h4>
+                    {{-- nampilna tombol view more nggo admin --}}
                     @if (Auth::user()->role == 'admin')
                         <div class="card-header-action">
                             <a href="{{ route('pamsimas.index') }}" class="btn btn-primary">View More <i
@@ -182,6 +194,7 @@
                 </div>
                 <div class="card-body" style="height:375px;overflow-y:scroll">
                     <ul class="list-unstyled list-unstyled-border">
+                        {{-- nampilna data pamsimas global --}}
                         @forelse ($dataPamsimas as $item)
                             <li class="media">
                                 <div class="media-body">
@@ -196,6 +209,7 @@
                                     </div>
                                 </div>
                             </li>
+                            {{-- nek data pamsimas urung ana --}}
                         @empty
                             <li>
                                 <h1 class="text-danger">Data Belum Tersedia</h1>

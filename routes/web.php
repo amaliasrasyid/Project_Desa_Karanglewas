@@ -38,20 +38,33 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// route login
 Route::get('/login', [AuthController::class, 'index'])->name('login.index');
 Route::post('/login', [AuthController::class, 'process'])->name('login.process');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout.logout');
 
+// route admin
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'login_check:admin']], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
     Route::get('/getData/{user_id}', [AdminDashboardController::class, 'getData'])->name('data');
 });
+
+// route user
+Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
+    Route::get('/', [UserDashboardController::class, 'index'])->name('index');
+});
+
+// route profile
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => 'auth'], function () {
     Route::get('/', [ProfileController::class, 'index'])->name('index');
 });
+
+// route struktur
 Route::group(['prefix' => 'struktur', 'as' => 'struktur.', 'middleware' => 'auth'], function () {
     Route::get('/', [StrukturController::class, 'index'])->name('index');
 });
+
+// route penduduk
 Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth'], function () {
     Route::get('/', [PendudukController::class, 'index'])->name('index');
     Route::get('/create', [PendudukController::class, 'create'])->name('create');
@@ -60,6 +73,8 @@ Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth
     Route::post('/update/{id}', [PendudukController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [PendudukController::class, 'delete'])->name('destroy');
 });
+
+// route vaksin
 Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], function () {
     Route::get('/', [VaksinController::class, 'index'])->name('index');
     Route::get('/create', [VaksinController::class, 'create'])->name('create');
@@ -68,6 +83,8 @@ Route::group(['prefix' => 'vaksin', 'as' => 'vaksin.', 'middleware' => 'auth'], 
     Route::post('/update/{id}', [VaksinController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [VaksinController::class, 'delete'])->name('destroy');
 });
+
+// route umkm
 Route::group(['prefix' => 'umkm', 'as' => 'umkm.', 'middleware' => 'auth'], function () {
     Route::get('/', [UmkmController::class, 'index'])->name('index');
     Route::get('/jadi', [UmkmController::class, 'jadi'])->name('jadi.index');
@@ -79,11 +96,10 @@ Route::group(['prefix' => 'umkm', 'as' => 'umkm.', 'middleware' => 'auth'], func
     Route::post('/update/{id}', [UmkmController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [UmkmController::class, 'delete'])->name('destroy');
 });
+
+// route pamsimas
 Route::group(['prefix' => 'pamsimas', 'as' => 'pamsimas.', 'middleware' => 'auth'], function () {
     Route::get('/', [PamsimasController::class, 'index'])->name('index');
     Route::post('/store', [PamsimasController::class, 'store'])->name('store');
     Route::get('/paymentConfirmation/{id}', [PamsimasController::class, 'confirm'])->name('confirm');
-});
-Route::group(['as' => 'user.', 'middleware' => ['auth', 'login_check:user']], function () {
-    Route::get('/', [UserDashboardController::class, 'index'])->name('index');
 });

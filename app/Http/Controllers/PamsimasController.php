@@ -24,6 +24,7 @@ class PamsimasController extends Controller
         $data = Pam::join('penduduks', 'pams.user_id', '=', 'penduduks.user_id')
             ->select('pams.*', 'penduduks.nik', 'penduduks.nama', 'penduduks.alamat')
             ->where('pams.user_id', Auth::user()->id)
+            // ->whereNotNull('pams.bulan')
             ->latest()
             ->first();
         // dd($data);
