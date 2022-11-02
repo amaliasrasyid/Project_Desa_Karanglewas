@@ -63,6 +63,7 @@ class UmkmController extends Controller
         $umkm->lokasi = $request->lokasi;
         $umkm->kategori = $request->kategori;
         $umkm->produk = $request->produk;
+        $umkm->telpon = $request->telpon;
         $umkm->gambar = $request->image;
         $umkm->harga = $request->harga;
         $umkm->satuan = $request->satuan;
@@ -95,6 +96,7 @@ class UmkmController extends Controller
         $data = Umkm::whereId($id)->update([
             'lokasi' => $request->lokasi,
             'produk' => $request->produk,
+            'telpon' => $request->telpon,
             'harga' => $request->harga,
             'satuan' => $request->satuan,
             'gambar' => $request->image,

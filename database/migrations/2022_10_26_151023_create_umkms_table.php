@@ -19,6 +19,7 @@ class CreateUmkmsTable extends Migration
             $table->string('lokasi');
             $table->string('kategori');
             $table->string('produk');
+            $table->string('telpon');
             $table->string('gambar');
             $table->string('harga');
             $table->string('satuan');

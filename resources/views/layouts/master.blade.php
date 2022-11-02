@@ -23,9 +23,7 @@
 <body>
     <div id="app">
         {{-- nek page set content_2 panggil page --}}
-        @hasSection
-
-            ('content_2')
+        @hasSection('content_2')
             @yield('content_2')
         @else
             <div class="main-wrapper">

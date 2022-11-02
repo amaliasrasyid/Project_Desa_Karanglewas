@@ -86,6 +86,10 @@
                                     <input type="text" id="produk" name="produk" class="form-control" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="telpon">Nomor telepon / WA</label>
+                                    <input type="text" id="telpon" name="telpon" class="form-control" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="harga">Harga</label>
                                     <input type="text" id="harga" name="harga" class="form-control" required>
                                 </div>
