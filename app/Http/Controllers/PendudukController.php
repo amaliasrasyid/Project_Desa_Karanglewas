@@ -26,10 +26,9 @@ class PendudukController extends Controller
     // simpan data penduduk
     public function store(Request $request)
     {
-        // validasi data nik karo akta
+        // validasi data nik
         $request->validate([
             'nik' => 'required|min:16|unique:penduduks|numeric',
-            'akta' => 'required|numeric|unique:penduduks',
         ]);
         // buat user baru untuk penduduk
         $user = new User();

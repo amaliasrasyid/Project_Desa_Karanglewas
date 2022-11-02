@@ -43,7 +43,8 @@ class PamsimasController extends Controller
         // dd($pam);
         // nek data disimpan direct wa ke nomor admin
         if ($pam->save()) {
-            return redirect('https://api.whatsapp.com/send?phone=6281337575950&text=Halo%20Admin,%20saya%20ingin%20melakukan%20pembayaran%20pamsimas%20pada%20bulan%20' . $request->bulan);
+            //ganti nomor telepon sesuai dengan nomor admiin
+            return redirect('https://api.whatsapp.com/send?phone=(ganti nomor telepon disini, pakai format 62, hilangkan kurung)&text=Halo%20Admin,%20saya%20ingin%20melakukan%20pembayaran%20pamsimas%20pada%20bulan%20' . $request->bulan);
         }
     }
 
