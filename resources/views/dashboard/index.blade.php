@@ -138,9 +138,9 @@
                                         class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive table-invoice">
-                                <table class="table table-striped">
+                        <div class="card-body" style="height:375px;overflow-y:scroll">
+                            <div class="list-unstyled list-unstyled-border">
+                                <table class="table table-striped" style="width:32rem">
                                     <tr>
                                         <th>Nama</th>
                                         <th>Status</th>
