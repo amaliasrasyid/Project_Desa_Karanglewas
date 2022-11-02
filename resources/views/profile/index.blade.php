@@ -30,15 +30,6 @@
             <p>Kode Kemedagri: 33.02.18</p>
             <p>Luas: 32,48 km²</p>
             </div>
-            <div class="article-user">
-              <img alt="image" src="../assets/img/avatar/avatar-1.png">
-              <div class="article-user-details">
-                <div class="user-detail-name">
-                  <a href="#">Hasan Basri</a>
-                </div>
-                <div class="text-job">Web Developer</div>
-              </div>
-            </div>
           </div>
         </article>
       </div>
