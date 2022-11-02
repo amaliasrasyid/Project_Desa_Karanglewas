@@ -18,3 +18,11 @@ npm i
 npm run dev
 //menjalankan program
 php artisan serve
+
+//Admin
+username: admin
+password: 123456
+
+//User 
+username: nik
+password:123456
