@@ -84,7 +84,7 @@
                   <option value="Jantung">Jantung</option>
                   <option value="Lupus">Lupus</option>
                   <option value="Positif Covid-19">Positif Covid-19</option>
-                  <option value="Alergi Parah Setelah Dosis Pertama">Alergi Parah Setelah Dosis Pertama</option>
+                  <option value="Alergi Parah Setelah Dosis Pertama">Alergi Dosis Pertama</option>
                   <option value="Pembekuan Darah">Pembekuan Darah</option>
                   <option value="Darah Tinggi">Darah Tinggi</option>
                   <option value="Kanker">Kanker</option>
