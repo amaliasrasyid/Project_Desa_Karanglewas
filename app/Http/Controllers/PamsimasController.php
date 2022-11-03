@@ -51,7 +51,7 @@ class PamsimasController extends Controller
     // konfirmasi pembayaran ng admin
     public function confirm($id)
     {
-        $confirm = Pam::findOrFail($id)->update([
+        $confirm = Pam::whereId($id)->update([
             'status' => 'Sudah Bayar'
         ]);
 

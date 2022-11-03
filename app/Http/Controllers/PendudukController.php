@@ -69,7 +69,7 @@ class PendudukController extends Controller
     // nampilna tanpilan form edit sesuai data sing dipilih
     public function edit($id)
     {
-        $data = Penduduk::findOrFail($id);
+        $data = Penduduk::whereId($id);
         return view('penduduk.edit', compact('data'));
     }
 
@@ -79,7 +79,7 @@ class PendudukController extends Controller
         $request->validate([
             'nik' => 'required|min:16|unique:penduduks|numeric'
         ]);
-        $user = User::findOrFail($id)->update([
+        $user = User::whereId($id)->update([
             'username' => $request->nik,
         ]);
 
@@ -99,8 +99,8 @@ class PendudukController extends Controller
     public function delete($id)
     {
         // dd($id);
-        $data = Penduduk::findOrFail($id);
-        $user = User::findOrFail($data->user_id);
+        $data = Penduduk::whereId($id);
+        $user = User::whereId($data->user_id);
         $data->delete();
         $user->delete();
 

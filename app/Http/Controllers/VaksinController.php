@@ -42,8 +42,9 @@ class VaksinController extends Controller
     // nampilna form edit data vaksin sing dipilih
     public function edit($id)
     {
-        $data = Vaksin::findOrFail($id)->join('penduduks', 'vaksins.user_id', '=', 'penduduks.user_id')
+        $data = Vaksin::join('penduduks', 'vaksins.user_id', '=', 'penduduks.user_id')
             ->select('vaksins.*', 'penduduks.nik', 'penduduks.nama', 'penduduks.alamat', 'penduduks.tptLahir', 'penduduks.tglLahir', 'penduduks.kelamin')
+            ->where('vaksins.id', $id)
             ->first();
         return view('vaksin.edit', compact('data'));
     }
@@ -62,7 +63,7 @@ class VaksinController extends Controller
     // hapus data vaksin sing dipilih
     public function delete($id)
     {
-        $data = Vaksin::findOrFail($id);
+        $data = Vaksin::whereId($id);
         $data->delete();
 
         if ($data) {

@@ -107,7 +107,7 @@ class UmkmController extends Controller
     // hapus data umkm sing dipilih
     public function delete($id)
     {
-        $data = Umkm::findOrFail($id);
+        $data = Umkm::whereId($id);
         $data->delete();
 
         if ($data) {
