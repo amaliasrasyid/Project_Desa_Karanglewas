@@ -36,6 +36,11 @@
                                         <p>{{ $message }}</p>
                                     </div>
                                 @endif
+                                @if ($message = Session::get('failed'))
+                                    <div class="alert alert-danger">
+                                        <p>{{ $message }}</p>
+                                    </div>
+                                @endif
                                 <table class="table table-bordered" style="width:120rem">
                                     <tbody>
                                         <tr>

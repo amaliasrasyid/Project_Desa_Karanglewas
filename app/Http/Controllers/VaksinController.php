@@ -29,14 +29,21 @@ class VaksinController extends Controller
     // nyimpen data vaksin sing ws di input
     public function store(Request $request)
     {
-        $data = new Vaksin();
-        $data->user_id = $request->nik;
-        $data->telpon = $request->telepon;
-        $data->penyakit = $request->penyakit;
-        $data->vaksin = $request->vaksin;
-        $data->save();
-
-        return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Disimpan');
+        $vaksin = Vaksin::where('user_id', $request->nik)
+        ->first();
+        // dd($vaksin);
+        if ($vaksin) {
+            return redirect()->route('vaksin.index')->with('failed', 'Data Vaksin Sudah Tersedia');
+        }else {
+            $data = new Vaksin();
+            $data->user_id = $request->nik;
+            $data->telpon = $request->telepon;
+            $data->penyakit = $request->penyakit;
+            $data->vaksin = $request->vaksin;
+            $data->save();
+    
+            return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Disimpan');
+        }
     }
 
     // nampilna form edit data vaksin sing dipilih
