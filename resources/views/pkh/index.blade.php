@@ -2,21 +2,21 @@
 @extends('layouts.master')
 
 {{-- send nama page --}}
-@section('title', 'Penduduk')
+@section('title', 'Pkh')
 {{-- send nama aplikasi --}}
 @section('appName', 'Website Desa')
-{{-- send tampilan penduduk --}}
+{{-- send tampilan pkh --}}
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Data Penduduk</h1>
+            <h1>Data PKH</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item">Penduduk</div>
+                <div class="breadcrumb-item">PKH</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h2 class="section-title">Tabel Data Penduduk Desa Karanglewas</h2>
+            <h2 class="section-title">Tabel Data PKH Desa Karanglewas</h2>
             <p class="section-lead">Example of some Bootstrap table components.</p>
             <div class="row">
                 <div class="col-xl-12 col-md-6 col-lg-6">
@@ -24,8 +24,8 @@
                         <div class="card-header">
                             <h4>Overview</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('penduduk.create') }}" class="btn btn-icon icon-left btn-primary"><i
-                                        class="fas fa-plus"></i>&nbsp;Tambah Penduduk</a>
+                                <a href="{{ route('pkh.create') }}" class="btn btn-icon icon-left btn-primary"><i
+                                        class="fas fa-plus"></i>&nbsp;Tambah PKH</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
@@ -44,33 +44,35 @@
                                             <th>NIK</th>
                                             <th>Name</th>
                                             <th>Alamat</th>
-                                            <th>Tampat Lahir</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Status Kawin</th>
-                                            <th>Agama</th>
-                                            <th>No. Akta</th>
-                                            <th>Pamsimas</th>
+                                            <!-- <th>Tampat Lahir</th>
+                                            <th>Tanggal Lahir</th> -->
+                                            <th>Anak</th>
+                                            <th>Kendaraan</th>
+                                            <th>Pendapatan /Bulan</th>
+                                            <th>Penerimaan PKH</th>
+                                            <!-- <th>No. Akta</th>
+                                            <th>Pamsimas</th> -->
                                             <th>Action</th>
                                         </tr>
-                                        @forelse ($penduduk as $value)
+                                        @forelse ($pkh as $value)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
                                                 <td>{{ $value->nik }}</td>
                                                 <td>{{ $value->nama }}</td>
                                                 <td>{{ $value->alamat }}</td>
-                                                <td>{{ $value->tptLahir }}</td>
-                                                <td>{{ $value->tglLahir }}</td>
-                                                <td>{{ $value->kelamin }}</td>
-                                                <td>{{ $value->kawin }}</td>
-                                                <td>{{ $value->agama }}</td>
-                                                <td>{{ $value->akta }}</td>
-                                                <td>{{ $value->pam }}</td>
+                                                <!-- <td>{{ $value->tptLahir }}</td>
+                                                <td>{{ $value->tglLahir }}</td> -->
+                                                <td>{{ $value->anak }}</td>
+                                                <td>{{ $value->kendaraan }}</td>
+                                                <td>{{ $value->pendapatan }}</td>
+                                                <td>{{ $value->penerimaan }}</td>
+                                                <!-- <td>{{ $value->akta }}</td>
+                                                <td>{{ $value->pam }}</td> -->
                                                 <td>
                                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                        action="{{ route('penduduk.destroy', $value->id) }}"
+                                                        action="{{ route('pkh.destroy', $value->id) }}"
                                                         method="POST">
-                                                        <a href="{{ route('penduduk.edit', $value->id) }}"
+                                                        <a href="{{ route('pkh.edit', $value->id) }}"
                                                             class="btn btn-sm btn-primary"><i
                                                                 class="fas fa-pencil-alt"></i></a>
                                                         @csrf
@@ -82,10 +84,10 @@
                                             </tr>
                                         @empty
                                             <div class="alert alert-danger">
-                                                Data Penduduk belum Tersedia.
+                                                Data PKH belum Tersedia.
                                             </div>
                                         @endforelse
-                                        {!! $penduduk->links() !!}
+                                        {!! $pkh->links() !!}
                                     <tbody>
                                 </table>
                             </div>

@@ -12,17 +12,17 @@
 @endpush
 
 {{-- send nama page --}}
-@section('title', 'Edit Penduduk')
+@section('title', 'Edit Pkh')
 {{-- send nama aplikasi --}}
 @section('appName', 'Website Desa')
-{{-- send tampilan form edit penduduk --}}
+{{-- send tampilan form edit pkh --}}
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Form Tambah Penduduk</h1>
+            <h1>Form Tambah Pkh</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ route('penduduk.index') }}">Penduduk</a></div>
-                <div class="breadcrumb-item">Form Tambah Penduduk</div>
+                <div class="breadcrumb-item active"><a href="{{ route('pkh.index') }}">PKH</a></div>
+                <div class="breadcrumb-item">Form Tambah PKH</div>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{ route('penduduk.update', $data->user_id) }}" method="POST">
+                            <form action="{{ route('pkh.update', $data->user_id) }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nik">NIK</label>
@@ -64,7 +64,7 @@
                                     <input type="text" id="alamat" name="alamat" class="form-control"
                                         value="{{ $data->alamat }}" required>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="tempatLahir">Tempat Lahir</label>
                                     <input type="text" id="tempatLahir" name="tempatLahir" class="form-control"
                                         value="{{ $data->tptLahir }}" required readonly>
@@ -73,47 +73,40 @@
                                     <label for="tanggalLahir">Tanggal Lahir</label>
                                     <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control"
                                         value="{{ $data->tglLahir }}" required readonly>
+                                </div> -->
+                                <div class="form-group">
+                                    <label for="anak">Status Anak</label>
+                                    <input type="text" id="anak" name="anak" class="form-control"
+                                        value="{{ $data->anak }}" required readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jenisKelamin">Jenis Kelamin</label>
-                                    <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control"
-                                        value="{{ $data->kelamin }}" required readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="kawin">Status Perkawinan</label>
-                                    <select id="kawin" name="kawin" class="form-control" required>
-                                        <option value="{{ $data->kawin }}" selected disabled>{{ $data->kawin }}</option>
-                                        <option value="Sudah Kawin">Sudah Kawin</option>
-                                        <option value="Belum Kawin">Belum Kawin</option>
+                                    <label for="kendaraan">Kendaraan</label>
+                                    <select id="kendaraan" name="kendaraan" class="form-control" required>
+                                        <option value="{{ $data->kendaraan }}" selected disabled>{{ $data->kendaraan }}</option>
+                                        <option value="Sudah Kawin">Sekolah</option>
+                                        <option value="Belum Kawin">Tidak Sekolah</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="agama">Agama</label>
-                                    <select id="agama" name="agama" class="form-control" required>
-                                        <option value="{{ $data->agama }}" selected disabled>{{ $data->agama }}</option>
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Katholik">Katholik</option>
-                                        <option value="Buddha">Buddha</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Konghucu">Konghucu</option>
+                                    <label for="pendapatan">Pendapatan /bulan</label>
+                                    <select id="pendapatan" name="pendapatan" class="form-control" required>
+                                        <option value="{{ $data->pendapatan }}" selected disabled>{{ $data->pendapatan }}</option>
+                                        <option value="golongan1"> < 1 Juta </option>
+                                        <option value="golongan2"> < 3 Juta </option>
+                                        <option value="golongan3"> < 5 Juta </option>
+                                        <option value="golongan3"> > 5 Juta </option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pendidikan">Pendidikan</label>
-                                    <select id="pendidikan" name="pendidikan" class="form-control" required>
-                                        <option value="{{ $data->pendidikan }}" selected disabled>{{ $data->pendidikan }}
+                                    <label for="penerimaan">Pendidikan</label>
+                                    <select id="penerimaan" name="penerimaan" class="form-control" required>
+                                        <option value="{{ $data->penerimaan }}" selected disabled>{{ $data->penerimaan }}
                                         </option>
-                                        <option value="SD">SD</option>
-                                        <option value="SMP">SMP</option>
-                                        <option value="SLTA">SLTA</option>
-                                        <option value="DIII">DIII</option>
-                                        <option value="S1/DIV">S1/DIV</option>
-                                        <option value="S2">S2</option>
-                                        <option value="S3">S3</option>
+                                        <option value="sudah"> Sudah Menerima </option>
+                                        <option value="belum"> Belum Menerima </option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="akta">Nomor Akta</label>
                                     <input type="text" id="akta" name="akta" class="form-control"
                                         value="{{ $data->akta }}" required readonly>
@@ -127,7 +120,7 @@
                                         <option value="Bukan Pengguna Pamsimas">Bukan Pengguna Pamsimas</option>
                                     </select>
                                 </div>
-                                <div class="text-center pt-1 pb-1">
+                                <div class="text-center pt-1 pb-1"> -->
                                     <button class="btn btn-primary" type="submit">Simpan</button>
                                 </div>
                             </form>
