@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\PkhController;
 use App\Http\Controllers\VaksinController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PamsimasController;
@@ -72,6 +73,16 @@ Route::group(['prefix' => 'penduduk', 'as' => 'penduduk.', 'middleware' => 'auth
     Route::get('/edit/{id}', [PendudukController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [PendudukController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [PendudukController::class, 'delete'])->name('destroy');
+});
+
+// route pkh
+Route::group(['prefix' => 'pkh', 'as' => 'pkh.', 'middleware' => 'auth'], function () {
+    Route::get('/', [PkhController::class, 'index'])->name('index');
+    Route::get('/create', [PkhController::class, 'create'])->name('create');
+    Route::post('/create', [PkhController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [PkhController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [PkhController::class, 'update'])->name('update');
+    Route::post('/destroy/{id}', [PkhController::class, 'delete'])->name('destroy');
 });
 
 // route vaksin

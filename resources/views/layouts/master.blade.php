@@ -63,7 +63,7 @@
                 </div>
                 <footer class="main-footer">
                     <div class="footer-left">
-                        Desa Karanglewas 2022 <div class="bullet"></div> Design By <a href="#">Stisla</a>
+                        Desa Karanglewas 2022 <div class="bullet"></div> By <a href="#">Jwaadul</a>
                     </div>
                     <div class="footer-right">
                         version

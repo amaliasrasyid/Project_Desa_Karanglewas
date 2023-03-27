@@ -31,12 +31,19 @@
                     <li class="menu-header">Master</li>
                     <li class="nav-item dropdown">
                     <li class="{{ request()->is('penduduk') ? 'active' : '' }}">
-                        <a href="{{ route('penduduk.index') }}" class="nav-link"><i class="fas fa-users"></i> <span>Data
-                                Penduduk</span></a>
+                        <a href="{{ route('penduduk.index') }}" class="nav-link"><i class="fas fa-users"></i>
+                            <span>Data Penduduk</span>
+                        </a>
+                    </li>
+                    <li class="{{ request()->is('pkh') ? 'active' : '' }}">
+                        <a href="{{ route('pkh.index') }}" class="nav-link"><i class="fas fa-users"></i>
+                            <span>Data PKH</span>
+                        </a>
                     </li>
                     <li class="{{ request()->is('vaksin') ? 'active' : '' }}">
                         <a href="{{ route('vaksin.index') }}" class="nav-link"><i class="fas fa-address-card"></i>
-                            <span>Data Vaksin</span></a>
+                            <span>Data Vaksin</span>
+                        </a>
                     </li>
                     </li>
 
