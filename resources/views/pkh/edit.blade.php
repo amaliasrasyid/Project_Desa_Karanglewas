@@ -22,7 +22,7 @@
             <h1>Form Tambah Pkh</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('pkh.index') }}">PKH</a></div>
-                <div class="breadcrumb-item">Form Tambah PKH</div>
+                <div class="breadcrumb-item">Form Edit PKH</div>
             </div>
         </div>
 
@@ -47,44 +47,32 @@
                                 <div class="form-group">
                                     <label for="nik">NIK</label>
                                     <input type="text" id="nik" name="nik" class="form-control"
-                                        value="{{ $data->nik }}" required>
-                                    @error('nik')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                        value="{{ $data->nik }}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Nama</label>
                                     <input type="text" id="nama" name="nama" class="form-control"
-                                        value="{{ $data->nama }}" required>
+                                        value="{{ $data->nama }}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
                                     <input type="text" id="alamat" name="alamat" class="form-control"
-                                        value="{{ $data->alamat }}" required>
-                                </div>
-                                <!-- <div class="form-group">
-                                    <label for="tempatLahir">Tempat Lahir</label>
-                                    <input type="text" id="tempatLahir" name="tempatLahir" class="form-control"
-                                        value="{{ $data->tptLahir }}" required readonly>
+                                        value="{{ $data->alamat }}" disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label for="tanggalLahir">Tanggal Lahir</label>
-                                    <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control"
-                                        value="{{ $data->tglLahir }}" required readonly>
-                                </div> -->
-                                <div class="form-group">
-                                    <label for="anak">Status Anak</label>
-                                    <input type="text" id="anak" name="anak" class="form-control"
-                                        value="{{ $data->anak }}" required readonly>
+                                    <label for="anak">Kendaraan</label>
+                                    <select id="anak" name="anak" class="form-control" required>
+                                        <option value="{{ $data->anak }}" selected disabled>{{ $data->anak }}</option>
+                                        <option value="Sekolah">Sekolah</option>
+                                        <option value="Tidak Sekolah">Tidak Sekolah</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="kendaraan">Kendaraan</label>
                                     <select id="kendaraan" name="kendaraan" class="form-control" required>
                                         <option value="{{ $data->kendaraan }}" selected disabled>{{ $data->kendaraan }}</option>
-                                        <option value="Sudah Kawin">Sekolah</option>
-                                        <option value="Belum Kawin">Tidak Sekolah</option>
+                                        <option value="Punya">Punya</option>
+                                        <option value="Tidak Punya">Tidak Punya</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -106,22 +94,7 @@
                                         <option value="belum"> Belum Menerima </option>
                                     </select>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label for="akta">Nomor Akta</label>
-                                    <input type="text" id="akta" name="akta" class="form-control"
-                                        value="{{ $data->akta }}" required readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="pam">Pengguna Pamsimas</label>
-                                    <select id="pam" name="pam" class="form-control" required>
-                                        <option value="{{ $data->pam }}" disabled selected>{{ $data->pam }}
-                                        </option>
-                                        <option value="Pengguna Pamsimas">Pengguna Pamsimas</option>
-                                        <option value="Bukan Pengguna Pamsimas">Bukan Pengguna Pamsimas</option>
-                                    </select>
-                                </div>
-                                <div class="text-center pt-1 pb-1"> -->
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
+                                <button class="btn btn-primary" type="submit">Simpan</button>
                                 </div>
                             </form>
                         </div>

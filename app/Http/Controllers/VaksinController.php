@@ -41,7 +41,7 @@ class VaksinController extends Controller
             $data->penyakit = $request->penyakit;
             $data->vaksin = $request->vaksin;
             $data->save();
-    
+
             return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Disimpan');
         }
     }

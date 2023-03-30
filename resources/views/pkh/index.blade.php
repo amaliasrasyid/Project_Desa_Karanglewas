@@ -36,22 +36,18 @@
                                         <p>{{ $message }}</p>
                                     </div>
                                 @endif
-                                <!-- Fungi nggo nambah data penduduk -->
+                                <!-- Fungsi nggo nambah data penduduk -->
                                 <table class="table table-bordered" style="width:120rem">
                                     <tbody>
                                         <tr>
                                             <th>No.</th>
                                             <th>NIK</th>
-                                            <th>Name</th>
+                                            <th>Nama</th>
                                             <th>Alamat</th>
-                                            <!-- <th>Tampat Lahir</th>
-                                            <th>Tanggal Lahir</th> -->
                                             <th>Anak</th>
                                             <th>Kendaraan</th>
                                             <th>Pendapatan /Bulan</th>
                                             <th>Penerimaan PKH</th>
-                                            <!-- <th>No. Akta</th>
-                                            <th>Pamsimas</th> -->
                                             <th>Action</th>
                                         </tr>
                                         @forelse ($pkh as $value)
@@ -60,14 +56,10 @@
                                                 <td>{{ $value->nik }}</td>
                                                 <td>{{ $value->nama }}</td>
                                                 <td>{{ $value->alamat }}</td>
-                                                <!-- <td>{{ $value->tptLahir }}</td>
-                                                <td>{{ $value->tglLahir }}</td> -->
                                                 <td>{{ $value->anak }}</td>
                                                 <td>{{ $value->kendaraan }}</td>
                                                 <td>{{ $value->pendapatan }}</td>
                                                 <td>{{ $value->penerimaan }}</td>
-                                                <!-- <td>{{ $value->akta }}</td>
-                                                <td>{{ $value->pam }}</td> -->
                                                 <td>
                                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                         action="{{ route('pkh.destroy', $value->id) }}"

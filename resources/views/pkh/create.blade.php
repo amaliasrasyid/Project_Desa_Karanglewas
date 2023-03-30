@@ -45,16 +45,18 @@
                             @endif
                             <form action="{{ route('pkh.store') }}" method="post">
                                 @csrf
+
                                 <div class="form-group">
                                     <label for="nik">NIK</label>
-                                    <input type="text" id="nik" name="nik" class="form-control" required>
-                                    @error('nik')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    <select id="nik" name="nik" class="form-control" required
+                                        onchange="getData(this)">
+                                        <option disabled selected>--Pilih NIK--</option>
+                                        @foreach ($penduduk as $item)
+                                            <option value="{{ $item->user_id }}">{{ $item->nik }} ({{ $item->nama }})
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
-
                                 <!-- Nek required kue ngadu di isi ora olih kosong -->
                                 <div class="form-group">
                                     <label for="nama">Nama</label>
@@ -64,15 +66,6 @@
                                     <label for="alamat">Alamat</label>
                                     <input type="text" id="alamat" name="alamat" class="form-control" required>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label for="tempatLahir">Tempat Lahir</label>
-                                    <input type="text" id="tempatLahir" name="tempatLahir" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tanggalLahir">Tanggal Lahir</label>
-                                    <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control"
-                                        required>
-                                </div> -->
                                 <div class="form-group">
                                     <label for="anak">Status Anak</label>
                                     <select id="anak" name="anak" class="form-control" required>
@@ -85,8 +78,8 @@
                                     <label for="kendaraan">Kendaraan</label>
                                     <select id="kendaraan" name="kendaraan" class="form-control" required>
                                         <option disabled selected>--Pilih Status Kendaraan--</option>
-                                        <option value="punya">Punya</option>
-                                        <option value="tidakPunya">Tidak Punya</option>
+                                        <option value="Punya">Punya</option>
+                                        <option value="Tidak Punya">Tidak Punya</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -107,23 +100,6 @@
                                         <option value="belum"> Belum Menerima </option>
                                     </select>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label for="akta">Nomor Akta</label>
-                                    <input type="text" id="akta" name="akta" class="form-control" required>
-                                    @error('akta')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="pam">Pengguna Pamsimas</label>
-                                    <select id="pam" name="pam" class="form-control" required>
-                                        <option disabled selected>--Pilih Status Pengguna Pamsimas--</option>
-                                        <option value="Ya">Pengguna Pamsimas</option>
-                                        <option value="Tidak">Bukan Pengguna Pamsimas</option>
-                                    </select>
-                                </div> -->
                                 <div class="text-center pt-1 pb-1">
                                     <button class="btn btn-primary" type="submit">Simpan</button>
                                 </div>
@@ -150,4 +126,23 @@
 
 @push('page_js')
     <script src="{{ asset('assets/js/page/forms-advanced-forms.js') }}"></script>
+
+    <script>
+        function getData(nik) {
+            let user_id = nik.value;
+            $.ajax({
+                method: 'GET',
+                url: '/admin/getData/' + user_id,
+                cache: false,
+                data: {
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(result) {
+                    console.log(result);
+                    $('#nama').val(result['nama']);
+                    $('#alamat').val(result['alamat']);
+                }
+            });
+        }
+    </script>
 @endpush
