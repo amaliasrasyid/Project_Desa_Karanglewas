@@ -27,7 +27,7 @@ class PKHController extends Controller
     {
         $pkh = Pkh::where('user_id', $request->nik)
         ->first();
-        dd($request);
+        dd($request->all());
         if ($pkh) {
             return redirect()->route('pkh.index')->with('failed', 'Data PKH Sudah Tersedia');
         }else {
