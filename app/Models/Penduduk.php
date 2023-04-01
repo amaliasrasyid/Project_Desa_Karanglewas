@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pkh;
 
 class Penduduk extends Model
 {
@@ -23,4 +24,13 @@ class Penduduk extends Model
         'noAkta',
         'pam',
     ];
+
+    public function pkh()
+    {
+        return $this->hasOne(Pkh::class, 'user_id', 'user_id');
+    }
+    public function vaksin()
+    {
+        return $this->hasOne(Vaksin::class, 'user_id', 'user_id');
+    }
 }

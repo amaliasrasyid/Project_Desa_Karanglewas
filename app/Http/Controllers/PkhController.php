@@ -12,7 +12,7 @@ class PKHController extends Controller
     public function index()
     {
         // ngambil seluruh data sekang database
-        $pkh = Penduduk::latest()->paginate(10);
+        $pkh = Pkh::latest()->paginate(10);
         return view('pkh.index', compact('pkh'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
@@ -27,7 +27,7 @@ class PKHController extends Controller
     {
         $pkh = Pkh::where('user_id', $request->nik)
         ->first();
-        dd($request->all());
+        // dd($request->all());
         if ($pkh) {
             return redirect()->route('pkh.index')->with('failed', 'Data PKH Sudah Tersedia');
         }else {
@@ -36,6 +36,7 @@ class PKHController extends Controller
             $data->anak = $request->anak;
             $data->kendaraan = $request->kendaraan;
             $data->pendapatan = $request->pendapatan;
+            $data->penerimaan = $request->penerimaan;
             $data->save();
 
             return redirect()->route('pkh.index')->with('success', 'Data PKH Berhasil Disimpan');
@@ -60,6 +61,15 @@ class PKHController extends Controller
             'vaksin' => $request->vaksin,
         ]);
         return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Diubah');
+    }
+
+    public function ChangeStatus($id)
+    {
+        $confirm = Pkh::whereId($id)->update([
+            'penerimaan' => 'sudah'
+        ]);
+
+        return redirect()->route('pkh.index')->with('success', 'Status Penerimaan PKH Berhasil Diubah');
     }
 
 }

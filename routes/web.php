@@ -80,6 +80,7 @@ Route::group(['prefix' => 'pkh', 'as' => 'pkh.', 'middleware' => 'auth'], functi
     Route::get('/edit/{id}', [PKHController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [PKHController::class, 'update'])->name('update');
     Route::post('/destroy/{id}', [PKHController::class, 'delete'])->name('destroy');
+    Route::post('/ChangeStatus/{id}', [PKHController::class, 'ChangeStatus'])->name('ChangeStatus');
 });
 
 // route vaksin

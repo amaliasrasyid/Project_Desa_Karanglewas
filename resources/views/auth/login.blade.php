@@ -65,7 +65,7 @@
                     </form>
 
                     <div class="text-center mt-5 text-small">
-                        Desa Karanglewas. Design 💙 by Stisla
+                        Desa Karanglewas. Create by Jwaadul
                     </div>
                 </div>
             </div>

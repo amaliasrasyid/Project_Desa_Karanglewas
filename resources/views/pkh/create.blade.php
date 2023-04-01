@@ -89,7 +89,7 @@
                                         <option value="golongan1"> < 1 Juta </option>
                                         <option value="golongan2"> < 3 Juta </option>
                                         <option value="golongan3"> < 5 Juta </option>
-                                        <option value="golongan3"> > 5 Juta </option>
+                                        <option value="golongan4"> > 5 Juta </option>
                                     </select>
                                 </div>
                                 <div class="form-group">

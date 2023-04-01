@@ -53,12 +53,35 @@
                                         @forelse ($pkh as $value)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td>{{ $value->nik }}</td>
-                                                <td>{{ $value->nama }}</td>
-                                                <td>{{ $value->alamat }}</td>
+                                                <td>{{ $value->penduduk->nik }}</td>
+                                                <td>{{ $value->penduduk->nama }}</td>
+                                                <td>{{ $value->penduduk->alamat }}</td>
                                                 <td>{{ $value->anak }}</td>
                                                 <td>{{ $value->kendaraan }}</td>
-                                                <td>{{ $value->pendapatan }}</td>
+
+                                                @if($value->pendapatan === 'golongan1')
+                                                <td> < 1 Juta </td>
+                                                @elseif($value->pendapatan === 'golongan2')
+                                                <td> < 3 Juta </td>
+                                                @elseif($value->pendapatan === 'golongan3')
+                                                <td> < 5 Juta </td>
+                                                @elseif($value->pendapatan === 'golongan4')
+                                                <td> > 5 Juta </td>
+                                                @endif
+
+                                                <td>
+                                                        @if ($value->penerimaan == 'sudah')
+                                                            <div class="badge badge-pill badge-success mb-1">
+                                                                Sudah Menerima
+                                                            </div>
+                                                        @else
+                                                            <div onclick="terima({{ $value->id }})"
+                                                                class="badge badge-pill badge-danger mb-1">
+                                                                Belum Menerima
+                                                            </div>
+                                                        @endif
+                                                    </td>
+
                                                 <td>{{ $value->penerimaan }}</td>
                                                 <td>
                                                     <form onsubmit="return confirm('Apakah Anda Yakin ?');"
@@ -97,4 +120,19 @@
 
 @push('page_js')
     <script src="{{ asset('assets/js/page/components-table.js') }}"></script>
+    <script>
+        function terima(id) {
+            $.ajax({
+                method: 'POST',
+                url: '/pkh/ChangeStatus/' + id,
+                cache: false,
+                data: {
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function() {
+                    window.location.href = `{{ route('pkh.index') }}`;
+                }
+            });
+        }
+    </script>
 @endpush

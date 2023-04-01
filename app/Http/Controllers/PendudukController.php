@@ -69,7 +69,8 @@ class PendudukController extends Controller
     // nampilna tanpilan form edit sesuai data sing dipilih
     public function edit($id)
     {
-        $data = Penduduk::whereId($id);
+        $data = Penduduk::find($id);
+        // dd($data);
         return view('penduduk.edit', compact('data'));
     }
 
