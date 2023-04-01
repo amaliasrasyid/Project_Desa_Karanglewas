@@ -25,8 +25,7 @@ class PKHController extends Controller
     // nyimpen data pkh sing ws di input
     public function store(Request $request)
     {
-        $pkh = Pkh::where('user_id', $request->nik)
-        ->first();
+        $pkh = Pkh::where('user_id', $request->nik)->first();
         // dd($request->all());
         if ($pkh) {
             return redirect()->route('pkh.index')->with('failed', 'Data PKH Sudah Tersedia');
