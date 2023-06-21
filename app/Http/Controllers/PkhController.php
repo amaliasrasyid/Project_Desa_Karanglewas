@@ -54,12 +54,14 @@ class PKHController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = Pkh::whereId($id)->update([
-            'telpon' => $request->telepon,
-            'penyakit' => $request->penyakit,
-            'vaksin' => $request->vaksin,
+        // dd($request->all());
+        $data = Pkh::where('id',$id)->update([
+            'anak' => $request->anak,
+            'kendaraan' => $request->kendaraan,
+            'pendapatan' => $request->pendapatan,
+            'penerimaan' => $request->penerimaan,
         ]);
-        return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Diubah');
+        return redirect()->route('pkh.index')->with('success', 'Data PKH Berhasil Diubah');
     }
 
     public function ChangeStatus($id)

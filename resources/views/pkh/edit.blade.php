@@ -42,35 +42,36 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{ route('pkh.update', $data->user_id) }}" method="POST">
+                            <form action="{{ route('pkh.update', $data->id) }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nik">NIK</label>
                                     <input type="text" id="nik" name="nik" class="form-control"
-                                        value="{{ $data->nik }}" disabled>
+                                        value="{{ $data->nik }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Nama</label>
                                     <input type="text" id="nama" name="nama" class="form-control"
-                                        value="{{ $data->nama }}" disabled>
+                                        value="{{ $data->nama }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
                                     <input type="text" id="alamat" name="alamat" class="form-control"
-                                        value="{{ $data->alamat }}" disabled>
+                                        value="{{ $data->alamat }}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="anak">Kendaraan</label>
+                                    <label for="anak">Status Pendidikan Anak</label>
                                     <select id="anak" name="anak" class="form-control" required>
-                                        <option value="{{ $data->anak }}" selected disabled>{{ $data->anak }}</option>
-                                        <option value="Sekolah">Sekolah</option>
-                                        <option value="Tidak Sekolah">Tidak Sekolah</option>
+                                        <option value="{{ $data->anak }}" selected >{{ $data->anak }}</option>
+                                        <option value="TIDAK SEKOLAH">TIDAK SEKOLAH</option>
+                                        <option value="SEKOLAH">SEKOLAH</option>
+                                        <option value="BEKERJA">BEKERJA</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="kendaraan">Kendaraan</label>
                                     <select id="kendaraan" name="kendaraan" class="form-control" required>
-                                        <option value="{{ $data->kendaraan }}" selected disabled>{{ $data->kendaraan }}</option>
+                                        <option value="{{ $data->kendaraan }}" selected >{{ $data->kendaraan }}</option>
                                         <option value="Punya">Punya</option>
                                         <option value="Tidak Punya">Tidak Punya</option>
                                     </select>
@@ -78,7 +79,7 @@
                                 <div class="form-group">
                                     <label for="pendapatan">Pendapatan /bulan</label>
                                     <select id="pendapatan" name="pendapatan" class="form-control" required>
-                                        <option value="{{ $data->pendapatan }}" selected disabled>{{ $data->pendapatan }}</option>
+                                        <option value="{{ $data->pendapatan }}" selected >{{ $data->pendapatan }}</option>
                                         <option value="golongan1"> < 1 Juta </option>
                                         <option value="golongan2"> < 3 Juta </option>
                                         <option value="golongan3"> < 5 Juta </option>
@@ -88,7 +89,7 @@
                                 <div class="form-group">
                                     <label for="penerimaan">Pendidikan</label>
                                     <select id="penerimaan" name="penerimaan" class="form-control" required>
-                                        <option value="{{ $data->penerimaan }}" selected disabled>{{ $data->penerimaan }}
+                                        <option value="{{ $data->penerimaan }}" selected >{{ $data->penerimaan }}
                                         </option>
                                         <option value="sudah"> Sudah Menerima </option>
                                         <option value="belum"> Belum Menerima </option>

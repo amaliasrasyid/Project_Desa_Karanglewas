@@ -67,11 +67,12 @@
                                     <input type="text" id="alamat" name="alamat" class="form-control" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="anak">Status Anak</label>
+                                    <label for="anak">Status Pendidikan Anak</label>
                                     <select id="anak" name="anak" class="form-control" required>
-                                        <option disabled selected>--Pilih Status Anak--</option>
-                                        <option value="sekolah">Sekolah</option>
-                                        <option value="tidakSekolah">Tidak Sekolah</option>
+                                        <option selected disabled>--Pilih Status Pendidikan Anak--</option>
+                                        <option value="TIDAK SEKOLAH">TIDAK SEKOLAH</option>
+                                        <option value="SEKOLAH">SEKOLAH</option>
+                                        <option value="BEKERJA">BEKERJA</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
