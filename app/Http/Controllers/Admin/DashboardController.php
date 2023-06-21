@@ -23,9 +23,11 @@ class DashboardController extends Controller
         $dataVaksin = Penduduk::join('vaksins', 'vaksins.user_id', '=', 'penduduks.user_id')->select('vaksins.*', 'penduduks.nama')->latest()->get();
         // nggo nampilna data pemmbayaran pamsimas sekang penduduk sing terbaru
         $dataPamsimas = Penduduk::join('pams', 'penduduks.user_id', '=', 'pams.user_id')->select('pams.*', 'penduduks.nama')->latest()->get();
+
+        $pkh = Penduduk::join('pkhs', 'penduduks.user_id', '=', 'pkhs.user_id')->select('pkhs.*', 'penduduks.nama')->latest()->get();
         // dd($dataPamsimas);
         // nggo manggil file tampilan we, nggawa data sing ws di gawe ng nduwur
-        return view('dashboard.index', compact('penduduk', 'laki', 'perempuan', 'vaksin', 'dataVaksin', 'dataPamsimas'));
+        return view('dashboard.index', compact('penduduk', 'laki', 'perempuan', 'vaksin', 'dataVaksin', 'dataPamsimas', 'pkh'));
     }
 
     public function getData($user_id)

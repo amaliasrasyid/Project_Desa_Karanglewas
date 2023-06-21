@@ -216,7 +216,6 @@
                             @forelse ($pkh as $item)
                                 <tr>
                                     <td class="font-weight-600">{{ $item->nama }}</td>
-                                    <td>{{ $item->penerimaan }}</td>
                                     <td>
                                         @if ($item->penerimaan == 'sudah')
                                             <div class="badge badge-pill badge-success mb-1">
@@ -231,9 +230,9 @@
                                     </td>
                                 </tr>
                             @empty
-                                <tr class="text-danger">
-                                    Data Belum Tersedia
-                                </tr>
+                            <tr>
+                                <th class="text-danger">Data Belum Tersedia</th>
+                            </tr>
                             @endforelse
                         </table>
                     </div>
