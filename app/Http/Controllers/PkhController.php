@@ -11,7 +11,7 @@ class PKHController extends Controller
 {
     public function index()
     {
-        // ngambil seluruh data sekang database
+
         $pkh = Pkh::latest()->paginate(10);
         return view('pkh.index', compact('pkh'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
@@ -22,7 +22,7 @@ class PKHController extends Controller
         return view('pkh.create', compact('penduduk'));
     }
 
-    // nyimpen data pkh sing ws di input
+
     public function store(Request $request)
     {
         $pkh = Pkh::where('user_id', $request->nik)->first();
@@ -51,7 +51,7 @@ class PKHController extends Controller
         return view('pkh.edit', compact('data'));
     }
 
-    // nyimpen data vaksin sing ws di ubah
+
     public function update(Request $request, $id)
     {
         $data = Pkh::whereId($id)->update([

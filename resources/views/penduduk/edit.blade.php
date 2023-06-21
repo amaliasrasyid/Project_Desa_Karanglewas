@@ -19,10 +19,10 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Form Tambah Penduduk</h1>
+            <h1>Form Edit Penduduk</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('penduduk.index') }}">Penduduk</a></div>
-                <div class="breadcrumb-item">Form Tambah Penduduk</div>
+                <div class="breadcrumb-item">Form Edit Penduduk</div>
             </div>
         </div>
 
@@ -42,7 +42,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{ route('penduduk.update', $data->user_id) }}" method="POST">
+                            <form action="{{ route('penduduk.update', $data) }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="nik">NIK</label>
@@ -82,7 +82,7 @@
                                 <div class="form-group">
                                     <label for="kawin">Status Perkawinan</label>
                                     <select id="kawin" name="kawin" class="form-control" required>
-                                        <option value="{{ $data->kawin }}" selected disabled>{{ $data->kawin }}</option>
+                                        <option value="{{ $data->kawin }}" selected>{{ $data->kawin }}</option>
                                         <option value="Sudah Kawin">Sudah Kawin</option>
                                         <option value="Belum Kawin">Belum Kawin</option>
                                     </select>
@@ -90,7 +90,7 @@
                                 <div class="form-group">
                                     <label for="agama">Agama</label>
                                     <select id="agama" name="agama" class="form-control" required>
-                                        <option value="{{ $data->agama }}" selected disabled>{{ $data->agama }}</option>
+                                        <option value="{{ $data->agama }}" selected>{{ $data->agama }}</option>
                                         <option value="Islam">Islam</option>
                                         <option value="Kristen">Kristen</option>
                                         <option value="Katholik">Katholik</option>
@@ -102,7 +102,7 @@
                                 <div class="form-group">
                                     <label for="pendidikan">Pendidikan</label>
                                     <select id="pendidikan" name="pendidikan" class="form-control" required>
-                                        <option value="{{ $data->pendidikan }}" selected disabled>{{ $data->pendidikan }}
+                                        <option value="{{ $data->pendidikan }}" selected>{{ $data->pendidikan }}
                                         </option>
                                         <option value="SD">SD</option>
                                         <option value="SMP">SMP</option>
@@ -121,7 +121,7 @@
                                 <div class="form-group">
                                     <label for="pam">Pengguna Pamsimas</label>
                                     <select id="pam" name="pam" class="form-control" required>
-                                        <option value="{{ $data->pam }}" disabled selected>{{ $data->pam }}
+                                        <option value="{{ $data->pam }}" selected>{{ $data->pam }}
                                         </option>
                                         <option value="Pengguna Pamsimas">Pengguna Pamsimas</option>
                                         <option value="Bukan Pengguna Pamsimas">Bukan Pengguna Pamsimas</option>

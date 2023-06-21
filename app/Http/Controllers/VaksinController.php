@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class VaksinController extends Controller
 {
-    // nampilna tabel vaksin sekang database
+
     public function index()
     {
         $vaksin = Vaksin::join('penduduks', 'vaksins.user_id', '=', 'penduduks.user_id')
@@ -18,7 +18,7 @@ class VaksinController extends Controller
         return view('vaksin.index', compact('vaksin'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
-    // nampilna form tamabah data vaksin
+
     public function create()
     {
         $penduduk = Penduduk::latest()->get();
@@ -26,7 +26,7 @@ class VaksinController extends Controller
         return view('vaksin.create', compact('penduduk'));
     }
 
-    // nyimpen data vaksin sing ws di input
+
     public function store(Request $request)
     {
         $vaksin = Vaksin::where('user_id', $request->nik)
@@ -46,7 +46,7 @@ class VaksinController extends Controller
         }
     }
 
-    // nampilna form edit data vaksin sing dipilih
+
     public function edit($id)
     {
         $data = Vaksin::join('penduduks', 'vaksins.user_id', '=', 'penduduks.user_id')
@@ -56,7 +56,7 @@ class VaksinController extends Controller
         return view('vaksin.edit', compact('data'));
     }
 
-    // nyimpen data vaksin sing ws di ubah
+
     public function update(Request $request, $id)
     {
         $data = Vaksin::whereId($id)->update([
@@ -67,17 +67,17 @@ class VaksinController extends Controller
         return redirect()->route('vaksin.index')->with('success', 'Data Vaksin Berhasil Diubah');
     }
 
-    // hapus data vaksin sing dipilih
+
     public function delete($id)
     {
         $data = Vaksin::whereId($id);
         $data->delete();
 
         if ($data) {
-            //redirect dengan pesan sukses
+
             return redirect()->route('vaksin.index')->with(['success' => 'Data Berhasil Dihapus!']);
         } else {
-            //redirect dengan pesan error
+
             return redirect()->route('vaksin.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }
