@@ -29,13 +29,14 @@ class PKHController extends Controller
         // dd($request->all());
         if ($pkh) {
             return redirect()->route('pkh.index')->with('failed', 'Data PKH Sudah Tersedia');
-        }else {
+        } else {
             $data = new Pkh();
             $data->user_id = $request->nik;
             $data->anak = $request->anak;
             $data->kendaraan = $request->kendaraan;
             $data->pendapatan = $request->pendapatan;
             $data->penerimaan = $request->penerimaan;
+            $data->tgl_penerimaan = $request->tgl_penerimaan;
             $data->save();
 
             return redirect()->route('pkh.index')->with('success', 'Data PKH Berhasil Disimpan');
@@ -55,11 +56,12 @@ class PKHController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
-        $data = Pkh::where('id',$id)->update([
+        $data = Pkh::where('id', $id)->update([
             'anak' => $request->anak,
             'kendaraan' => $request->kendaraan,
             'pendapatan' => $request->pendapatan,
             'penerimaan' => $request->penerimaan,
+            'tgl_penerimaan' => $request->tgl_penerimaan,
         ]);
         return redirect()->route('pkh.index')->with('success', 'Data PKH Berhasil Diubah');
     }
@@ -87,5 +89,4 @@ class PKHController extends Controller
             return redirect()->route('pkh.index')->with(['error' => 'Data Gagal Dihapus!']);
         }
     }
-
 }

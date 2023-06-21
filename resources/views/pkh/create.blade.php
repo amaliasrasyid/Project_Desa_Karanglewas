@@ -1,4 +1,4 @@
-{{-- manggil file tampilan master ng folder layout --}}
+    {{-- manggil file tampilan master ng folder layout --}}
 @extends('layouts.master')
 
 {{-- push plugin_css page ming tampilan layout master --}}
@@ -93,11 +93,11 @@
                                         <option value="golongan4"> > 5 Juta </option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="form-input-penerimaan">
                                     <label for="penerimaan">Penerimaan Bantuan PKH</label>
                                     <select id="penerimaan" name="penerimaan" class="form-control" required>
                                         <option disabled selected>--Pilih Penerimaan--</option>
-                                        <option value="sudah"> Menerima </option>
+                                        <option id="penerimaan-ya" value="sudah"> Menerima </option>
                                         <option value="belum"> Tidak Menerima </option>
                                     </select>
                                 </div>
@@ -145,5 +145,20 @@
                 }
             });
         }
+
+        let optionPenerimaanBantuan = document.getElementById("penerimaan");
+        optionPenerimaanBantuan.onchange = function () {
+            console.log("changed");
+            if(this.value == 'sudah'){
+                let tglPenerimaanOption = `<div class="form-group" id="form-input-tgl-penerimaan">
+                                    <label for="tgl_penerimaan">Tanggal Penerimaan Bantuan</label>
+                                    <input type="date" id="tgl_penerimaan" name="tgl_penerimaan" class="form-control" required="">
+                                </div>`;
+                $('#form-input-penerimaan').after(tglPenerimaanOption);
+            }else if(this.value == 'belum'){
+                $('#form-input-tgl-penerimaan').remove();
+            }
+        }
+
     </script>
 @endpush

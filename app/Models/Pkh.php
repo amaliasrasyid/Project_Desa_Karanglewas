@@ -15,6 +15,7 @@ class Pkh extends Model
         'kendaraan',
         'pendapatan',
         'penerimaan',
+        'tgl_penerimaan'
     ];
 
     public function penduduk()

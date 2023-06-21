@@ -86,7 +86,7 @@
                                         <option value="golongan3"> > 5 Juta </option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="form-input-penerimaan">
                                     <label for="penerimaan">Penerimaan Bantuan PKH</label>
                                     <select id="penerimaan" name="penerimaan" class="form-control" required>
                                         <option value="{{ $data->penerimaan }}" selected >{{ $data->penerimaan }}
@@ -95,6 +95,13 @@
                                         <option value="belum"> Tidak Menerima </option>
                                     </select>
                                 </div>
+                                @if ($data->tgl_penerimaan != null)
+                                <div class="form-group" id="form-input-tgl-penerimaan" >
+                                    <label for="tgl_penerimaan">Tanggal Penerimaan Bantuan</label>
+                                    <input type="date" id="tgl_penerimaan" name="tgl_penerimaan" class="form-control"
+                                        value="{{ $data->tgl_penerimaan }}" required>
+                                </div>
+                                @endif
                                 <button class="btn btn-primary" type="submit">Simpan</button>
                                 </div>
                             </form>
@@ -120,4 +127,20 @@
 
 @push('page_js')
     <script src="{{ asset('assets/js/page/forms-advanced-forms.js') }}"></script>
+    <script>
+        let optionPenerimaanBantuan = document.getElementById("penerimaan");
+        optionPenerimaanBantuan.onchange = function () {
+            console.log("changed");
+            if(this.value == 'sudah'){
+                let tglPenerimaanOption = `<div class="form-group" id="form-input-tgl-penerimaan">
+                                    <label for="tgl_penerimaan">Tanggal Penerimaan Bantuan</label>
+                                    <input type="date" id="tgl_penerimaan" name="tgl_penerimaan" class="form-control" required="">
+                                </div>`;
+                $('#form-input-penerimaan').after(tglPenerimaanOption);
+            }else if(this.value == 'belum'){
+                $('#form-input-tgl-penerimaan').remove();
+            }
+        }
+    </script>
+
 @endpush
