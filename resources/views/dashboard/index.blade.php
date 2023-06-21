@@ -126,6 +126,18 @@
                                                     <td class="text-success">Sudah Vaksin</td>
                                                 @endif
                                             </tr>
+                                            <tr>
+                                                @if ($data->penerimaan == 'sudah')
+                                                    <div class="badge badge-pill badge-success mb-1">
+                                                        Sudah Menerima PKH
+                                                    </div>
+                                                @else
+                                                    <div onclick="terima({{ $data->id }})"
+                                                        class="badge badge-pill badge-danger mb-1">
+                                                        Belum Menerima PKH
+                                                    </div>
+                                                @endif
+                                            </tr>
                                         </table>
                                     </div>
                                 </div>
@@ -181,6 +193,54 @@
                 </div>
         @endif
         <div class="col-12 col-sm-12 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="d-inline">Informasi PKH</h4>
+                    {{-- nampilna tombol view more nggo admin --}}
+                    @if (Auth::user()->role == 'admin')
+                        <div class="card-header-action">
+                            <a href="{{ route('pkh.index') }}" class="btn btn-primary">View More <i
+                                    class="fas fa-chevron-right"></i></a>
+                        </div>
+                    @endif
+                </div>
+                <div class="card-body" style="height:375px;overflow-y:scroll">
+                    <div class="list-unstyled list-unstyled-border">
+                        <table class="table table-striped" style="width:32rem">
+                            <tr>
+                                <th>Nama</th>
+                                <th>Status Penerimaan Bantuan</th>
+                            </tr>
+                            {{-- display data pkh--}}
+                            
+                            @forelse ($pkh as $item)
+                                <tr>
+                                    <td class="font-weight-600">{{ $item->nama }}</td>
+                                    <td>{{ $item->penerimaan }}</td>
+                                    <td>
+                                        @if ($item->penerimaan == 'sudah')
+                                            <div class="badge badge-pill badge-success mb-1">
+                                                Sudah Menerima
+                                            </div>
+                                        @else
+                                            <div onclick="terima({{ $item->id }})"
+                                                class="badge badge-pill badge-danger mb-1">
+                                                Belum Menerima
+                                            </div>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr class="text-danger">
+                                    Data Belum Tersedia
+                                </tr>
+                            @endforelse
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-lg-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-inline">Riwayat Pembayaran Pamsimas</h4>

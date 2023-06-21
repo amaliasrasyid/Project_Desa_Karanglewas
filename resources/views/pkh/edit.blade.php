@@ -62,7 +62,7 @@
                                 <div class="form-group">
                                     <label for="anak">Status Pendidikan Anak</label>
                                     <select id="anak" name="anak" class="form-control" required>
-                                        <option value="{{ $data->anak }}" selected >{{ $data->anak }}</option>
+                                        <option value="{{ $data->anak }}" selected disable>{{ $data->anak }}</option>
                                         <option value="TIDAK SEKOLAH">TIDAK SEKOLAH</option>
                                         <option value="SEKOLAH">SEKOLAH</option>
                                         <option value="BEKERJA">BEKERJA</option>
@@ -87,12 +87,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="penerimaan">Pendidikan</label>
+                                    <label for="penerimaan">Penerimaan Bantuan PKH</label>
                                     <select id="penerimaan" name="penerimaan" class="form-control" required>
                                         <option value="{{ $data->penerimaan }}" selected >{{ $data->penerimaan }}
                                         </option>
-                                        <option value="sudah"> Sudah Menerima </option>
-                                        <option value="belum"> Belum Menerima </option>
+                                        <option value="sudah"> Menerima </option>
+                                        <option value="belum"> Tidak Menerima </option>
                                     </select>
                                 </div>
                                 <button class="btn btn-primary" type="submit">Simpan</button>

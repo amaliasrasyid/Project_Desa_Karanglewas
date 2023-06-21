@@ -67,17 +67,17 @@
                                 <div class="form-group">
                                     <label for="tempatLahir">Tempat Lahir</label>
                                     <input type="text" id="tempatLahir" name="tempatLahir" class="form-control"
-                                        value="{{ $data->tptLahir }}" required readonly>
+                                        value="{{ $data->tptLahir }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="tanggalLahir">Tanggal Lahir</label>
                                     <input type="date" id="tanggalLahir" name="tanggalLahir" class="form-control"
-                                        value="{{ $data->tglLahir }}" required readonly>
+                                        value="{{ $data->tglLahir }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="jenisKelamin">Jenis Kelamin</label>
                                     <input type="text" id="jenisKelamin" name="jenisKelamin" class="form-control"
-                                        value="{{ $data->kelamin }}" required readonly>
+                                        value="{{ $data->kelamin }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="kawin">Status Perkawinan</label>
@@ -116,7 +116,7 @@
                                 <div class="form-group">
                                     <label for="akta">Nomor Akta</label>
                                     <input type="text" id="akta" name="akta" class="form-control"
-                                        value="{{ $data->akta }}" required readonly>
+                                        value="{{ $data->akta }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="pam">Pengguna Pamsimas</label>

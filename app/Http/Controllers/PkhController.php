@@ -73,4 +73,19 @@ class PKHController extends Controller
         return redirect()->route('pkh.index')->with('success', 'Status Penerimaan PKH Berhasil Diubah');
     }
 
+    public function delete($id)
+    {
+        // dd($id);
+        $pkh = PKH::whereId($id);
+        $pkh->delete();
+
+        if ($pkh) {
+
+            return redirect()->route('pkh.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        } else {
+
+            return redirect()->route('pkh.index')->with(['error' => 'Data Gagal Dihapus!']);
+        }
+    }
+
 }

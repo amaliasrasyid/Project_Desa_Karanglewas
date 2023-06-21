@@ -93,6 +93,11 @@ class PendudukController extends Controller
             'alamat' => $request->alamat,
             'agama' => $request->agama,
             'pendidikan' => $request->pendidikan,
+            'tptLahir' => $request->tempatLahir,
+            'tglLahir' => $request->tanggalLahir,
+            'akta' => $request->akta,
+            'kelamin' => $request->jenisKelamin,
+            'kawin' => $request->kawin,
             'pam' => $request->pam,
         ]);
         // dd($data);

@@ -94,11 +94,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="penerimaan">Penerimaan PKH</label>
+                                    <label for="penerimaan">Penerimaan Bantuan PKH</label>
                                     <select id="penerimaan" name="penerimaan" class="form-control" required>
                                         <option disabled selected>--Pilih Penerimaan--</option>
-                                        <option value="sudah"> Sudah Menerima </option>
-                                        <option value="belum"> Belum Menerima </option>
+                                        <option value="sudah"> Menerima </option>
+                                        <option value="belum"> Tidak Menerima </option>
                                     </select>
                                 </div>
                                 <div class="text-center pt-1 pb-1">
