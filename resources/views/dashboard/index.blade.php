@@ -127,15 +127,16 @@
                                                 @endif
                                             </tr>
                                             <tr>
-                                                @if ($data->penerimaan == 'sudah')
-                                                    <div class="badge badge-pill badge-success mb-1">
-                                                        Sudah Menerima PKH
-                                                    </div>
+                                                <th>Status Bantuan PKH</th>
+                                                @if ($data->pkh->penerimaan == 'sudah')
+                                                    <td class="text-success">
+                                                        Sudah Menerima di Tanggal  {{ $data->pkh->tgl_penerimaan }}
+                                                    </td>
                                                 @else
-                                                    <div onclick="terima({{ $data->id }})"
-                                                        class="badge badge-pill badge-danger mb-1">
-                                                        Belum Menerima PKH
-                                                    </div>
+                                                    <td onclick="terima({{ $data->id }})"
+                                                        class="text-danger">
+                                                        Belum Menerima
+                                                    </td>
                                                 @endif
                                             </tr>
                                         </table>
@@ -192,6 +193,7 @@
                     </div>
                 </div>
         @endif
+        @if (Auth::user()->role == 'admin')
         <div class="col-12 col-sm-12 col-lg-6">
             <div class="card">
                 <div class="card-header">
@@ -222,10 +224,9 @@
                                                 Sudah Menerima
                                             </div>
                                         @else
-                                            <div onclick="terima({{ $item->id }})"
-                                                class="badge badge-pill badge-danger mb-1">
-                                                Belum Menerima
-                                            </div>
+                                        <div class="badge badge-pill badge-danger mb-1">
+                                            Belum Menerima
+                                        </div>
                                         @endif
                                     </td>
                                 </tr>
@@ -239,7 +240,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-12 col-lg-12">
+        @endif
+        
+        @if (Auth::user()->role == 'admin')
+            <div class="col-12 col-sm-12 col-lg-12">
+        @else
+            <div class="col-12 col-sm-12 col-lg-6">
+        @endif
             <div class="card">
                 <div class="card-header">
                     <h4 class="d-inline">Riwayat Pembayaran Pamsimas</h4>
