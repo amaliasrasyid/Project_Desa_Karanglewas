@@ -128,7 +128,8 @@
                                             </tr>
                                             <tr>
                                                 <th>Status Bantuan PKH</th>
-                                                @if ($data->pkh->penerimaan == 'sudah')
+                                                @if($data->pkh != null){
+                                                    @if ($data->pkh->penerimaan == 'sudah')
                                                     <td class="text-success">
                                                         Sudah Menerima di Tanggal  {{ $data->pkh->tgl_penerimaan }}
                                                     </td>
@@ -138,6 +139,15 @@
                                                         Belum Menerima
                                                     </td>
                                                 @endif
+                                                }
+                                                @else{
+                                                    <td onclick="terima({{ $data->id }})"
+                                                        class="text-warning">
+                                                        Tidak diketahui
+                                                    </td>
+                                                }
+                                                @endif
+                                                
                                             </tr>
                                         </table>
                                     </div>
