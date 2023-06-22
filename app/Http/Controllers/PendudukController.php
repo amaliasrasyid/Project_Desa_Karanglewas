@@ -80,9 +80,9 @@ class PendudukController extends Controller
         $id = $penduduk->id;
         // dd($request->all());
         $request->validate([
-            'nik' => 'required|min:16|unique:penduduks,nik,'.$penduduk->nik.',nik'
+            'nik' => 'required|min:16|unique:penduduks,nik,' . $penduduk->nik . ',nik'
             // 'nik' => 'required|min:16|unique:penduduks|numeric'
-            ]);
+        ]);
         $user = User::whereId($id)->update([
             'username' => $request->nik,
         ]);
@@ -107,8 +107,7 @@ class PendudukController extends Controller
 
     public function delete($id)
     {
-        // dd($id);
-        $data = Penduduk::whereId($id);
+        $data = Penduduk::whereId($id)->first();
         $user = User::whereId($data->user_id);
         $data->delete();
         $user->delete();
